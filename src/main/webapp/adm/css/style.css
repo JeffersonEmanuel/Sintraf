@@ -1,0 +1,38 @@
+/* 
+    Created on : 07/05/2014, 20:49:57
+    Author     : vanderlan
+*/
+.main_menu{
+    width: 300px;
+    border-radius: 20px;
+    height: 300px;
+    background-color: black;
+}
+#teste{
+    width: 100%;
+    border-radius: 20px;
+    height: 30px;
+    background-color: black;
+}
+
+.ui-widget,.ui-widget .ui-widget {
+     font-size: 12px !important;
+     margin: 0px ;
+     
+}
+#logo{
+    font-size: 40px;
+    margin-top: 30px;
+    float: left;
+    color: #FFF;
+    text-shadow: #000 2px 3px 2px;;
+}
+#begin{
+    font-size: 40px;
+    margin-top: 30px;
+    float: right;
+    margin-right: 40px;
+    margin-top: 42%;
+    color: #98a3aa;
+    text-shadow: #000 2px 3px 2px;;
+}
