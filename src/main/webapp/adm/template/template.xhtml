@@ -13,14 +13,14 @@
     <h:body >
         <div align="center">
             <p:layout fullPage="true" style="margin: 0px; " >  
-                <p:layoutUnit position="north"  size="80 ">  
+                <p:layoutUnit position="north"  size="150 ">  
 
                     <f:metadata>
                         <f:viewParam name="id_menu" value="#{resquestMenu.idMenu}" />
                     </f:metadata>
                     <p:fieldset style="margin: 0px; border-color: #FFF;border: 0px; ">
                         <h:form>  
-                            <p:tabMenu activeIndex="#{param.i}">
+                            <p:tabMenu activeIndex="#{param.i}" style="margin-top: 80px;width: 100%;">
                                 <p:menuitem value="Inicio" outcome="index.jsf" icon="ui-icon-home">
                                     <f:param name="i" value="0" />
                                 </p:menuitem>
