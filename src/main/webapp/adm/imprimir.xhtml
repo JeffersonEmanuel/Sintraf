@@ -1,0 +1,22 @@
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+    <link rel="stylesheet" type="text/css" href="css/style.css" /> 
+    <ui:decorate template="template/template.xhtml">
+        <ui:define name="centro">         
+            <p:commandButton value="Imprimir" type="button" icon="ui-icon-print" style="display:block;margin-bottom: 20px">
+                <p:printer target="carteirinha" />
+            </p:commandButton>
+ 
+            <p:fieldset id="carteirinha" legend="Carteirinha do Associado">
+                
+                Nome: Vanderlan
+                
+            </p:fieldset>
+           
+
+        </ui:define>
+    </ui:decorate>
+</html>

@@ -27,7 +27,10 @@
     <!-- Configurações do PrimeFaces
     Temas fodões: rocket, pepper-grinder, south-street, sunny, ui-lightness, home
     -->
-    
+    <context-param>  
+        <param-name>primefaces.THEME</param-name>  
+        <param-value>home</param-value>  
+    </context-param> 
     <servlet>
         <servlet-name>Resource Servlet</servlet-name>
         <servlet-class>org.primefaces.resource.ResourceServlet</servlet-class>

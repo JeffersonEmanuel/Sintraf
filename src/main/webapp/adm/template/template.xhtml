@@ -13,21 +13,22 @@
     <h:body >
         <div align="center">
             <p:layout fullPage="true" style="margin: 0px; " >  
-                <p:layoutUnit position="north"  size="150 ">  
+                <p:layoutUnit position="north"  size="190     " >  
 
                     <f:metadata>
                         <f:viewParam name="id_menu" value="#{resquestMenu.idMenu}" />
                     </f:metadata>
-                    <p:fieldset style="margin: 0px; border-color: #FFF;border: 0px; ">
+                    <p:fieldset  style="margin: 0px; border-color: #FFF;border: 0px; 
+                                background-image: url(imagens/sintraf.jpeg); background-size: cover; background-position: top;" >
                         <h:form>  
-                            <p:tabMenu activeIndex="#{param.i}" style="margin-top: 80px;width: 100%;">
+                            <p:tabMenu activeIndex="#{param.i}" style="margin-top: 115px;width: 70%; float: left;">
                                 <p:menuitem value="Inicio" outcome="index.jsf" icon="ui-icon-home">
                                     <f:param name="i" value="0" />
                                 </p:menuitem>
                                 <p:menuitem value="Associados" outcome="index.jsf" icon="ui-icon-person">
                                     <f:param name="i" value="1" />
                                 </p:menuitem>
-                                <p:menuitem value="Impressão de carteirinhas" outcome="index.jsf" icon="ui-icon-document">
+                                <p:menuitem value="Impressão de carteirinhas" outcome="imprimir.jsf" icon="ui-icon-document">
                                     <f:param name="i" value="2" />
                                 </p:menuitem>
                                 <p:menuitem value="Declarações" outcome="index.jsf" icon="ui-icon-document">
@@ -55,9 +56,6 @@
                     </ui:insert>
                 </p:layoutUnit>
 
-                <p:layoutUnit position="south" size="30">  
-                    Sindicato dos trabalhadores rurais de Monteiro-PB
-                </p:layoutUnit>  
             </p:layout>  
         </div>
     </h:body>
