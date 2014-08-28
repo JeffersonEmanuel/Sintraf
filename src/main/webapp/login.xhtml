@@ -1,51 +1,31 @@
 <html 
     xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:f="http://java.sun.com/jsf/core">
+    xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Sintraf</title>
         <link rel="stylesheet" type="text/css" href="adm/css/style.css" /> 
-         <link rel="shortcut icon" href="/images/book.ico"/>
+        <link rel="shortcut icon" href="/images/book.ico"/>
     </h:head>
-    <h:body>
-        <div align="center">
-            <p:layout fullPage="true" style="margin: 0px; overflow: hidden; margin-top: 20%;" >  
-                      <p:layoutUnit position="center">  
-                    <ui:insert name="centro">
-                        <p:fieldset style=" width: 20%; margin-top: 200px; border-color: #FFF; 
-                                    border-radius: 10px;" legend="Efetue seu login" toggleable="true">
-                                
-                                <h:form id="insertAuthor" >
-                                    <p:growl id="growLogin" showDetail="true" />
+    <h:body style="background-image: url('adm/imagens/natureza2.jpg');">
+        <span id="login" >SINTRAF</span> 
+        <span id="sintraf_text"> Sindicato dos Trabalhadores na Agricultura Familiar de Monteiro - PB</span> 
+        <p:dialog header="Efetue o login" visible="true" closable="false" 
+                  draggable="false" resizable="false" width="auto" showEffect="elastic" >
+            <h:form>
+                <p:growl/>
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:outputLabel for="username" value="Usuario:" /> 
+                    <p:inputText id="username" required="true" size="35"/>
 
-                                    <p:messages />
-                                    <p:panelGrid columns="2" >
-                                        <h:outputText value="Login: " />
-                                        <p:inputText autocomplete="false"  id="login" required="true" placeholder="Login" 
-                                                      requiredMessage="O campo Login é obrigatório" size="20"/>
-                                        <h:outputText value="Senha: " />
-                                        <p:password  id="senha" required="true" placeholder="Senha" 
-                                                      requiredMessage="O campo Senha é obrigatório" size="20"/>
-                                    </p:panelGrid>
-                                    <p:commandButton id="okButton" value="Entrar" icon="ui-icon-check"  
-
-                                                     update="growLogin" 
-                                                     />  
-
-                                </h:form>   
-
-                        </p:fieldset>
-                    </ui:insert>
-                </p:layoutUnit>
-
-                <p:layoutUnit position="south" size="30">  
-                   SINTRAF - Sindicato dos Trabalhadores na Agricultura Familiar de Monteiro - PB
-                </p:layoutUnit>  
-            </p:layout>  
-        </div>      
+                    <p:outputLabel for="password" value="Senha:" />
+                    <p:password id="password" required="true" size="35"/>
+                    <p:spacer width="30"/>
+                    <p:commandButton value="Entrar" style="font-size: 14px;" />
+                </h:panelGrid>
+            </h:form>
+        </p:dialog> 
     </h:body>
 </html>

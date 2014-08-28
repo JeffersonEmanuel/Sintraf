@@ -30,3 +30,20 @@
     text-shadow: #000 2px 3px 2px;
     
 }
+#login{
+    font-size: 60px;
+    margin-top: 1%;
+    float: left;
+    color: #FFF;
+    margin-left: 40%;
+    text-shadow: #000 2px 3px 2px;
+}
+#sintraf_text{
+    font-size: 30px;
+    margin-top: 1%;
+    float: left;
+    color: #3399ff;
+    margin-left: 18%;
+    text-shadow: #000 2px 3px 2px;
+    
+}
