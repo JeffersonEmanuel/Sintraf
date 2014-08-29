@@ -9,10 +9,9 @@
     background-color: black;
 }
 .ui-widget,.ui-widget .ui-widget {
-    font-size: 12px !important;
-    margin: 0px ;
-    padding: 0px;
-
+     font-size: 12px !important;
+     margin: 0px ;
+     
 }
 #logo{
     font-size: 40px;
@@ -28,7 +27,7 @@
     margin-top: 27%;
     color: #98a3aa;
     text-shadow: #000 2px 3px 2px;
-
+    
 }
 #login{
     font-size: 60px;
@@ -45,24 +44,5 @@
     color: #3399ff;
     margin-left: 18%;
     text-shadow: #000 2px 3px 2px;
-
-}
-#sintraf_texto_pagina_inicial
-{
-    font-size: 20px;
-    float: left;
-    color: #3399ff;
-    margin-left: 1px;
-    text-shadow: #000 2px 3px 2px;
-
-}
-
-#pagina_inicial {
-    font-size: 40px;
-    margin-top: 1%;
-    float: left;
-    color: #FFF;
-    margin-left: 1%;
-    text-shadow: #000 2px 3px 2px;
-
+    
 }
