@@ -13,7 +13,7 @@
     <h:body >
         <div align="center">
             <p:layout fullPage="true" style="margin: 0px; " >  
-                <p:layoutUnit position="north"  size="175" >  
+                <p:layoutUnit position="north"  size="130" >  
 
                     <f:metadata>
                         <f:viewParam name="id_menu" value="#{resquestMenu.idMenu}" />
@@ -24,7 +24,7 @@
                 <h:form>  
                     <p:growl id="messages"/>
 
-                    <p:menubar style="margin-top: 140px;">
+                    <p:menubar style="margin-top: 95px;">
                         <p:submenu label="File" icon="ui-icon-document">
                             <p:submenu label="New" icon="ui-icon-contact">
                                 <p:menuitem value="Project" url="#" />
@@ -62,13 +62,8 @@
 
                         <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
 
-                        <f:facet name="options">
-                            <p:inputText style="margin-right:10px" placeholder="Search"/>
-                            <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
-                        </f:facet>
                     </p:menubar>
                 </h:form>
-
 
                 <p:layoutUnit position="center">  
                     <ui:insert name="centro">
