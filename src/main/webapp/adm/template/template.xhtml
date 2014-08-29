@@ -26,15 +26,17 @@
 
                     <p:menubar style="margin-top: 95px;">
 
-                        <p:submenu label="Sócio" icon="ui-icon-document">
-                            <p:menuitem value="Novo" icon="ui-icon-disk" url="#" />
+                        <p:menuitem value="Início" icon="ui-icon-home" url="/adm/index.jsf" />
+
+                        <p:submenu label="Sócio" icon="ui-icon-person">
+                            <p:menuitem value="Novo" icon="ui-icon-disk" url="/adm/novo_associado.jsf" />
                             <p:menuitem value="Bursca" icon="ui-icon-search" url="#" />
                         </p:submenu>
 
-                        <p:submenu label="Imprimir">
-                            <p:menuitem value="Ficha de Associado" />
-                            <p:menuitem value="Carteira" />
-                            <p:menuitem value="Declaração"/>
+                        <p:submenu label="Imprimir" icon="ui-icon-print">
+                            <p:menuitem value="Ficha de Associado" icon="ui-icon-document"/>
+                            <p:menuitem value="Carteira" url="/adm/imprimir.jsf" icon="ui-icon-contact"/>
+                            <p:menuitem value="Declaração" icon="ui-icon-note"/>
 
                         </p:submenu>
 

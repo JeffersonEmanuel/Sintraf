@@ -1,0 +1,29 @@
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+    <link rel="stylesheet" type="text/css" href="css/style.css" /> 
+    <ui:decorate template="template/template.xhtml">
+        <ui:define name="centro">         
+            <h:form id="cadastroSocio">
+            
+                <p:wizard backLabel="Anterior" nextLabel="Próximo" >
+                <p:tab id="pessoa" title="Sócio">
+                    <p:panel header="Dados Pessoais">
+                        <h:panelGrid columns="2">
+                    <h:outputText value="Nome: "/>
+                    <p:inputText value="" size="60" />
+                        </h:panelGrid>
+                    </p:panel>
+                    
+                </p:tab>
+                
+            </p:wizard>
+            
+            
+            
+            </h:form>
+        </ui:define>
+    </ui:decorate>
+</html>
