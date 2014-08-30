@@ -4,14 +4,14 @@
         xmlns:f="http://java.sun.com/jsf/core"
         xmlns:p="http://primefaces.org/ui">
     <link rel="stylesheet" type="text/css" href="css/style.css" /> 
-    <ui:decorate template="template/template.xhtml">
-        <ui:define name="centro">         
+     <ui:decorate template="template/template.xhtml">
+        <ui:define name="centro">        
             <h:form id="cadastroSocio">
             
                 <p:wizard backLabel="Anterior" nextLabel="Próximo" >
-                <p:tab id="pessoa" title="Sócio">
-                    <p:panel header="Dados Pessoais">
-                        <h:panelGrid columns="2">
+                <p:tab id="pessoa" title="Sócio" >
+                    <p:panel header="Dados Pessoais" >
+                        <h:panelGrid columns="2" styleClass="formulario_cadastro">
                     <h:outputText value="Nome: "/>
                     <p:inputText value="" size="60" />
                         </h:panelGrid>

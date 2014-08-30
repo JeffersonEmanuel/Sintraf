@@ -53,5 +53,8 @@
     color: #FFF;
     margin-left: 1%;
     text-shadow: #000 2px 3px 2px;
-    
+}
+
+.formulario_cadastro {
+    text-align: left;
 }
