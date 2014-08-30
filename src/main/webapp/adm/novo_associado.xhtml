@@ -13,7 +13,7 @@
                         <p:panel header="Dados Pessoais" >
                             <h:panelGrid columns="2" styleClass="formulario_cadastro" cellpadding="5">
                                 <h:outputText value="Matrícula: "/>
-                                <h:outputText value="1245343453"/>
+                                <h:outputText value="1"/>
                                 <h:outputText value="Nome: "/>
                                 <p:inputText value="" size="60" />
                                 <h:outputText value="Endereço: "/>
@@ -41,11 +41,42 @@
                                 <h:outputText value="Data de nascimento: "/>
                                 <p:calendar locale="pt_BR" navigator="true" 
                                             pattern="dd/mm/yyyy" mask="true"/>
+                                <h:outputText value="Apelido: "/>
+                                <p:inputText value="" size="60" />
+                                <h:outputText value="Observaçẽos: "/>
+                                <p:editor />
+                                <h:outputText value="Bairro: "/>
+                                <p:inputText value="" size="45" />
+                                <h:outputText value="Estado Cívil: "/>
+                                <p:selectOneMenu editable="true">
+                                    <f:selectItem itemLabel="Casado(a)"/>
+                                    <f:selectItem itemLabel="União Estável(a)"/>
+                                    <f:selectItem itemLabel="Solteiro(a)"/>
+                                </p:selectOneMenu>
+                                <h:outputText value="Data de filiação: "/>
+                                <p:calendar locale="pt_BR" navigator="true" 
+                                            pattern="dd/mm/yyyy" mask="true"/>
+                                <h:outputText value="Alfabetizado: "/>
+                                <p:selectBooleanButton value="#" onLabel="Sim" 
+                                    onIcon="ui-icon-check" offLabel="Não" 
+                                    offIcon="ui-icon-close"/>
+                                <h:outputText value="Quantidades de filhos estudando: "/>
+                                <p:spinner value="" min="0"/>
+                                <h:outputText value="Regime de Trabalho: "/>
+                                <p:inputText />
+                                <h:outputText value="Local de trabalho: "/>
+                                <p:inputText/>
                             </h:panelGrid>
                         </p:panel>
-
                     </p:tab>
-
+                    <p:tab id="documentos" title="Documentos Pessoais">
+                        <p:panel header="Cadasttro de Documentos">
+                             <h:panelGrid columns="2" styleClass="formulario_cadastro" cellpadding="5">
+                                <h:outputText value="Apelido: "/>
+                                <p:inputText value="" size="60" />
+                            </h:panelGrid>
+                        </p:panel>
+                    </p:tab>
                 </p:wizard>
 
 
