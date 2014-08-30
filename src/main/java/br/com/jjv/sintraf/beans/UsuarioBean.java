@@ -22,15 +22,15 @@ public class UsuarioBean implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Inject
-    private UsuarioService administratorService;
+    private UsuarioService usuarioService;
     
     //Only used for get data from database without filter or rule to be applied
     @Inject
-    private UsuarioDAO administratorDAO;
+    private UsuarioDAO usuarioDAO;
     
     //A list to storage the data come from database
-    private List<Usuario> administrators;
-    private Usuario administrator;
+    private List<Usuario> usuarios;
+    private Usuario usuario;
 
     public UsuarioBean() {
         
@@ -42,37 +42,37 @@ public class UsuarioBean implements Serializable {
     }
     
     private void clean() {
-        this.administrator = new Usuario();
+        this.usuario = new Usuario();
     }
 
     public void create() {
         try {
-            this.administratorService.create(administrator);
-            JsfUtil.addSuccessMessage("Administrador cadastrado com sucesso!");
+            this.usuarioService.create(usuario);
+            JsfUtil.addSuccessMessage("Usuário cadastrado com sucesso!");
         } catch (SintrafException e) {
             JsfUtil.addSuccessMessage(e.getMessage());
         }
     }
 
     /**
-     * @return the administrator
+     * @return the usuario
      */
     public Usuario getUsuario() {
-        return administrator;
+        return usuario;
     }
 
     /**
-     * @param administrator the administrator to set
+     * @param usuario the usuario to set
      */
-    public void setUsuario(Usuario administrator) {
-        this.administrator = administrator;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     /**
-     * @return the administrators
+     * @return the usuarios
      */
     public List<Usuario> getUsuarios() {
-        administrators = administratorDAO.findAll();
-        return administrators;
+        usuarios = usuarioDAO.findAll();
+        return usuarios;
     }
 }
