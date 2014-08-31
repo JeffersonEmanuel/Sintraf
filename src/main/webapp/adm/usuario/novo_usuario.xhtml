@@ -13,18 +13,18 @@
                         <h:panelGrid columns="2" cellpadding="3">
 
                             <h:outputText value="Nome: "/>
-                            <p:inputText id="nome" size="40" required="true" maxlength="60" value="#{usuarioBean.usuario.nome}"
+                            <p:inputText id="nome" size="40" required="true" maxlength="60" value="#{usuarioBeanTeste.usuario.nome}"
                                          requiredMessage="O nome é obrigatório"/>
 
                             <h:outputText value="Login: "/>
-                            <p:inputText id="login" size="20" required="true" maxlength="15" value="#{usuarioBean.usuario.login}"
+                            <p:inputText id="login" size="20" required="true" maxlength="15" value="#{usuarioBeanTeste.usuario.login}"
                                          requiredMessage="O login é obrigatório"/>
 
                             <h:outputText value="Senha: "/>
-                            <p:password id="senha" size="20" required="true" maxlength="15" value="#{usuarioBean.usuario.login}"
+                            <p:password id="senha" size="20" required="true" maxlength="15" value="#{usuarioBeanTeste.usuario.login}"
                                         requiredMessage="A senha deve ser preenchida"/>
                             <p:spacer width="80"/>
-                            <p:commandButton value="Salvar" actionListener="#{usuarioBean.create()}" update="messagens"/>
+                            <p:commandButton value="Salvar" actionListener="#{usuarioBeanTeste.create()}" update="messagens"/>
                         </h:panelGrid>
                 </h:form>
 
