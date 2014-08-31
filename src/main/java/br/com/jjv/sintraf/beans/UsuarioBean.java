@@ -6,17 +6,17 @@ import br.com.jjv.sintraf.jsf.JsfUtil;
 import br.com.jjv.sintraf.services.UsuarioService;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 /**
  * 
  * @author Vanderlan Gomes
  */
-@Named(value = "usuarioBeanTeste")
+@ManagedBean(value = "usuarioBeanTeste")
 @RequestScoped
 public class UsuarioBean implements Serializable {
 
@@ -27,7 +27,7 @@ public class UsuarioBean implements Serializable {
      
     //A list to storage the data come from database
     private List<Usuario> usuarios;
-    private Usuario usuario;
+    private Usuario usuario ;
 
     public UsuarioBean() {
         
@@ -72,8 +72,8 @@ public class UsuarioBean implements Serializable {
         usuarios = usuarioService.findAll();
         return usuarios;
     }
-    @Produces
-    @RequestScoped
+//    @Produces
+//    @RequestScoped
     public UsuarioService createService(){
         
         return new UsuarioService();

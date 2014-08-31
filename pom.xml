@@ -37,9 +37,16 @@
             <version>2.2.4.Final</version>
         </dependency>
         <dependency>
-            <groupId>org.jboss.weld.servlet</groupId>
-            <artifactId>weld-tomcat-support</artifactId>
-            <version>1.0.1-Final</version>
+            <artifactId>cdi-api</artifactId>
+            <groupId>javax.enterprise</groupId>
+            <type>jar</type>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <artifactId>weld-api</artifactId>
+            <groupId>org.jboss.weld</groupId>
+            <type>jar</type>
+            <version>2.2.SP3</version>
         </dependency>
         <dependency>
             <groupId>javax</groupId>
