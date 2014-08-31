@@ -15,7 +15,7 @@
         <div align="center">
             <p:layout fullPage="true"  >  
                 <p:layoutUnit position="north"  size="147" >  
-                    <p:fieldset style="background-image: url(imagens/sintraf.png);width: 100%;height: 81%;
+                    <p:fieldset style="background-image: url(../imagens/sintraf.png);width: 100%;height: 81%;
                                 background-position: right;background-repeat: repeat-x; border: 0px;margin: 0px !important;">
                         <span id="pagina_inicial">SINTRAF</span>
                     </p:fieldset>
@@ -30,7 +30,7 @@
                         <p:menuitem value="Inicio"  icon="ui-icon-home" url="/adm/index.jsf" />
 
                         <p:submenu label="Associados" icon="ui-icon-person">
-                            <p:menuitem value="Cadastrar novo" url="novo_associado.jsf" icon="ui-icon-document" />
+                            <p:menuitem value="Cadastrar novo" url="/adm/associado/novo_associado.jsf" icon="ui-icon-document" />
                             <p:menuitem value="Pesquisar " url="#" icon="ui-icon-search" />
                         </p:submenu>
 
@@ -42,6 +42,11 @@
                         <p:submenu label="Declarações" icon="ui-icon-document">
                            <p:menuitem value="Emitir declaração" icon="ui-icon-note"/>
                             <p:menuitem value="Ver declarações" icon="ui-icon-search"/>
+                        </p:submenu>
+                        
+                        <p:submenu label="Usuários" icon="ui-icon-person">
+                            <p:menuitem value="Cadastrar novo" icon="ui-icon-document" url="/adm/usuario/novo_usuario.jsf"/>
+                            <p:menuitem value="Ver Usuários" icon="ui-icon-search"/>
                         </p:submenu>
 
                         <p:menuitem value="Sair" icon="ui-icon-close" url="/login.jsf"/>

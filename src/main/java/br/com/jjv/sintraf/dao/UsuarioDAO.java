@@ -18,17 +18,19 @@ public class UsuarioDAO implements Serializable{
     public UsuarioDAO(){
         
     }
-    
-    public void create(Usuario administrator) {
-        entityManager.persist(administrator);
+
+    public void create(Usuario usuario) {
+        entityManager.getTransaction().begin();
+        entityManager.persist(usuario);
+        entityManager.getTransaction().commit();
     }
 
-    public void update(Usuario administrator) {
-        entityManager.merge(administrator);
+    public void update(Usuario usuario) {
+        entityManager.merge(usuario);
     }
     
-    public void delete(Usuario administrator) {
-        entityManager.remove(administrator);
+    public void delete(Usuario usuario) {
+        entityManager.remove(usuario);
     }
 
     

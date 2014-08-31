@@ -16,6 +16,11 @@ public class UsuarioService implements Serializable{
     @Inject
     private UsuarioDAO usuarioDAO;
     
+    /**
+     *
+     * @param administrator
+     * @throws SintrafException
+     */
     @Transactional
     public void create(Usuario administrator) throws SintrafException {
         if(administrator.getLogin() == null || administrator.getLogin().trim().equals("")){

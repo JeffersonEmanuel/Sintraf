@@ -1,0 +1,34 @@
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+    <ui:decorate template="../template/template.xhtml">
+        <ui:define name="centro">         
+
+            <p:fieldset id="carteirinha" legend="Cadastro de usuários" style="width: 60%;">
+
+                <h:form id="cadatro_usuario">
+                    <p:growl id="messagens" showDetail="true" />
+                        <h:panelGrid columns="2" cellpadding="3">
+
+                            <h:outputText value="Nome: "/>
+                            <p:inputText id="nome" size="40" required="true" maxlength="60" value="#{usuarioBean.usuario.nome}"
+                                         requiredMessage="O nome é obrigatório"/>
+
+                            <h:outputText value="Login: "/>
+                            <p:inputText id="login" size="20" required="true" maxlength="15" value="#{usuarioBean.usuario.login}"
+                                         requiredMessage="O login é obrigatório"/>
+
+                            <h:outputText value="Senha: "/>
+                            <p:password id="senha" size="20" required="true" maxlength="15" value="#{usuarioBean.usuario.login}"
+                                        requiredMessage="A senha deve ser preenchida"/>
+                            <p:spacer width="80"/>
+                            <p:commandButton value="Salvar" actionListener="#{usuarioBean.create()}" update="messagens"/>
+                        </h:panelGrid>
+                </h:form>
+
+            </p:fieldset>
+        </ui:define>
+    </ui:decorate>
+</html>
