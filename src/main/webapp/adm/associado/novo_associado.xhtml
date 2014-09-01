@@ -22,86 +22,101 @@
                                 <p:column colspan="2">
                                 <h:outputText value="Data de filiação: "/>
                                 <p:calendar locale="pt_BR" navigator="true" 
-                                            pattern="dd/mm/yyyy" mask="true"/>
+                                            pattern="dd/mm/yyyy" mask="true" 
+                                            value="#{associadoBean.associado.dataDeFiliacao}"/>
                                 </p:column>
                                 
                                 <h:outputText value="Nome: "/>
-                                <p:inputText value="" size="60" />
+                                <p:inputText value="#{associadoBean.associado.nome}"
+                                              />
 
                                 <h:outputText value="Nome da mãe: "/>
-                                <p:inputText value="" size="60" />
+                                <p:inputText value="#{associadoBean.associado.nomeDaMae}"
+                                             size="60" />
 
                                 <h:outputText value="Nome do pai: "/>
-                                <p:inputText value="" size="60" />
+                                <p:inputText value="#{associadoBean.associado.nomeDoPai}"
+                                             size="60" />
 
                                 <h:outputText value="Nome do cônjugue: "/>
-                                <p:inputText value="" size="60" />
+                                <p:inputText value="#{associadoBean.associado.nomeConjugue}"
+                                             size="60" />
 
                                 
                                 <h:outputText value="Naturalidade: "/>
-                                <p:inputText value="" size="80" />
-                                
-                                <h:outputText value="UF: "/>
-                                <p:inputText value="" size="2" />
-                                
+                                <p:inputText value="#{associadoBean.associado.naturalidade}"
+                                             size="80" />
                                 
                                 <h:outputText value="Endereço: "/>
-                                <p:inputText value="" size="80" />
+                                <p:inputText value="#{associadoBean.associado.endereco}" 
+                                             size="80" />
 
                                 <h:outputText value="Bairro: "/>
-                                <p:inputText value="" size="45" />
+                                <p:inputText value="#{associadoBean.associado.bairro}"
+                                             size="45" />
 
                                 <h:outputText value="Cidade: "/>
-                                <p:inputText value="" size="40" />
+                                <p:inputText value="#{associadoBean.associado.cidade}"
+                                             size="40" />
 
                                 <h:outputText value="Profissão: "/>
-                                <p:inputText value="" size="30" />
+                                <p:inputText value="#{associadoBean.associado.profissao}"
+                                             size="30" />
 
                                 <h:outputText value="Trabalho proprío: "/>
-                                <p:selectBooleanButton value="#" onLabel="Sim" 
+                                <p:selectBooleanButton value="#{associadoBean.associado.trabalhoProprio}"
+                                                       onLabel="Sim" 
                                                        onIcon="ui-icon-check" offLabel="Não" 
                                                        offIcon="ui-icon-close"/>
 
                                 <h:outputText value="Quantidades de filhos: "/>
-                                <p:spinner value="" min="0"/>
+                                <p:spinner value="#{associadoBean.associado.quantidadeDeFilhos}"
+                                           min="0"/>
 
                                 <h:outputText value="Quantidades de dependentes: "/>
-                                <p:spinner value="" min="0"/>
+                                <p:spinner value="#{associadoBean.associado.dependentes}" 
+                                           min="0"/>
 
                                 <h:outputText value="Data de nascimento: "/>
                                 <p:calendar locale="pt_BR" navigator="true" 
-                                            pattern="dd/mm/yyyy" mask="true"/>
+                                            pattern="dd/mm/yyyy" mask="true"
+                                            value="#{associadoBean.associado.dataDeNascimento}"/>
 
                                 <h:outputText value="Apelido: "/>
-                                <p:inputText value="" size="60" />
+                                <p:inputText value="#{associadoBean.associado.apelido}"
+                                             size="60" />
 
                                 <h:outputText value="Estado Cívil: "/>
                                 <p:selectOneMenu editable="true">
                                     <f:selectItem itemLabel="Casado(a)"/>
                                     <f:selectItem itemLabel="União Estável(a)"/>
-                                    <f:selectItem itemLabel="Solteiro(a)"/>
+                                    <f:selectItem itemLabel="Solteiro(a)"
+                                                  value="#{associadoBean.associado.estadoCivil}"/>
                                 </p:selectOneMenu>
 
                                 <h:outputText value="Alfabetizado: "/>
-                                <p:selectBooleanButton value="#" onLabel="Sim" 
+                                <p:selectBooleanButton onLabel="Sim" 
                                                        onIcon="ui-icon-check" offLabel="Não" 
-                                                       offIcon="ui-icon-close"/>
+                                                       offIcon="ui-icon-close"
+                                                       value="#{associadoBean.associado.alfabetizado}"/>
 
                                 <h:outputText value="Quantidades de filhos estudando: "/>
-                                <p:spinner value="" min="0"/>
+                                <p:spinner value="#{associadoBean.associado.quantidadeDeFilhosEstudando}"
+                                           min="0"/>
 
                                 <h:outputText value="Regime de Trabalho: "/>
-                                <p:inputText />
+                                <p:inputText value="#{associadoBean.associado.regimeDeTrabalho}"/>
 
                                 <h:outputText value="Local de trabalho: "/>
-                                <p:inputText/>
+                                <p:inputText value="#{associadoBean.associado.localDeTrabalho}"/>
 
                                 <h:outputText value="Observaçẽos: "/>
-                                <p:editor />
+                                <p:editor value="#{associadoBean.associado.obseervacoes}"/>
 
                             </h:panelGrid>
                         </p:panel>
                     </p:tab>
+                    
                     <p:tab id="documentos" title="Documentos Pessoais">
                         <p:panel header="Cadasttro de Documentos">
                             <h:panelGrid columns="2" styleClass="formulario_cadastro" cellpadding="5">
