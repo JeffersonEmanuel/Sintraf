@@ -33,7 +33,7 @@ public class Associado {
     private String naturalidade;
     private String profissao;
     private String tituloEleitoral;
-    private boolean tabalhoProprio;
+    private boolean trabalhoProprio;
     private int tituloEleitoralZona;
     private String nomeConjugue;
     private int quantidadeDeFilhos;
@@ -51,7 +51,16 @@ public class Associado {
     private int carteiraProficionalSerie;
     private int quantidadeDeFilhosEstudando;
     private String regimeDeTrabalho;
+    private String localDeTrabalho;
 
+    public String getLocalDeTrabalho() {
+        return localDeTrabalho;
+    }
+
+    public void setLocalDeTrabalho(String localDeTrabalho) {
+        this.localDeTrabalho = localDeTrabalho;
+    }
+    
     public Associado() {
     }
 
@@ -60,6 +69,7 @@ public class Associado {
     }
 
     public void setMatricula(Long matricula) {
+//        matricula = Long.MAX_VALUE;
         this.matricula = matricula;
     }
 
@@ -159,12 +169,12 @@ public class Associado {
         this.tituloEleitoral = tituloEleitoral;
     }
 
-    public boolean isTabalhoProprio() {
-        return tabalhoProprio;
+    public boolean isTrabalhoProprio() {
+        return trabalhoProprio;
     }
 
-    public void setTabalhoProprio(boolean tabalhoProprio) {
-        this.tabalhoProprio = tabalhoProprio;
+    public void setTrabalhoProprio(boolean trabalhoProprio) {
+        this.trabalhoProprio = trabalhoProprio;
     }
 
     public int getTituloEleitoralZona() {
