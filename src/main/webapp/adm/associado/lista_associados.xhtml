@@ -11,18 +11,18 @@
             <h:form id="form">
                 <p:growl id="msgs" showDetail="true" />
 
-                <p:dataTable id="basicDT" var="car" value="#{dtSelectionView.cars1}">
+                <p:dataTable id="basicDT" var="car" value="#{dtSelectionView.associado}">
                     <f:facet name="header">
                         Lista de Associados 
                     </f:facet>
                     <p:column headerText="Sócio">
-                        <h:outputText value="#{car.id}" />
+                        <h:outputText value="#{associadoBean.associado.nome}" />
                     </p:column>
                     <p:column headerText="Endereço">
-                        <h:outputText value="#{car.year}" />
+                        <h:outputText value="#{associadoBean.associado.endereco}" />
                     </p:column>
                     <p:column headerText="Número da Matrícula">
-                        <h:outputText value="#{car.brand}" />
+                        <h:outputText value="#{associadoBean.associado.matricula}" />
                     </p:column>
                     
                     <p:column style="width:32px;text-align: center">
@@ -31,7 +31,6 @@
                         </p:commandButton>
                     </p:column>
                 </p:dataTable>
-
                 
             </h:form>
 
