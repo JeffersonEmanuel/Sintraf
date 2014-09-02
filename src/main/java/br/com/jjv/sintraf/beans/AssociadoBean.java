@@ -8,9 +8,8 @@ package br.com.jjv.sintraf.beans;
 
 
 import br.com.jjv.sintraf.entidades.Associado;
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import org.primefaces.event.FlowEvent;
 
 /**
@@ -18,11 +17,11 @@ import org.primefaces.event.FlowEvent;
  * @author jefferson
  */
 
-@Named(value = "associadoBean")
+@ManagedBean
 @RequestScoped
 public class AssociadoBean {
     
-    private Associado associado;
+    private Associado associado = new Associado();
 
     public AssociadoBean() {
     }
@@ -36,5 +35,11 @@ public class AssociadoBean {
         this.associado = associado;
     }
     
+    
+    private String nome = "wefsdjvs-podjsvd";
+
+    public String getNome() {
+        return nome;
+    }
     
 }

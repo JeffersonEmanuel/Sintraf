@@ -9,14 +9,15 @@
         <ui:define name="centro">        
             <h:form id="cadastroSocio">
 
-                <p:wizard backLabel="Anterior" nextLabel="Próximo" >
+                <p:wizard backLabel="Anterior" nextLabel="Próximo" style="width: 70%    ">
                     <p:tab id="pessoa" title="Sócio" >
                         <p:panel header="Dados Pessoais" >
                             <h:panelGrid columns="2" styleClass="formulario_cadastro" cellpadding="5">
 
+                                
                                 <p:column colspan="2" >
-                                <h:outputText value="Matrícula: "/>
-                                <h:outputText value="1"/>
+                                    <h:outputText value="Matrícula: "/>
+                                    <h:outputText value="1" style="color: red"/>
                                 </p:column>
                                 
                                 <p:column colspan="2">
@@ -25,6 +26,7 @@
                                             pattern="dd/mm/yyyy" mask="true" 
                                             value="#{associadoBean.associado.dataDeFiliacao}"/>
                                 </p:column>
+                                
                                 
                                 <h:outputText value="Nome: "/>
                                 <p:inputText value="#{associadoBean.associado.nome}"
@@ -111,8 +113,10 @@
                                 <p:inputText value="#{associadoBean.associado.localDeTrabalho}"/>
 
                                 <h:outputText value="Observaçẽos: "/>
-                                <p:editor value="#{associadoBean.associado.obseervacoes}"/>
+                                <p:inputTextarea maxlength="255" 
+                                        value="#{associadoBean.associado.obseervacoes}"/>
 
+                                
                             </h:panelGrid>
                         </p:panel>
                     </p:tab>
