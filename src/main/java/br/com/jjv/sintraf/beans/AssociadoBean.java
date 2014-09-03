@@ -12,6 +12,7 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class AssociadoBean {
 
+    
     private Associado associado;
 
     public AssociadoBean() {
