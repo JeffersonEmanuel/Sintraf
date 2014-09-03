@@ -1,0 +1,31 @@
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+    <ui:decorate template="../template/template.xhtml">
+        <ui:define name="centro">         
+            <p:fieldset legend="Lista de Usuários" style="width: 50%;">
+                <h:form id="formUsuario">
+                    <p:dataTable var="user" value="#{usuarioBean.usuarios}" rowKey="#{user.nome}">
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{user.nome}" />
+                        </p:column>
+
+                        <p:column headerText="Login">
+                            <h:outputText value="#{user.login}" />
+                        </p:column>
+
+                        <p:column headerText="Ações" >
+                            
+                            <p:button value="Editar"  icon="ui-icon-refresh"/>
+                            <p:spacer height="10"/>
+                            <p:button value="Excluir" icon="ui-icon-close" />
+                        </p:column>
+
+                    </p:dataTable>
+                </h:form>
+            </p:fieldset>
+        </ui:define>
+    </ui:decorate>
+</html>

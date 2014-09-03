@@ -10,12 +10,18 @@ import javax.persistence.EntityManager;
  *
  * @author Vanderlan Gomes
  */
-public class UsuarioDAO implements Serializable {
+public  class UsuarioDAO implements Serializable {
 
     private EntityManager entityManager;
+    private EntityManagerProducer em;
 
     public UsuarioDAO() {
-        entityManager = EntityManagerProducer.getEntityManagerFactory().createEntityManager();
+        inicializarEntityManagerCreator();
+        entityManager = em.create();
+    }
+
+    private void inicializarEntityManagerCreator() {
+        em = new EntityManagerProducer();
     }
 
     public void create(Usuario usuario) {
