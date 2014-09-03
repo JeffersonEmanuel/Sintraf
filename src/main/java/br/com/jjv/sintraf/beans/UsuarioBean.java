@@ -1,7 +1,6 @@
 package br.com.jjv.sintraf.beans;
 
 import br.com.jjv.sintraf.entidades.Usuario;
-import br.com.jjv.sintraf.exceptions.SintrafException;
 import br.com.jjv.sintraf.jsf.JsfUtil;
 import br.com.jjv.sintraf.services.UsuarioService;
 import java.io.Serializable;
@@ -13,7 +12,7 @@ import javax.faces.bean.RequestScoped;
  * 
  * @author Vanderlan Gomes
  */
-@ManagedBean(name = "usuarioBeanTeste")
+@ManagedBean(name = "usuarioBean")
 @RequestScoped
 public class UsuarioBean implements Serializable {
 
@@ -32,13 +31,12 @@ public class UsuarioBean implements Serializable {
         
     }
   
-    public void create() {
-        try {
-            this.usuarioService.create(usuario);
-            JsfUtil.addSuccessMessage("Usuário cadastrado com sucesso!");
-        } catch (SintrafException e) {
-            JsfUtil.addSuccessMessage(e.getMessage());
+    public void create()  {
+
+        if(usuarioService.validate(usuario)){
+            usuario = new Usuario();
         }
+
     }
 
     /**
@@ -61,11 +59,5 @@ public class UsuarioBean implements Serializable {
     public List<Usuario> getUsuarios() {
         usuarios = usuarioService.findAll();
         return usuarios;
-    }
-//    @Produces
-//    @RequestScoped
-    public UsuarioService createService(){
-        
-        return new UsuarioService();
     }
 }

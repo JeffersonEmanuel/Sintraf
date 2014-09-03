@@ -23,7 +23,7 @@
                 </p:layoutUnit>  
 
                 <h:form>  
-                    <p:growl id="messages" showDetail="true" />
+                    <p:growl id="messages" showDetail="false" life="5000" />
 
                     <p:menubar style="margin-top: 114px;" >
 
@@ -37,7 +37,7 @@
                         <p:submenu label="Mensalidades" icon="ui-icon-copy">
                             <p:menuitem value="Ajustar valores" icon="ui-icon-gear"/>
                             <p:menuitem value="Em atraso" url="#" icon="ui-icon-alert" />
-                            <p:menuitem value="Receber" url="#" icon="ui-icon-alert" />
+                            <p:menuitem value="Receber" url="#" icon="ui-icon-tag" />
                         </p:submenu>
 
                         <p:submenu label="Declarações" icon="ui-icon-document">
@@ -47,7 +47,7 @@
 
                         <p:submenu label="Usuários" icon="ui-icon-person">
                             <p:menuitem value="Cadastrar novo" icon="ui-icon-document" url="/adm/usuario/novo_usuario.jsf"/>
-                            <p:menuitem value="Ver Usuários" icon="ui-icon-search"/>
+                            <p:menuitem value="Ver Usuários" icon="ui-icon-search" url="/adm/usuario/lista_usuarios.jsf"/>
                         </p:submenu>
 
                         <p:menuitem value="Buscar DAP" icon="ui-icon-search"

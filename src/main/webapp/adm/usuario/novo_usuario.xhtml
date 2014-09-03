@@ -6,29 +6,46 @@
     <ui:decorate template="../template/template.xhtml">
         <ui:define name="centro">         
 
-            <p:fieldset id="carteirinha" legend="Cadastro de usuários" style="width: 60%;">
+            <p:fieldset id="carteirinha" legend="Cadastro de usuários" style="width: 40%;">
 
                 <h:form id="cadatro_usuario">
-                    <p:growl id="messagens" showDetail="true" />
-                        <h:panelGrid columns="2" cellpadding="3">
+                    <h:panelGrid columns="2" cellpadding="3">
 
-                            <h:outputText value="Nome: "/>
-                            <p:inputText id="nome" size="40" required="true" maxlength="60" value="#{usuarioBeanTeste.usuario.nome}"
-                                         requiredMessage="O nome é obrigatório"/>
+                        <h:outputText value="Nome: "/>
+                        <p:inputText id="nome" size="40" required="true" maxlength="60" value="#{usuarioBean.usuario.nome}"
+                                     requiredMessage="O nome é obrigatório"/>
 
-                            <h:outputText value="Login: "/>
-                            <p:inputText id="login" size="20" required="true" maxlength="15" value="#{usuarioBeanTeste.usuario.login}"
-                                         requiredMessage="O login é obrigatório"/>
+                        <h:outputText value="Login: "/>
+                        <p:inputText id="login" size="20" required="true" maxlength="15" value="#{usuarioBean.usuario.login}"
+                                     requiredMessage="O login é obrigatório"/>
 
-                            <h:outputText value="Senha: "/>
-                            <p:password id="senha" size="20" required="true" maxlength="15" value="#{usuarioBeanTeste.usuario.login}"
-                                        requiredMessage="A senha deve ser preenchida"/>
-                            <p:spacer width="80"/>
-                            <p:commandButton value="Salvar" action="#{usuarioBeanTeste.create()}" update="messagens"/>
-                        </h:panelGrid>
+                        <h:outputText value="Senha: "/>
+                        <p:password id="senha" size="20" required="true" maxlength="10" value="#{usuarioBean.usuario.senha}"
+                                    requiredMessage="A senha deve ser preenchida" />
+                        <p:spacer width="80"/>
+                        <p:commandButton value="Cadastrar usuário" actionListener="#{usuarioBean.create()}" update="messagens" 
+                                         ajax="false"/>
+                    </h:panelGrid>
                 </h:form>
-
             </p:fieldset>
+            <p:spacer width="30"/>
+            <p:fieldset legend="Lista de usuários" toggleable="true" id="lista"
+                        style="width: 40%; " collapsed="true">
+                <h:form id="formUsuario">
+                    <p:dataTable var="user" value="#{usuarioBean.usuarios}" rowKey="#{user.nome}"
+                                 emptyMessage="Não existem usuários cadastrados" >
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{user.nome}" />
+                        </p:column>
+
+                        <p:column headerText="Login">
+                            <h:outputText value="#{user.login}" />
+                        </p:column>
+
+                    </p:dataTable>
+                </h:form>
+            </p:fieldset>
+
         </ui:define>
     </ui:decorate>
 </html>

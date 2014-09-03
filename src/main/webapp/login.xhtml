@@ -14,17 +14,18 @@
         <span id="login" >SINTRAF</span> 
         <span id="sintraf_text"> Sindicato dos Trabalhadores na Agricultura Familiar - PB</span> 
         <p:dialog header="Efetue o login" visible="true" closable="false" 
-                  draggable="false" resizable="false" width="auto" showEffect="elastic" >
+                  draggable="false" resizable="false" showEffect="elastic" style="width: 700px;">
             <h:form>
-                <p:growl/>
+                <p:growl id="mensagens" life="5000"/>
                 <h:panelGrid columns="2" cellpadding="5">
                     <p:outputLabel for="username" value="Usuario:" /> 
-                    <p:inputText id="username" required="true" size="35"/>
+                    <p:inputText id="username" required="true" size="15" maxlength="15" value="#{autenticacaoBean.user.login}"/>
 
                     <p:outputLabel for="password" value="Senha:" />
-                    <p:password id="password" required="true" size="35"/>
+                    <p:password id="password" required="true" size="15" maxlength="10" value="#{autenticacaoBean.user.senha}"/>
                     <p:spacer width="30"/>
-                    <p:commandButton value="Entrar" style="font-size: 14px;" />
+                    <p:commandButton value="Entrar" actionListener="#{autenticacaoBean.autenticacao()}"
+                                     update="mensagens"/>
                 </h:panelGrid>
             </h:form>
         </p:dialog> 
