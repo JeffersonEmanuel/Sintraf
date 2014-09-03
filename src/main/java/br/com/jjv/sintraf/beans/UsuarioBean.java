@@ -31,11 +31,12 @@ public class UsuarioBean implements Serializable {
         
     }
   
-    public String create()  {
+    public void create()  {
 
-        this.usuarioService.create(usuario);
-        JsfUtil.addSuccessMessage("Usuário cadastrado com sucesso!");
-        return "lista_usuarios";
+        if(usuarioService.validate(usuario)){
+            usuario = new Usuario();
+        }
+
     }
 
     /**

@@ -36,4 +36,10 @@ public class UsuarioService implements Serializable {
 
         return usuarioDAO.findAll();
     }
+
+    public boolean validate(Usuario usuario) {
+        
+        return usuarioDAO.validate(usuario);
+        
+    }
 }

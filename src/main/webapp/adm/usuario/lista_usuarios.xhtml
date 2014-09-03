@@ -7,7 +7,8 @@
         <ui:define name="centro">         
             <p:fieldset legend="Lista de Usuários" style="width: 50%;">
                 <h:form id="formUsuario">
-                    <p:dataTable var="user" value="#{usuarioBean.usuarios}" rowKey="#{user.nome}">
+                    <p:dataTable var="user" value="#{usuarioBean.usuarios}" rowKey="#{user.nome}"
+                                 emptyMessage="Não existem usuários cadastrados">
                         <p:column headerText="Nome">
                             <h:outputText value="#{user.nome}" />
                         </p:column>

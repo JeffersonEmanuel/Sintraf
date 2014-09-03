@@ -25,12 +25,12 @@ public class Usuario implements Serializable {
     
     @Size(max = 60)
     @NotNull
-    @Column(name = "us_nome", length = 60, nullable = false)
+    @Column(name = "us_nome", length = 60, nullable = false, unique = true)
     private String nome;
     
     @Size(max = 15)
     @NotNull
-    @Column(name = "us_login", length = 15, nullable = false)
+    @Column(name = "us_login", length = 15, nullable = false, unique = true)
     private String login;
     
     @Size(max = 10)
