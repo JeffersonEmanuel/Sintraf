@@ -6,24 +6,20 @@ import br.com.jjv.sintraf.jsf.JsfUtil;
 import br.com.jjv.sintraf.services.UsuarioService;
 import java.io.Serializable;
 import java.util.List;
-import javax.annotation.ManagedBean;
-import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Produces;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.inject.Inject;
 
 /**
  * 
  * @author Vanderlan Gomes
  */
-@ManagedBean(value = "usuarioBeanTeste")
+@ManagedBean(name = "usuarioBeanTeste")
 @RequestScoped
 public class UsuarioBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Inject
-    private UsuarioService usuarioService;
+    private UsuarioService  usuarioService;
      
     //A list to storage the data come from database
     private List<Usuario> usuarios;
@@ -31,17 +27,11 @@ public class UsuarioBean implements Serializable {
 
     public UsuarioBean() {
         
+        usuarioService = new UsuarioService();
+        usuario = new Usuario();
+        
     }
-    
-    @PostConstruct
-    public void init(){
-        this.clean();
-    }
-    
-    private void clean() {
-        this.usuario = new Usuario();
-    }
-
+  
     public void create() {
         try {
             this.usuarioService.create(usuario);
