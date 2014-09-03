@@ -1,9 +1,9 @@
 package br.com.jjv.sintraf.dao;
 
 import br.com.jjv.sintraf.entidades.Usuario;
+import br.com.jjv.sintraf.persistencia.EntityManagerProducer;
 import java.io.Serializable;
 import java.util.List;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 /**
@@ -12,11 +12,10 @@ import javax.persistence.EntityManager;
  */
 public class UsuarioDAO implements Serializable {
 
-    @Inject
     private EntityManager entityManager;
 
     public UsuarioDAO() {
-
+        entityManager = EntityManagerProducer.getEntityManagerFactory().createEntityManager();
     }
 
     public void create(Usuario usuario) {

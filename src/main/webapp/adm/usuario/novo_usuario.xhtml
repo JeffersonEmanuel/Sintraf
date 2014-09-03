@@ -24,7 +24,7 @@
                             <p:password id="senha" size="20" required="true" maxlength="15" value="#{usuarioBeanTeste.usuario.login}"
                                         requiredMessage="A senha deve ser preenchida"/>
                             <p:spacer width="80"/>
-                            <p:commandButton value="Salvar" actionListener="#{usuarioBeanTeste.create()}" update="messagens"/>
+                            <p:commandButton value="Salvar" action="#{usuarioBeanTeste.create()}" update="messagens"/>
                         </h:panelGrid>
                 </h:form>
 
