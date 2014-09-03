@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.jjv.sintraf.entidades;
 
 import java.util.Date;
@@ -16,15 +15,17 @@ import javax.persistence.Table;
  * @author jefferson
  */
 @Entity
-@Table (name = "associado")
+@Table(name = "associado")
 public class Associado {
-    
+
     @Id
     private Long matricula;
     private String nome;
     private String foto;
     private String cpf;
     private String endereco;
+    private String enderecoUF;
+    private String naturalidadeUF;
     private String nomeDoPai;
     private String nomeDaMae;
     private String orgaoEmissor;
@@ -60,7 +61,7 @@ public class Associado {
     public void setLocalDeTrabalho(String localDeTrabalho) {
         this.localDeTrabalho = localDeTrabalho;
     }
-    
+
     public Associado() {
     }
 
@@ -311,6 +312,22 @@ public class Associado {
 
     public void setRegimeDeTrabalho(String regimeDeTrabalho) {
         this.regimeDeTrabalho = regimeDeTrabalho;
+    }
+
+    public String getEnderecoUF() {
+        return enderecoUF;
+    }
+
+    public void setEnderecoUF(String enderecoUF) {
+        this.enderecoUF = enderecoUF;
+    }
+
+    public String getNaturalidadeUF() {
+        return naturalidadeUF;
+    }
+
+    public void setNaturalidadeUF(String naturalidadeUF) {
+        this.naturalidadeUF = naturalidadeUF;
     }
 
 }
