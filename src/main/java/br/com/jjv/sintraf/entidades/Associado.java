@@ -28,7 +28,8 @@ public class Associado {
     private String naturalidadeUF;
     private String nomeDoPai;
     private String nomeDaMae;
-    private String orgaoEmissor;
+    private String rg;
+    private String ufRG;
     private String ufCarteiraProficional;
     private String cidade;
     private String naturalidade;
@@ -53,7 +54,39 @@ public class Associado {
     private int quantidadeDeFilhosEstudando;
     private String regimeDeTrabalho;
     private String localDeTrabalho;
+    private String ufLocalNascimento;
+    private String ufEndereco;
 
+    
+    public String getUfRG() {
+        return ufRG;
+    }
+
+    public void setUfRG(String ufRG) {
+        this.ufRG = ufRG;
+    }
+    
+    public String getUfLocalNascimento() {
+        return ufLocalNascimento;
+    }
+
+    public void setUfLocalNascimento(String ufLocalNascimento) {
+        this.ufLocalNascimento = ufLocalNascimento;
+    }
+
+    public String getUfEndereco() {
+        return ufEndereco;
+    }
+
+    public void setUfEndereco(String ufEndereco) {
+        this.ufEndereco = ufEndereco;
+    }
+    
+    
+    
+    
+    
+    
     public String getLocalDeTrabalho() {
         return localDeTrabalho;
     }
@@ -122,12 +155,12 @@ public class Associado {
         this.nomeDaMae = nomeDaMae;
     }
 
-    public String getOrgaoEmissor() {
-        return orgaoEmissor;
+    public String getRg() {
+        return rg;
     }
 
-    public void setOrgaoEmissor(String orgaoEmissor) {
-        this.orgaoEmissor = orgaoEmissor;
+    public void setRg(String rg) {
+        this.rg = rg;
     }
 
     public String getUfCarteiraProficional() {

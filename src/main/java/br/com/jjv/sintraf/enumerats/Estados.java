@@ -10,7 +10,7 @@ package br.com.jjv.sintraf.enumerats;
  *
  * @author jefferson
  */
-public enum estados {
+public enum Estados {
     
     
         AC,

@@ -9,28 +9,28 @@
         <ui:define name="centro">        
             <h:form id="cadastroSocio">
 
-                <p:wizard backLabel="Anterior" nextLabel="Próximo" style="width: 70%    ">
+                <p:wizard  backLabel="Anterior" nextLabel="Próximo" style="width: 70%    ">
                     <p:tab id="pessoa" title="Sócio" >
                         <p:panel header="Dados Pessoais" >
                             <h:panelGrid columns="2" styleClass="formulario_cadastro" cellpadding="5">
 
-                                
+
                                 <p:column colspan="2" >
                                     <h:outputText value="Matrícula: "/>
                                     <h:outputText value="1" style="color: red"/>
                                 </p:column>
-                                
+
                                 <p:column colspan="2">
-                                <h:outputText value="Data de filiação: "/>
-                                <p:calendar locale="pt_BR" navigator="true" 
-                                            pattern="dd/mm/yyyy" mask="true" 
-                                            value="#{associadoBean.associado.dataDeFiliacao}"/>
+                                    <h:outputText value="Data de filiação: "/>
+                                    <p:calendar locale="pt_BR" navigator="true" 
+                                                pattern="dd/mm/yyyy" mask="true" 
+                                                value="#{associadoBean.associado.dataDeFiliacao}"/>
                                 </p:column>
-                                
-                                
+
+
                                 <h:outputText value="Nome: "/>
                                 <p:inputText value="#{associadoBean.associado.nome}"
-                                              />
+                                             />
 
                                 <h:outputText value="Nome da mãe: "/>
                                 <p:inputText value="#{associadoBean.associado.nomeDaMae}"
@@ -44,19 +44,19 @@
                                 <p:inputText value="#{associadoBean.associado.nomeConjugue}"
                                              size="60" />
 
-                                
+
                                 <h:outputText value="Naturalidade: "/>
                                 <p:inputText value="#{associadoBean.associado.naturalidade}"
                                              size="80" />
-                                
-                                 <h:outputText value="UF: "/>
-                                 <p:selectOneMenu editable="true">
-                                    <f:selectItem itemLabel="Casado(a)"/>
-                                    <f:selectItem itemLabel="União Estável(a)"/>
-                                    <f:selectItem itemLabel="Solteiro(a)"
-                                                  value="#{associadoBean.associado.estadoCivil}"/>
+
+                                <h:outputText  value="UF: "/>
+                                <p:selectOneMenu id="uf" value="#{associadoBean.associado.ufLocalNascimento}">
+                                    <f:selectItem itemLabel="Selecione"/>
+                                    <f:selectItems var="uf" value="#{associadoBean.estados}" 
+                                                   itemLabel="#{uf}" itemValue="#{uf}"
+                                                   />
                                 </p:selectOneMenu>
-                                
+
                                 <h:outputText value="Endereço: "/>
                                 <p:inputText value="#{associadoBean.associado.endereco}" 
                                              size="80" />
@@ -69,14 +69,14 @@
                                 <p:inputText value="#{associadoBean.associado.cidade}"
                                              size="40" />
 
-                                 <h:outputText value="UF: "/>
-                                <p:selectOneMenu editable="true">
-                                    <f:selectItem itemLabel="Casado(a)"/>
-                                    <f:selectItem itemLabel="União Estável(a)"/>
-                                    <f:selectItem itemLabel="Solteiro(a)"
-                                                  value="#{associadoBean.associado.estadoCivil}"/>
+                                <h:outputText value="UF: "/>
+                                <p:selectOneMenu id="ufEndereco" value="#{associadoBean.associado.ufEndereco}">
+                                    <f:selectItem itemLabel="Selecione"/>
+                                    <f:selectItems var="uf" value="#{associadoBean.estados}" 
+                                                   itemLabel="#{uf}" itemValue="#{uf}"
+                                                   />
                                 </p:selectOneMenu>
-                                
+
                                 <h:outputText value="Profissão: "/>
                                 <p:inputText value="#{associadoBean.associado.profissao}"
                                              size="30" />
@@ -130,19 +130,99 @@
 
                                 <h:outputText value="Observações: "/>
                                 <p:inputTextarea maxlength="255" 
-                                        value="#{associadoBean.associado.obseervacoes}"/>
+                                                 value="#{associadoBean.associado.obseervacoes}"/>
 
-                                
+
                             </h:panelGrid>
                         </p:panel>
                     </p:tab>
-                    
+
                     <p:tab id="documentos" title="Documentos Pessoais">
                         <p:panel header="Cadastro de Documentos">
-                            <h:panelGrid columns="2" styleClass="formulario_cadastro" cellpadding="5">
-                                <h:outputText value="Apelido: "/>
-                                <p:inputText value="" size="60" />
+
+                            <h:panelGrid styleClass="formulario_cadastro" cellpadding="5">
+
+                                <p:column>
+                                    <h:outputText value="CPF: "/>
+                                    <p:inputMask value="#{associadoBean.associado.cpf}" 
+                                                 mask="999.999.999-99"/>
+                                </p:column>
+
+                                <h:panelGroup >
+                                    <h:outputText value="RG: "/>
+                                    <p:inputText value="#{associadoBean.associado.rg}" 
+                                                 style="margin-right: 40px; margin-left: 5px"/>
+                                    <h:outputText value="Orgão Emissor: "/>
+                                    <p:inputText value="#{associadoBean.associado.rgOrgaoEmissor}" style="margin-right: 40px"/>
+                                  
+                                    <h:outputText value="UF: " style="margin-left: 36px; margin-right: 2px"/>
+                                    <p:selectOneMenu id="ufRG" value="#{associadoBean.associado.ufRG}">
+                                    <f:selectItem itemLabel="Selecione"/>
+                                    <f:selectItems var="uf" value="#{associadoBean.estados}" 
+                                                   itemLabel="#{uf}" itemValue="#{uf}"
+                                                   />
+                                </p:selectOneMenu>
+                                </h:panelGroup>
+
+                                <h:panelGroup >
+                                    <h:outputText value="Titulo: " style="margin-left: -20px"/>
+                                    <p:inputText value="#{associadoBean.associado.tituloEleitoral}" 
+                                                 style="margin-right: 40px; margin-left: 5px"/>
+                                    <h:outputText value="Zona: " style="margin-left: 77px"/>
+                                    <p:inputText value="#{associadoBean.associado.tituloEleitoralZona}" 
+                                                 style="margin-right: 40px"/>
+                                    <h:outputText value="Sessão: "/>
+                                    <p:inputText value="#{associadoBean.associado.tituloEleitoralSessao}" style="margin-right: 40px"/>
+                                </h:panelGroup>
+
+                                <h:panelGroup >
+                                    <h:outputText value="Proficional: " 
+                                                  style="margin-left: -58px"/>
+                                    <p:inputText value="#{associadoBean.associado.carteiraProficional}" 
+                                                 style="margin-right: 116px; margin-left: 5px"/>
+                                    <h:outputText value="Série: "/>
+                                    <p:inputText value="#{associadoBean.associado.carteiraProficionalSerie}" style="margin-right: 40px"/>
+                                    <h:outputText value="UF: " style="margin-left: 36px; margin-right: 2px"/>
+                                    <p:selectOneMenu id="ufProficional" value="#{associadoBean.associado.ufCarteiraProficional}">
+                                    <f:selectItem itemLabel="Selecione"/>
+                                    <f:selectItems var="uf" value="#{associadoBean.estados}" 
+                                                   itemLabel="#{uf}" itemValue="#{uf}"
+                                                   />
+                                </p:selectOneMenu>
+                                </h:panelGroup>
+
+
                             </h:panelGrid>
+                        </p:panel>
+                    </p:tab>
+
+                    <p:tab id="dadosDoImovel" title="Dados do Imóvel" >
+                        <p:panel header="Cadastro do Imóvel Rural">
+                            <h:panelGrid styleClass="formulario_cadastro" cellpadding="5" columns="2">
+
+                                <h:outputText value="Nome: "/>
+                                <p:inputText value=""/>
+                                <h:outputText value="Nº de Registro: "/>
+                                <p:inputText value=""/>
+                                <h:outputText value="Tamanho do Imóvel: "/>
+                                <p:inputText value=""/>
+                                <h:outputText value="Tamanho trabalhado: "/>
+                                <p:inputText value=""/>
+                                <h:outputText value="Município: "/>
+                                <p:inputText value=""/>
+                                <h:outputText value="UF: "/>
+                                <p:selectOneMenu id="ufLocalTrabalho" value="">
+                                    <f:selectItem itemLabel="Selecione"/>
+                                    <f:selectItems var="uf" value="#{associadoBean.estados}" 
+                                                   itemLabel="#{uf}" itemValue="#{uf}"
+                                                   />
+                                </p:selectOneMenu>
+                                <h:outputText value="Nome do proprietário: "/>
+                                <p:inputText value=""/>
+                                <h:outputText value="CPF do proprietário: "/>
+                                <p:inputText value=""/>
+                            </h:panelGrid>
+
                         </p:panel>
                     </p:tab>
                 </p:wizard>
