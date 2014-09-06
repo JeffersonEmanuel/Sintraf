@@ -1,9 +1,11 @@
 package br.com.jjv.sintraf.beans;
 
 import br.com.jjv.sintraf.entidades.Usuario;
-import br.com.jjv.sintraf.jsf.JsfUtil;
 import br.com.jjv.sintraf.services.UsuarioService;
 import java.io.Serializable;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -38,7 +40,12 @@ public class UsuarioBean implements Serializable {
         }
 
     }
-
+    public String update(){
+        
+        usuarioService.update(usuario);
+        
+        return "lista_usuarios";
+    }
     /**
      * @return the usuario
      */
@@ -60,4 +67,17 @@ public class UsuarioBean implements Serializable {
         usuarios = usuarioService.findAll();
         return usuarios;
     }
+    public void preparaEdicao(){
+        
+        usuario = usuarioService.findById(usuario.getIdUsuario());
+        System.out.println(usuario.getSenha());
+    }
+    public static String gerarMD5(String password) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+ 
+        BigInteger hash = new BigInteger(1, md.digest(password.getBytes()));
+ 
+        return String.format("%32x", hash);
+    }
+
 }

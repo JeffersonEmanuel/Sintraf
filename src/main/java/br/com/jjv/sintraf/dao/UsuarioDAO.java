@@ -64,10 +64,18 @@ public class UsuarioDAO implements Serializable {
     }
 
     public void update(Usuario usuario) {
-        entityManager.getTransaction().begin();
-        entityManager.refresh(usuario);
-        entityManager.getTransaction().commit();
-        entityManager.close();
+           try {
+
+            entityManager.getTransaction().begin();
+            entityManager.merge(usuario);
+            entityManager.getTransaction().commit();
+
+            JsfUtil.addSuccessMessage("Informações alteradas e salvas!");
+
+        } catch (Exception e) {
+
+            JsfUtil.addErrorMessage(e.getMessage());
+        }
     }
 
     public void delete(Usuario usuario) {
@@ -106,10 +114,16 @@ public class UsuarioDAO implements Serializable {
         Root<Usuario> usu = criteriaQuery.from(Usuario.class);
 
         criteriaQuery.where(criteriaBuilder.equal(usu.get("login"), user.getLogin()));
+        criteriaQuery.where(criteriaBuilder.equal(usu.get("senha"), user.getSenha()));
 
-        
         TypedQuery<Usuario> typedQuery = entityManager.createQuery(criteriaQuery);
 
         return typedQuery.getResultList();
+    }
+
+    public Usuario findById(Long id) {
+
+        return entityManager.find(Usuario.class, id);
+
     }
 }
