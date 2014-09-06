@@ -202,26 +202,40 @@
                             <h:panelGrid styleClass="formulario_cadastro" cellpadding="5" columns="2">
 
                                 <h:outputText value="Nome: "/>
-                                <p:inputText value=""/>
+                                <p:inputText value="#{imovelBean.imovel.nome}"/>
                                 <h:outputText value="Nº de Registro: "/>
-                                <p:inputText value=""/>
+                                <p:inputText value="#{imovelBean.imovel.numeroDeRegistro}"/>
                                 <h:outputText value="Tamanho do Imóvel: "/>
-                                <p:inputText value=""/>
+                                <p:inputText value="#{imovelBean.imovel.tamanhoDoImovel}"/>
                                 <h:outputText value="Tamanho trabalhado: "/>
-                                <p:inputText value=""/>
+                                <p:inputText value="#{imovelBean.imovel.tamanhoDaAreaTrabalhada}"/>
                                 <h:outputText value="Município: "/>
-                                <p:inputText value=""/>
+                                <p:inputText value="#{imovelBean.imovel.municipio}"/>
                                 <h:outputText value="UF: "/>
-                                <p:selectOneMenu id="ufLocalTrabalho" value="">
+                                <p:selectOneMenu id="ufLocalTrabalho" value="#{imovelBean.imovel.uf}">
                                     <f:selectItem itemLabel="Selecione"/>
                                     <f:selectItems var="uf" value="#{associadoBean.estados}" 
                                                    itemLabel="#{uf}" itemValue="#{uf}"
                                                    />
                                 </p:selectOneMenu>
                                 <h:outputText value="Nome do proprietário: "/>
-                                <p:inputText value=""/>
+                                <p:inputText value="#{imovelBean.imovel.nomeProprietario}"/>
                                 <h:outputText value="CPF do proprietário: "/>
-                                <p:inputText value=""/>
+                                <p:inputText value="#{imovelBean.imovel.cpfProprietario}"/>
+                                 <p:column colspan="2">
+                                    <h:outputText value="Data do início: "/>
+                                    <p:calendar locale="pt_BR" navigator="true" 
+                                                pattern="dd/mm/yyyy" mask="true" 
+                                                value="#{imovelBean.imovel.dataInicio}"
+                                                maxdate="#{imovelBean.data}"/>
+                                </p:column>
+                                 <p:column colspan="2">
+                                    <h:outputText value="Data do termino: "/>
+                                    <p:calendar locale="pt_BR" navigator="true" 
+                                                pattern="dd/mm/yyyy" mask="true" 
+                                                value="#{imovelBean.imovel.dataFim}"
+                                                mindate="#{imovelBean.data}"/>
+                                </p:column>
                             </h:panelGrid>
 
                         </p:panel>
