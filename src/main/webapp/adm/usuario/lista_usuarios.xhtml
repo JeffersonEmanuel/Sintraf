@@ -19,9 +19,12 @@
 
                         <p:column headerText="Ações" >
                             
-                            <p:button value="Editar"  icon="ui-icon-refresh"/>
+                          
                             <p:spacer height="10"/>
-                            <p:button value="Excluir" icon="ui-icon-close" />
+                            <p:button value="Editar" icon="ui-icon-refresh" outcome="/adm/usuario/edit_usuario">
+                                <f:param value="#{user.idUsuario}" name="usuario"/>
+                            </p:button>
+                              <p:button value="Excluir"  icon="ui-icon-close"/>
                         </p:column>
 
                     </p:dataTable>

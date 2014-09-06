@@ -42,4 +42,9 @@ public class UsuarioService implements Serializable {
         return usuarioDAO.validate(usuario);
         
     }
+
+    public Usuario findById(long id) {
+
+        return usuarioDAO.findById(id);
+    }
 }
