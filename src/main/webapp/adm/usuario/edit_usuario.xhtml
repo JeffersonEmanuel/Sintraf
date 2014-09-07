@@ -34,7 +34,7 @@
 
                         <h:outputText value="Nova senha: "/>
                         <p:password id="nova_senha" size="20" required="false" maxlength="10" 
-                                    requiredMessage="A nova senha deve ser preenchida" />
+                                    value="#{usuarioBean.novaSenha}"/>
                         <h:inputHidden value="#{usuarioBean.senhaTemporaria}" id="senha_antiga"/>
                     </h:panelGrid>
                     <p:spacer width="30"/>

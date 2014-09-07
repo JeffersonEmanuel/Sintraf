@@ -27,6 +27,7 @@ public class UsuarioBean implements Serializable {
     private List<Usuario> usuarios;
     private Usuario usuario;
     private String senhaTemporaria;
+    private String novaSenha;
 
     public UsuarioBean() {
 
@@ -43,8 +44,12 @@ public class UsuarioBean implements Serializable {
 
     }
 
-    public String update() {
+    public String update() throws NoSuchAlgorithmException {
+
+        System.err.println("ANTIGA " + senhaTemporaria + " NOVA: " + gerarMD5(novaSenha));
         if (senhaCorresponde()) {
+            
+            usuario.setSenha(novaSenha);
             usuarioService.update(usuario);
 
             return "lista_usuarios";
@@ -64,20 +69,6 @@ public class UsuarioBean implements Serializable {
         return usuario;
     }
 
-    /**
-     * @param usuario the usuario to set
-     */
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    /**
-     * @return the usuarios
-     */
-    public List<Usuario> getUsuarios() {
-        usuarios = usuarioService.findAll();
-        return usuarios;
-    }
 
     public void preparaEdicao() {
 
@@ -89,6 +80,7 @@ public class UsuarioBean implements Serializable {
 
     public void delete(long id) throws InterruptedException {
 
+        System.err.println("ANTIGA " + senhaTemporaria + " NOVA: " + usuario.getSenha());
         if (senhaCorresponde()) {
 
             usuario = usuarioService.findById(id);
@@ -115,6 +107,28 @@ public class UsuarioBean implements Serializable {
 
     public void setSenhaTemporaria(String senhaTemporaria) {
         this.senhaTemporaria = senhaTemporaria;
+    }
+
+    public String getNovaSenha() {
+        return novaSenha;
+    }
+
+    public void setNovaSenha(String novaSenha) {
+        this.novaSenha = novaSenha;
+    }
+    /**
+     * @param usuario the usuario to set
+     */
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    /**
+     * @return the usuarios
+     */
+    public List<Usuario> getUsuarios() {
+        usuarios = usuarioService.findAll();
+        return usuarios;
     }
 
     public static String gerarMD5(String password) throws NoSuchAlgorithmException {
