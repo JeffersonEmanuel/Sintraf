@@ -64,7 +64,7 @@ public class UsuarioDAO implements Serializable {
     }
 
     public void update(Usuario usuario) {
-           try {
+        try {
 
             entityManager.getTransaction().begin();
             entityManager.merge(usuario);
@@ -79,10 +79,18 @@ public class UsuarioDAO implements Serializable {
     }
 
     public void delete(Usuario usuario) {
-        entityManager.getTransaction().begin();
-        entityManager.remove(usuario);
-        entityManager.getTransaction().commit();
-        entityManager.close();
+
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.remove(usuario);
+            entityManager.getTransaction().commit();
+
+           JsfUtil.addSuccessMessage("Usuário removido com sucesso!");;
+
+        } catch (Exception e) {
+
+            JsfUtil.addErrorMessage(e.getMessage());
+        }
     }
 
     public List<Usuario> findAll() {

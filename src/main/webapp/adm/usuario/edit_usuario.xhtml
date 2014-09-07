@@ -7,16 +7,17 @@
         <ui:define name="centro">         
 
             <f:metadata>
-                <f:viewParam name="usuario" value="#{usuarioBean.usuario.idUsuario}"/>
+                <f:viewParam name="usuario" value="#{usuarioBean.usuario.idUsuario}" />
                 <f:viewAction action="#{usuarioBean.preparaEdicao}"  />
-                
+
             </f:metadata>
 
 
-            <p:fieldset id="carteirinha" legend="Edição de usuários" style="width: 40%;">
+            <p:panel id="painel_edit_usuario" header="Edição de usuários" style="width: 40%;">
 
                 <h:form id="cadatro_usuario">
-                    <h:panelGrid columns="2" cellpadding="3">
+                    <p:growl id="messages_no_ajax" autoUpdate="true" life="5000" showDetail="false"/>
+                    <h:panelGrid columns="2" cellpadding="2">
 
                         <h:outputText value="Nome: "/>
                         <p:inputText id="nome" size="40" required="true" maxlength="60" value="#{usuarioBean.usuario.nome}"
@@ -26,34 +27,24 @@
                         <p:inputText id="login" size="20" required="true" maxlength="15" value="#{usuarioBean.usuario.login}"
                                      requiredMessage="O login é obrigatório"/>
 
-                        <h:outputText value="Senha: "/>
+                        <h:outputText value="Senha Atual: "/>
                         <p:password id="senha" size="20" required="true" maxlength="10" value="#{usuarioBean.usuario.senha}"
-                                    requiredMessage="A senha deve ser preenchida" />
-                        <p:spacer width="80"/>
-                        <p:commandButton value="Salvar alterações" action="#{usuarioBean.update}" 
-                                         update="messagens" 
-                                         ajax="false"/>
+                                    requiredMessage="A senha atual deve ser preenchida" />
+
+
+                        <h:outputText value="Nova senha: "/>
+                        <p:password id="nova_senha" size="20" required="false" maxlength="10" 
+                                    requiredMessage="A nova senha deve ser preenchida" />
+                        <h:inputHidden value="#{usuarioBean.senhaTemporaria}" id="senha_antiga"/>
                     </h:panelGrid>
+                    <p:spacer width="30"/>
+                    <p:commandButton value="Salvar alterações" action="#{usuarioBean.update}"   update="messages" ajax="false"
+                                     />
+                    <p:button value="Cancelar" outcome="/adm/usuario/lista_usuarios"  style="margin-left: 10px;"/>
+                    <p:commandButton value="Excluir usuário" style="color: #000; margin-left: 10px;" action="#{usuarioBean.delete(usuarioBean.usuario.idUsuario)}" 
+                                     update="messges" ajax="false"/>
                 </h:form>
-            </p:fieldset>
-            <p:spacer width="30"/>
-            <p:fieldset legend="Lista de usuários" toggleable="true" id="lista"
-                        style="width: 40%; " collapsed="true">
-                <h:form id="formUsuario">
-                    <p:dataTable var="user" value="#{usuarioBean.usuarios}" rowKey="#{user.nome}"
-                                 emptyMessage="Não existem usuários cadastrados" >
-                        <p:column headerText="Nome">
-                            <h:outputText value="#{user.nome}" />
-                        </p:column>
-
-                        <p:column headerText="Login">
-                            <h:outputText value="#{user.login}" />
-                        </p:column>
-
-                    </p:dataTable>
-                </h:form>
-            </p:fieldset>
-
+            </p:panel>
         </ui:define>
     </ui:decorate>
 </html>

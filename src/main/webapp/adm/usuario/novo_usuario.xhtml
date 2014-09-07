@@ -11,8 +11,8 @@
                 <h:form id="cadatro_usuario">
                     <h:panelGrid columns="2" cellpadding="3">
 
-                        <h:outputText value="Nome: "/>
-                        <p:inputText id="nome" size="40" required="true" maxlength="60" value="#{usuarioBean.usuario.nome}"
+                        <h:outputText value="Nome: " />
+                        <p:inputText autocomplete="false" id="nome" size="40" required="true" maxlength="60" value="#{usuarioBean.usuario.nome}"
                                      requiredMessage="O nome é obrigatório"/>
 
                         <h:outputText value="Login: "/>

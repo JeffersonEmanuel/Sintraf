@@ -35,7 +35,7 @@ public class AutenticacaoBean {
         
         if(usuarios.isEmpty()){
            
-            JsfUtil.addErrorMessage("Usuário inválidos!");
+            JsfUtil.addErrorMessage("Usuário e/ou senha inválidos!");
             return false;
         
         }
