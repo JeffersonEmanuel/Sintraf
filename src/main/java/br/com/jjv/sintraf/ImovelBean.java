@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.jjv.sintraf;
 
-import br.com.jjv.sintraf.entidades.Associado;
+import br.com.jjv.sintraf.entidades.Socio;
 import br.com.jjv.sintraf.entidades.Imovel;
 import br.com.jjv.sintraf.enumerats.Estados;
+import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -22,7 +24,8 @@ import javax.inject.Inject;
  */
 @ManagedBean
 @RequestScoped
-public class ImovelBean {
+public class ImovelBean implements Serializable{
+
 
     public ImovelBean() {
         imovel = new Imovel();
@@ -47,9 +50,8 @@ public class ImovelBean {
         this.estados = estados;
     }
 
-    public Date getData () {
+    public Date getDiaData() {
         return new Date();
     }
-    
-    
+
 }

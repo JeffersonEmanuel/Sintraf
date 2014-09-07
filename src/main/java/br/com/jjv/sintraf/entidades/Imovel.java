@@ -29,7 +29,7 @@ public class Imovel implements Serializable {
     private String categoriaDeTrabalho;
     private Date dataInicio;
     private Date dataFim;
-    private Associado associadoTrabalhador;
+    private Socio associadoTrabalhador;
     private String municipio;
     private String uf;
 
@@ -108,11 +108,11 @@ public class Imovel implements Serializable {
         this.dataFim = dataFim;
     }
 
-    public Associado getAssociadoTrabalhador() {
+    public Socio getAssociadoTrabalhador() {
         return associadoTrabalhador;
     }
 
-    public void setAssociadoTrabalhador(Associado associadoTrabalhador) {
+    public void setAssociadoTrabalhador(Socio associadoTrabalhador) {
         this.associadoTrabalhador = associadoTrabalhador;
     }
 

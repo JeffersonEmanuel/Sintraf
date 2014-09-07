@@ -1,6 +1,6 @@
 package br.com.jjv.sintraf.beans;
 
-import br.com.jjv.sintraf.entidades.Associado;
+import br.com.jjv.sintraf.entidades.Socio;
 import br.com.jjv.sintraf.entidades.Imovel;
 import br.com.jjv.sintraf.enumerats.Estados;
 import com.google.common.collect.Lists;
@@ -16,14 +16,14 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean
 @RequestScoped
-public class AssociadoBean implements Serializable{
+public class SocioBean implements Serializable{
 
-    private Associado associado;
+    private Socio socio;
     private List<Estados> estados;
     private List<Imovel> imovel;
     
-    public AssociadoBean() {
-        associado = new Associado();
+    public SocioBean() {
+        socio = new Socio();
         this.estados = Arrays.asList(Estados.values());
     }
 
@@ -35,20 +35,12 @@ public class AssociadoBean implements Serializable{
         this.estados = estados;
     }
     
-    public Associado getAssociado() {
-        return associado;
+    public Socio getSocio() {
+        return socio;
     }
 
-    public void setAssociado(Associado associado) {
-        this.associado = associado;
-    }
-
-    public List<Imovel> getImovel() {
-        return imovel;
-    }
-
-    public void setImovel(List<Imovel> imovel) {
-        this.imovel = imovel;
+    public void setSocio(Socio socio) {
+        this.socio = socio;
     }
     
     
