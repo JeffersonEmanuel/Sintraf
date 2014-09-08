@@ -1,0 +1,283 @@
+<html 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputScript name="calendario_pt_BR.js" library="js" />
+        <title>Sintraf/PB</title>
+        <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    </h:head>
+    <h:body >
+
+        <p:fieldset id="ficha" legend="Ficha do Associado">
+
+            <h:form id="form"> 
+                <h:outputLabel value="Associado :" for="auto_complete" />  
+                <p:autoComplete id="auto_complete" value="#{fichaBean.busca}" size="60"   
+                                completeMethod="#{fichaBean.complete}" forceSelection="true"
+                                maxResults="10" effect="fade"/>
+                <p:commandButton value="Imprimir" type="button" icon="ui-icon-print" style="display:block;margin-bottom: 20px"
+                                 >
+                    <p:printer target="ficha_socio" />
+                </p:commandButton>
+
+                <p:panel id="ficha_socio"   visible="true"  style="border: 0px;">
+                    <table width="900" border="1" align="center">
+
+                        <tr>
+
+                            <td height="131" colspan="9"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="9" align="center"><span style="font-size:32px;">Ficha de Associado</span></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td width="60">Nome:</td>
+
+                            <td colspan="8"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="4">Matrícula Sindical Nº:</td>
+
+                            <td width="105">Data de Filiação:</td>
+
+                            <td width="67"></td>
+
+                            <td width="81">Profissão:</td>
+
+                            <td colspan="2"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="2">Filiação Pai:</td>
+
+                            <td colspan="7"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="2">Filiação Mãe:</td>
+
+                            <td colspan="7"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="2">Estado Civil:</td>
+
+                            <td colspan="4"></td>
+
+                            <td>Naturalidade:</td>
+
+                            <td colspan="2"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="2">Endereço:</td>
+
+                            <td colspan="7"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="2">Bairro:</td>
+
+                            <td colspan="4"></td>
+
+                            <td>Cidade:</td>
+
+                            <td colspan="2"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>RG:</td>
+
+                            <td colspan="2"></td>
+
+                            <td width="98">Órgão Emissor:</td>
+
+                            <td colspan="2"></td>
+
+                            <td>CPF:</td>
+
+                            <td colspan="2"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="3">Cartira Profissional Nº: </td>
+
+                            <td colspan="3"></td>
+
+                            <td>Série:</td>
+
+                            <td colspan="2"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="3">Título Eleitoral Nº:</td>
+
+                            <td colspan="2"></td>
+
+                            <td>Zona:</td>
+
+                            <td></td>
+
+                            <td width="63">Sessão:</td>
+
+                            <td width="61"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="3">Data de Nascimento:</td>
+
+                            <td colspan="6"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="3">Trabalha para si mesmo?</td>
+
+                            <td colspan="2"></td>
+
+                            <td colspan="2">Para os outros:</td>
+
+                            <td></td>
+
+                            <td></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="3">Alfabetizado(a):</td>
+
+                            <td colspan="6"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="3">Nome da esposa(o):</td>
+
+                            <td colspan="6"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="2">Meieiro?</td>
+
+                            <td width="92"></td>
+
+                            <td align="center">Arredatário:? </td>
+
+                            <td></td>
+
+                            <td>Foreiro?</td>
+
+                            <td colspan="3"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="2">Parceiro?</td>
+
+                            <td></td>
+
+                            <td colspan="2" align="center">Pequeno proprietário?</td>
+
+                            <td></td>
+
+                            <td colspan="3"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="3">Quantos filhos tem?</td>
+
+                            <td></td>
+
+                            <td>Estudam?</td>
+
+                            <td></td>
+
+                            <td>Que série?</td>
+
+                            <td></td>
+
+                            <td></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="3">Dependentes: </td>
+
+                            <td colspan="6"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="3">Regime de Trabalho:</td>
+
+                            <td></td>
+
+                            <td></td>
+
+                            <td></td>
+
+                            <td></td>
+
+                            <td></td>
+
+                            <td></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td height="85" colspan="3" valign="top">Observação:</td>
+
+                            <td colspan="6" valign="top"></td>
+
+                        </tr>
+
+                    </table>
+                </p:panel>
+
+            </h:form>
+        </p:fieldset>
+    </h:body>
+</html>

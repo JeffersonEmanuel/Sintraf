@@ -29,7 +29,7 @@
 
                         <p:menuitem value="Inicio"  icon="ui-icon-home" url="/adm/index.jsf" />
 
-                        <p:submenu label="Associados" icon="ui-icon-person">
+                        <p:submenu label="Sócios" icon="ui-icon-person">
                             <p:menuitem value="Cadastrar novo" url="/adm/associado/novo_associado.jsf" icon="ui-icon-document" />
                             <p:menuitem value="Pesquisar " url="#" icon="ui-icon-search" />
                         </p:submenu>
@@ -40,9 +40,10 @@
                             <p:menuitem value="Receber" url="#" icon="ui-icon-tag" />
                         </p:submenu>
 
-                        <p:submenu label="Declarações" icon="ui-icon-document">
+                        <p:submenu label="Documentos" icon="ui-icon-document">
                             <p:menuitem value="Emitir declaração" icon="ui-icon-note"/>
                             <p:menuitem value="Ver declarações" icon="ui-icon-search"/>
+                            <p:menuitem value="Imprimir Ficha" outcome="/adm/ficha/ficha_associado.jsf" icon="ui-icon-contact"/>
                         </p:submenu>
 
                         <p:submenu label="Usuários" icon="ui-icon-person">

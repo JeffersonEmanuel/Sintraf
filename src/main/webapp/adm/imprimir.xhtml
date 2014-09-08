@@ -8,20 +8,18 @@
             <p:commandButton value="Imprimir" type="button" icon="ui-icon-print" style="display:block;margin-bottom: 20px">
                 <p:printer target="carteirinha" />
             </p:commandButton>
- 
-            <p:fieldset id="carteirinha" legend="Carteirinha do Associado">
-                
-                Nome: Vanderlan
-                
-            </p:fieldset>
-            
-            <h:form id="formulario">
-                
-                <p:commandButton value="Teste" action="#{usuarioBean.create}" process="@this"/>
-                
-            </h:form>
-                
 
+            <p:fieldset id="carteirinha" legend="Carteirinha do Associado">
+
+                Nome: Vanderlan
+
+            </p:fieldset>
+
+            <h:form id="formulario">
+
+                <p:commandButton value="Teste" action="#{usuarioBean.create}" process="@this"/>
+
+            </h:form>
         </ui:define>
     </ui:decorate>
 </html>
