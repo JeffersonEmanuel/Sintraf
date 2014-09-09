@@ -202,39 +202,39 @@
                             <h:panelGrid styleClass="formulario_cadastro" cellpadding="5" columns="2">
 
                                 <h:outputText value="Nome: "/>
-                                <p:inputText value="#{imovelBean.imovel.nome}"/>
+                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.nome}"/>
                                 <h:outputText value="Nº de Registro: "/>
-                                <p:inputText value="#{imovelBean.imovel.numeroDeRegistro}"/>
+                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.numeroDeRegistro}"/>
                                 <h:outputText value="Tamanho do Imóvel: "/>
-                                <p:inputText value="#{imovelBean.imovel.tamanhoDoImovel}"/>
+                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.tamanhoDoImovel}"/>
                                 <h:outputText value="Tamanho trabalhado: "/>
-                                <p:inputText value="#{imovelBean.imovel.tamanhoDaAreaTrabalhada}"/>
+                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.tamanhoDaAreaTrabalhada}"/>
                                 <h:outputText value="Município: "/>
-                                <p:inputText value="#{imovelBean.imovel.cidade}"/>
+                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.cidade}"/>
                                 <h:outputText value="UF: "/>
-                                <p:selectOneMenu id="ufLocalTrabalho" value="#{imovelBean.imovel.cidadeUF}">
+                                <p:selectOneMenu id="ufLocalTrabalho" value="#{localDeTrabalhoBean.localDeTrabalho.cidadeUF}">
                                     <f:selectItem itemLabel="Selecione"/>
                                     <f:selectItems var="uf" value="#{socioBean.estados}" 
                                                    itemLabel="#{uf}" itemValue="#{uf}"
                                                    />
                                 </p:selectOneMenu>
                                 <h:outputText value="Nome do proprietário: "/>
-                                <p:inputText value="#{imovelBean.imovel.nomeProprietario}"/>
+                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.nomeProprietario}"/>
                                 <h:outputText value="CPF do proprietário: "/>
-                                <p:inputText value="#{imovelBean.imovel.cpfProprietario}"/>
+                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.cpfProprietario}"/>
                                  <p:column colspan="2">
                                     <h:outputText value="Data do início: "/>
                                     <p:calendar locale="pt_BR" navigator="true" 
                                                 pattern="dd/mm/yyyy" mask="true" 
-                                                value="#{imovelBean.imovel.dataInicio}"
-                                                maxdate="#{imovelBean.diaData}"/>
+                                                value="#{localDeTrabalhoBean.localDeTrabalho.dataInicio}"
+                                                maxdate="#{localDeTrabalhoBean.diaData}"/>
                                 </p:column>
                                  <p:column colspan="2">
                                     <h:outputText value="Data do termino: "/>
                                     <p:calendar locale="pt_BR" navigator="true" 
                                                 pattern="dd/mm/yyyy" mask="true" 
-                                                value="#{imovelBean.imovel.dataFim}"
-                                                mindate="#{imovelBean.diaData}"/>
+                                                value="#{localDeTrabalhoBean.localDeTrabalho.dataFim}"
+                                                mindate="#{localDeTrabalhoBean.diaData}"/>
                                 </p:column>
                             </h:panelGrid>
 

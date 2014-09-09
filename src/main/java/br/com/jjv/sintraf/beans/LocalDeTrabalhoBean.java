@@ -3,43 +3,38 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.jjv.sintraf;
+package br.com.jjv.sintraf.beans;
 
-import br.com.jjv.sintraf.entidades.Socio;
 import br.com.jjv.sintraf.entidades.LocalDeTrabalho;
 import br.com.jjv.sintraf.enumerats.Estados;
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.inject.Inject;
 
 /**
  *
  * @author jefferson
  */
-@ManagedBean
+@ManagedBean(name = "localDeTrabalhoBean")
 @RequestScoped
-public class ImovelBean implements Serializable{
+public class LocalDeTrabalhoBean implements Serializable {
 
-
-    public ImovelBean() {
-        imovel = new LocalDeTrabalho();
+    public LocalDeTrabalhoBean() {
+        localDeTrabalho = new LocalDeTrabalho();
         this.estados = Arrays.asList(Estados.values());
     }
     private List<Estados> estados;
-    private LocalDeTrabalho imovel;
+    private LocalDeTrabalho localDeTrabalho;
 
-    public LocalDeTrabalho getImovel() {
-        return imovel;
+    public LocalDeTrabalho getLocalDeTrabalho() {
+        return localDeTrabalho;
     }
 
-    public void setImovel(LocalDeTrabalho imovel) {
-        this.imovel = imovel;
+    public void setLocalDeTrabalho(LocalDeTrabalho localDeTrabalho) {
+        this.localDeTrabalho = localDeTrabalho;
     }
 
     public List<Estados> getEstados() {
