@@ -1,8 +1,9 @@
 package br.com.jjv.sintraf.beans;
 
 import br.com.jjv.sintraf.entidades.Socio;
-import br.com.jjv.sintraf.entidades.Imovel;
+import br.com.jjv.sintraf.entidades.LocalDeTrabalho;
 import br.com.jjv.sintraf.enumerats.Estados;
+import br.com.jjv.sintraf.services.SocioService;
 import com.google.common.collect.Lists;
 import java.io.Serializable;
 import java.util.Arrays;
@@ -20,9 +21,11 @@ public class SocioBean implements Serializable{
 
     private Socio socio;
     private List<Estados> estados;
-    private List<Imovel> imovel;
+    private List<LocalDeTrabalho> imovel;
+    private SocioService service;
     
     public SocioBean() {
+        service = new SocioService();
         socio = new Socio();
         this.estados = Arrays.asList(Estados.values());
     }
@@ -43,6 +46,8 @@ public class SocioBean implements Serializable{
         this.socio = socio;
     }
     
-    
+    public void salvar () {
+        service.create(socio);
+    }
 
 }

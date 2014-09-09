@@ -7,12 +7,15 @@ package br.com.jjv.sintraf.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,7 +31,7 @@ import javax.validation.constraints.Size;
 public class Socio implements Serializable {
 
     @Id
-    @Column(name = "id_sc_matricula")
+    @Column(name = "id_sc_matricula", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long matricula;
 
@@ -139,7 +142,9 @@ public class Socio implements Serializable {
     private String regimeDeTrabalho;
     
     @Column(name = "sc_lical_trabalho_atual")
-    private String localDeTrabalho;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "sc_id")
+    private List<LocalDeTrabalho> localDeTrabalho;
     
     @Size(max = 25)
     @Column(name = "sc_apelido", length = 25, nullable = true)
@@ -170,11 +175,11 @@ public class Socio implements Serializable {
         this.rgUF = rgUF;
     }
 
-    public String getLocalDeTrabalho() {
+    public List<LocalDeTrabalho> getLocalDeTrabalho() {
         return localDeTrabalho;
     }
 
-    public void setLocalDeTrabalho(String localDeTrabalho) {
+    public void setLocalDeTrabalho(List<LocalDeTrabalho> localDeTrabalho) {
         this.localDeTrabalho = localDeTrabalho;
     }
 

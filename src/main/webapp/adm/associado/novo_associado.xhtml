@@ -50,7 +50,7 @@
                                              size="80" />
 
                                 <h:outputText  value="UF: "/>
-                                <p:selectOneMenu id="uf" value="#{socioBean.socio.ufLocalNascimento}">
+                                <p:selectOneMenu id="uf" value="#{socioBean.socio.naturalidadeUF}">
                                     <f:selectItem itemLabel="Selecione"/>
                                     <f:selectItems var="uf" value="#{socioBean.estados}" 
                                                    itemLabel="#{uf}" itemValue="#{uf}"
@@ -70,7 +70,7 @@
                                              size="40" />
 
                                 <h:outputText value="UF: "/>
-                                <p:selectOneMenu id="ufEndereco" value="#{socioBean.socio.ufEndereco}">
+                                <p:selectOneMenu id="ufEndereco" value="#{socioBean.socio.cidadeUF}">
                                     <f:selectItem itemLabel="Selecione"/>
                                     <f:selectItems var="uf" value="#{socioBean.estados}" 
                                                    itemLabel="#{uf}" itemValue="#{uf}"
@@ -184,7 +184,7 @@
                                     <h:outputText value="Série: "/>
                                     <p:inputText value="#{socioBean.socio.carteiraProfissionalSerie}" style="margin-right: 40px"/>
                                     <h:outputText value="UF: " style="margin-left: 36px; margin-right: 2px"/>
-                                    <p:selectOneMenu id="ufProfissional" value="#{socioBean.socio.ufCarteiraProfissional}">
+                                    <p:selectOneMenu id="ufProfissional" value="#{socioBean.socio.carteiraProficionalUF}">
                                     <f:selectItem itemLabel="Selecione"/>
                                     <f:selectItems var="uf" value="#{socioBean.estados}" 
                                                    itemLabel="#{uf}" itemValue="#{uf}"
@@ -210,9 +210,9 @@
                                 <h:outputText value="Tamanho trabalhado: "/>
                                 <p:inputText value="#{imovelBean.imovel.tamanhoDaAreaTrabalhada}"/>
                                 <h:outputText value="Município: "/>
-                                <p:inputText value="#{imovelBean.imovel.municipio}"/>
+                                <p:inputText value="#{imovelBean.imovel.cidade}"/>
                                 <h:outputText value="UF: "/>
-                                <p:selectOneMenu id="ufLocalTrabalho" value="#{imovelBean.imovel.uf}">
+                                <p:selectOneMenu id="ufLocalTrabalho" value="#{imovelBean.imovel.cidadeUF}">
                                     <f:selectItem itemLabel="Selecione"/>
                                     <f:selectItems var="uf" value="#{socioBean.estados}" 
                                                    itemLabel="#{uf}" itemValue="#{uf}"

@@ -6,7 +6,7 @@
 package br.com.jjv.sintraf;
 
 import br.com.jjv.sintraf.entidades.Socio;
-import br.com.jjv.sintraf.entidades.Imovel;
+import br.com.jjv.sintraf.entidades.LocalDeTrabalho;
 import br.com.jjv.sintraf.enumerats.Estados;
 import java.io.Serializable;
 import java.text.DateFormat;
@@ -28,17 +28,17 @@ public class ImovelBean implements Serializable{
 
 
     public ImovelBean() {
-        imovel = new Imovel();
+        imovel = new LocalDeTrabalho();
         this.estados = Arrays.asList(Estados.values());
     }
     private List<Estados> estados;
-    private Imovel imovel;
+    private LocalDeTrabalho imovel;
 
-    public Imovel getImovel() {
+    public LocalDeTrabalho getImovel() {
         return imovel;
     }
 
-    public void setImovel(Imovel imovel) {
+    public void setImovel(LocalDeTrabalho imovel) {
         this.imovel = imovel;
     }
 

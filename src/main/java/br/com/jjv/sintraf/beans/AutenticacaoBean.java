@@ -25,8 +25,8 @@ public class AutenticacaoBean {
     }
 
     private void iniciarComponentes() {
-        usuarioDao = new UsuarioDAO();
-        user = new Usuario();
+//        usuarioDao = new UsuarioDAO();
+//        user = new Usuario();
     }
     
     public boolean autenticacao(){

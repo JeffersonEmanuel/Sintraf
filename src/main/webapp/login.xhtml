@@ -19,12 +19,12 @@
                 <p:growl id="mensagens" life="5000"/>
                 <h:panelGrid columns="2" cellpadding="5">
                     <p:outputLabel for="username" value="Usuario:" /> 
-                    <p:inputText id="username" required="true" size="15" maxlength="15" value="#{autenticacaoBean.user.login}"/>
+                    <p:inputText id="username" required="true" size="15" maxlength="15"/>
 
                     <p:outputLabel for="password" value="Senha:" />
-                    <p:password id="password" required="true" size="15" maxlength="10" value="#{autenticacaoBean.user.senha}"/>
+                    <p:password id="password" required="true" size="15" maxlength="10"/>
                     <p:spacer width="30"/>
-                    <p:commandButton value="Entrar" actionListener="#{autenticacaoBean.autenticacao()}"
+                    <p:commandButton value="Entrar"
                                      update="mensagens"/>
                     <p:button value="Atalho ^^" outcome="/adm/index.jsf"/>
                 </h:panelGrid>
