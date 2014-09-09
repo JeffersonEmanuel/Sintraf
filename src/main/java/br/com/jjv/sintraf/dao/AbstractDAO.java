@@ -17,12 +17,10 @@ public abstract class AbstractDAO<T> {
 
     private EntityManager entityManager;
     private Class<T> entity;
-    private EntityManagerProducer entityManagerProducer;
     
     public AbstractDAO(Class<T> entityClass) {
         this.entity = entityClass;
-        entityManagerProducer = new EntityManagerProducer();
-        entityManager = entityManagerProducer.create();
+        entityManager = EntityManagerProducer.getEntityManager();
     }
 
     public void create(T entity) {
@@ -32,7 +30,7 @@ public abstract class AbstractDAO<T> {
     }
 
     public void update(T entity) {
-        entityManager.refresh(entity);
+        entityManager.merge(entity);
         entityManager.getTransaction().commit();
     }
 

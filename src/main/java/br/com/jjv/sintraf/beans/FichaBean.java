@@ -17,11 +17,9 @@ public class FichaBean {
 
     private String busca;
     private EntityManager entityManager;
-    private EntityManagerProducer entityManagerProducer;
     
     public FichaBean() {
-        entityManagerProducer = new EntityManagerProducer();
-        entityManager = entityManagerProducer.create();
+        entityManager = EntityManagerProducer.getEntityManager();
     
     }
     
