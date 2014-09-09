@@ -13,9 +13,8 @@ public class Inicio {
     
     public static void main(String[] args) {
       
-        EntityManagerProducer em = new EntityManagerProducer();
         
-        EntityManager en = em.create();
+        EntityManager en = EntityManagerProducer.getEntityManager();
         
         Usuario user = new Usuario();
         user.setLogin("Vanderlan");
