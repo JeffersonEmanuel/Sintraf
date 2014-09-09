@@ -101,10 +101,10 @@ public class Socio implements Serializable {
     private String rgUF;
 
     @Column(name = "sc_cateira_profissional", nullable = true)
-    private int carteiraProfissional;
+    private Integer carteiraProfissional;
 
     @Column(name = "sc_carteira_profissional_serie", nullable = true)
-    private int carteiraProfissionalSerie;
+    private Integer carteiraProfissionalSerie;
 
     @Size(max = 2)
     @Column(name = "sc_carteira_profissional_uf", length = 2, nullable = true)
@@ -120,11 +120,11 @@ public class Socio implements Serializable {
 
     @Size(max = 5)
     @Column(name = "sc_titulo_eleitoral_zona", length = 5, nullable = true)
-    private int tituloEleitoralZona;
+    private Integer tituloEleitoralZona;
 
     @Size(max = 5)
     @Column(name = "sc_titulo_eleitoral_sessao", length = 5, nullable = true)
-    private int tituloEleitoralSessao;
+    private Integer tituloEleitoralSessao;
 
     @Size(max = 15)
     @Column(name = "sc_estado_civil", length = 15, nullable = true)
@@ -141,9 +141,7 @@ public class Socio implements Serializable {
     @Column(name = "sc_regime_trabalho", length = 15, nullable = true)
     private String regimeDeTrabalho;
     
-    @Column(name = "sc_lical_trabalho_atual")
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "sc_id")
+    @OneToMany(mappedBy = "socioID",cascade = CascadeType.ALL)
     private List<LocalDeTrabalho> localDeTrabalho;
     
     @Size(max = 25)
@@ -153,14 +151,14 @@ public class Socio implements Serializable {
     @Column(name = "sc_alfabetizado")
     private boolean alfabetizado;
 
-    @Column(name = "sc_ quantidade_filhos", nullable = true)
-    private int quantidadeDeFilhos;
+    @Column(name = "sc_quantidade_filhos", nullable = true)
+    private Integer quantidadeDeFilhos;
     
     @Column(name = "sc_quantidade_filhos_estudando",nullable = true)
-    private int quantidadeDeFilhosEstudando;
+    private Integer quantidadeDeFilhosEstudando;
     
     @Column(name = "sc_dependentes", nullable = true)
-    private int dependentes;
+    private Integer dependentes;
     
     @Size(max = 255)
     @Column(name = "sc_observacoes", length = 255, nullable = true)
@@ -299,11 +297,11 @@ public class Socio implements Serializable {
         this.trabalhoProprio = trabalhoProprio;
     }
 
-    public int getTituloEleitoralZona() {
+    public Integer getTituloEleitoralZona() {
         return tituloEleitoralZona;
     }
 
-    public void setTituloEleitoralZona(int tituloEleitoralZona) {
+    public void setTituloEleitoralZona(Integer tituloEleitoralZona) {
         this.tituloEleitoralZona = tituloEleitoralZona;
     }
 
@@ -315,19 +313,19 @@ public class Socio implements Serializable {
         this.nomeConjugue = nomeConjugue;
     }
 
-    public int getQuantidadeDeFilhos() {
+    public Integer getQuantidadeDeFilhos() {
         return quantidadeDeFilhos;
     }
 
-    public void setQuantidadeDeFilhos(int quantidadeDeFilhos) {
+    public void setQuantidadeDeFilhos(Integer quantidadeDeFilhos) {
         this.quantidadeDeFilhos = quantidadeDeFilhos;
     }
 
-    public int getDependentes() {
+    public Integer getDependentes() {
         return dependentes;
     }
 
-    public void setDependentes(int dependentes) {
+    public void setDependentes(Integer dependentes) {
         this.dependentes = dependentes;
     }
 
@@ -355,11 +353,11 @@ public class Socio implements Serializable {
         this.observacoes = observacoes;
     }
 
-    public int getCarteiraProfissional() {
+    public Integer getCarteiraProfissional() {
         return carteiraProfissional;
     }
 
-    public void setCarteiraProfissional(int carteiraProfissional) {
+    public void setCarteiraProfissional(Integer carteiraProfissional) {
         this.carteiraProfissional = carteiraProfissional;
     }
 
@@ -371,11 +369,11 @@ public class Socio implements Serializable {
         this.bairro = bairro;
     }
 
-    public int getTituloEleitoralSessao() {
+    public Integer getTituloEleitoralSessao() {
         return tituloEleitoralSessao;
     }
 
-    public void setTituloEleitoralSessao(int tituloEleitoralSessao) {
+    public void setTituloEleitoralSessao(Integer tituloEleitoralSessao) {
         this.tituloEleitoralSessao = tituloEleitoralSessao;
     }
 
@@ -411,19 +409,19 @@ public class Socio implements Serializable {
         this.rgOrgaoEmissor = rgOrgaoEmissor;
     }
 
-    public int getCarteiraProfissionalSerie() {
+    public Integer getCarteiraProfissionalSerie() {
         return carteiraProfissionalSerie;
     }
 
-    public void setCarteiraProfissionalSerie(int carteiraProfissionalSerie) {
+    public void setCarteiraProfissionalSerie(Integer carteiraProfissionalSerie) {
         this.carteiraProfissionalSerie = carteiraProfissionalSerie;
     }
 
-    public int getQuantidadeDeFilhosEstudando() {
+    public Integer getQuantidadeDeFilhosEstudando() {
         return quantidadeDeFilhosEstudando;
     }
 
-    public void setQuantidadeDeFilhosEstudando(int quantidadeDeFilhosEstudando) {
+    public void setQuantidadeDeFilhosEstudando(Integer quantidadeDeFilhosEstudando) {
         this.quantidadeDeFilhosEstudando = quantidadeDeFilhosEstudando;
     }
 

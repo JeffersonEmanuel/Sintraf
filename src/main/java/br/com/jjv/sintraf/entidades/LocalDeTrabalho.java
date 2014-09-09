@@ -37,6 +37,7 @@ public class LocalDeTrabalho implements Serializable {
     private Long ID;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "sc_id")
     private Socio socioID;
 
     @Size(max = 45)
