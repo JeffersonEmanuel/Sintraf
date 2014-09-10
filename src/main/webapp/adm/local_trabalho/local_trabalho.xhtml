@@ -1,0 +1,59 @@
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" /> 
+    <ui:decorate template="../template/template.xhtml">
+        <ui:define name="centro">        
+            <h:form id="cadastroSocio">
+
+                        <p:panel header="Cadastro do Imóvel Rural">
+                            <h:panelGrid styleClass="formulario_cadastro" cellpadding="5" columns="2">
+                                <p:inputText value=""/>
+                                <h:outputText value="Nome: "/>
+                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.nome}"/>
+                                <h:outputText value="Nº de Registro: "/>
+                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.numeroDeRegistro}"/>
+                                <h:outputText value="Tamanho do Imóvel: "/>
+                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.tamanhoDoImovel}"/>
+                                <h:outputText value="Tamanho trabalhado: "/>
+                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.tamanhoDaAreaTrabalhada}"/>
+                                <h:outputText value="Município: "/>
+                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.cidade}"/>
+                                <h:outputText value="UF: "/>
+                                <p:selectOneMenu id="ufLocalTrabalho" value="#{localDeTrabalhoBean.localDeTrabalho.cidadeUF}">
+                                    <f:selectItem itemLabel="Selecione"/>
+                                    <f:selectItems var="uf" value="#{associadoBean.estados}" 
+                                                   itemLabel="#{uf}" itemValue="#{uf}"
+                                                   />
+                                </p:selectOneMenu>
+                                <h:outputText value="Nome do proprietário: "/>
+                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.nomeProprietario}"/>
+                                <h:outputText value="CPF do proprietário: "/>
+                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.cpfProprietario}"/>
+                                 <p:column colspan="2">
+                                    <h:outputText value="Data do início: "/>
+                                    <p:calendar locale="pt_BR" navigator="true" 
+                                                pattern="dd/mm/yyyy" mask="true" 
+                                                value="#{localDeTrabalhoBean.localDeTrabalho.dataInicio}"
+                                                maxdate="#{localDeTrabalhoBean.diaData}"/>
+                                </p:column>
+                                 <p:column colspan="2">
+                                    <h:outputText value="Data do termino: "/>
+                                    <p:calendar locale="pt_BR" navigator="true" 
+                                                pattern="dd/mm/yyyy" mask="true" 
+                                                value="#{localDeTrabalhoBean.localDeTrabalho.dataFim}"
+                                                mindate="#{localDeTrabalhoBean.diaData}"/>
+                                </p:column>
+                            </h:panelGrid>
+
+                        </p:panel>
+
+
+
+            </h:form>
+        </ui:define>
+    </ui:decorate>
+</html>

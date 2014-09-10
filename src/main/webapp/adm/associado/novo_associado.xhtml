@@ -17,91 +17,92 @@
 
                                 <p:column colspan="2" >
                                     <h:outputText value="Matrícula: "/>
-                                    <h:outputText value="1" style="color: red"/>
+                                    <h:outputText value="#{associadoBean.associado.matricula}" style="color: red"/>
                                 </p:column>
 
                                 <p:column colspan="2">
                                     <h:outputText value="Data de filiação: "/>
                                     <p:calendar locale="pt_BR" navigator="true" 
                                                 pattern="dd/mm/yyyy" mask="true" 
-                                                value="#{socioBean.socio.dataDeFiliacao}"/>
+                                                value="#{associadoBean.associado.dataDeFiliacao}" 
+                                                required="true" requiredMessage="Necessário inserir a data de Filiação"/>
                                 </p:column>
 
 
                                 <h:outputText value="Nome: "/>
-                                <p:inputText value="#{socioBean.socio.nome}"
+                                <p:inputText value="#{associadoBean.associado.nome}"
                                              />
 
                                 <h:outputText value="Nome da mãe: "/>
-                                <p:inputText value="#{socioBean.socio.nomeDaMae}"
+                                <p:inputText value="#{associadoBean.associado.nomeDaMae}"
                                              size="60" />
 
                                 <h:outputText value="Nome do pai: "/>
-                                <p:inputText value="#{socioBean.socio.nomeDoPai}"
+                                <p:inputText value="#{associadoBean.associado.nomeDoPai}"
                                              size="60" />
 
                                 <h:outputText value="Nome do cônjugue: "/>
-                                <p:inputText value="#{socioBean.socio.nomeConjugue}"
+                                <p:inputText value="#{associadoBean.associado.nomeConjugue}"
                                              size="60" />
 
 
                                 <h:outputText value="Naturalidade: "/>
-                                <p:inputText value="#{socioBean.socio.naturalidade}"
+                                <p:inputText value="#{associadoBean.associado.naturalidade}"
                                              size="80" />
 
                                 <h:outputText  value="UF: "/>
-                                <p:selectOneMenu id="uf" value="#{socioBean.socio.naturalidadeUF}">
+                                <p:selectOneMenu id="uf" value="#{associadoBean.associado.naturalidadeUF}">
                                     <f:selectItem itemLabel="Selecione"/>
-                                    <f:selectItems var="uf" value="#{socioBean.estados}" 
+                                    <f:selectItems var="uf" value="#{associadoBean.estados}" 
                                                    itemLabel="#{uf}" itemValue="#{uf}"
                                                    />
                                 </p:selectOneMenu>
 
                                 <h:outputText value="Endereço: "/>
-                                <p:inputText value="#{socioBean.socio.endereco}" 
+                                <p:inputText value="#{associadoBean.associado.endereco}" 
                                              size="80" />
 
                                 <h:outputText value="Bairro: "/>
-                                <p:inputText value="#{socioBean.socio.bairro}"
+                                <p:inputText value="#{associadoBean.associado.bairro}"
                                              size="45" />
 
                                 <h:outputText value="Cidade: "/>
-                                <p:inputText value="#{socioBean.socio.cidade}"
+                                <p:inputText value="#{associadoBean.associado.cidade}"
                                              size="40" />
 
                                 <h:outputText value="UF: "/>
-                                <p:selectOneMenu id="ufEndereco" value="#{socioBean.socio.cidadeUF}">
+                                <p:selectOneMenu id="ufEndereco" value="#{associadoBean.associado.cidadeUF}">
                                     <f:selectItem itemLabel="Selecione"/>
-                                    <f:selectItems var="uf" value="#{socioBean.estados}" 
+                                    <f:selectItems var="uf" value="#{associadoBean.estados}" 
                                                    itemLabel="#{uf}" itemValue="#{uf}"
                                                    />
                                 </p:selectOneMenu>
 
                                 <h:outputText value="Profissão: "/>
-                                <p:inputText value="#{socioBean.socio.profissao}"
+                                <p:inputText value="#{associadoBean.associado.profissao}"
                                              size="30" />
 
                                 <h:outputText value="Trabalho proprío: "/>
-                                <p:selectBooleanButton value="#{socioBean.socio.trabalhoProprio}"
+                                <p:selectBooleanButton value="#{associadoBean.associado.trabalhoProprio}"
                                                        onLabel="Sim" 
                                                        onIcon="ui-icon-check" offLabel="Não" 
                                                        offIcon="ui-icon-close"/>
 
                                 <h:outputText value="Quantidades de filhos: "/>
-                                <p:spinner value="#{socioBean.socio.quantidadeDeFilhos}"
+                                <p:spinner value="#{associadoBean.associado.quantidadeDeFilhos}"
                                            min="0"/>
 
                                 <h:outputText value="Quantidades de dependentes: "/>
-                                <p:spinner value="#{socioBean.socio.dependentes}" 
+                                <p:spinner value="#{associadoBean.associado.dependentes}" 
                                            min="0"/>
 
                                 <h:outputText value="Data de nascimento: "/>
                                 <p:calendar locale="pt_BR" navigator="true" 
                                             pattern="dd/mm/yyyy" mask="true"
-                                            value="#{socioBean.socio.dataDeNascimento}"/>
+                                            value="#{associadoBean.associado.dataDeNascimento}"/>
 
                                 <h:outputText value="Apelido: "/>
-                                <p:inputText value="#{socioBean.socio.apelido}"
+                                <p:inputText value="#{associadoBean.associado.apelido}"
                                              size="60" />
 
                                 <h:outputText value="Estado Cívil: "/>
@@ -109,28 +110,28 @@
                                     <f:selectItem itemLabel="Casado(a)"/>
                                     <f:selectItem itemLabel="União Estável(a)"/>
                                     <f:selectItem itemLabel="Solteiro(a)"
-                                                  value="#{socioBean.socio.estadoCivil}"/>
+                                                  value="#{associadoBean.associado.estadoCivil}"/>
                                 </p:selectOneMenu>
 
                                 <h:outputText value="Alfabetizado: "/>
                                 <p:selectBooleanButton onLabel="Sim" 
                                                        onIcon="ui-icon-check" offLabel="Não" 
                                                        offIcon="ui-icon-close"
-                                                       value="#{socioBean.socio.alfabetizado}"/>
+                                                       value="#{associadoBean.associado.alfabetizado}"/>
 
                                 <h:outputText value="Quantidades de filhos estudando: "/>
-                                <p:spinner value="#{socioBean.socio.quantidadeDeFilhosEstudando}"
+                                <p:spinner value="#{associadoBean.associado.quantidadeDeFilhosEstudando}"
                                            min="0"/>
 
                                 <h:outputText value="Regime de Trabalho: "/>
-                                <p:inputText value="#{socioBean.socio.regimeDeTrabalho}"/>
+                                <p:inputText value="#{associadoBean.associado.regimeDeTrabalho}"/>
 
                                 <h:outputText value="Local de trabalho: "/>
-                                <p:inputText value="#{socioBean.socio.localDeTrabalho}"/>
+                                <p:inputText value="#{associadoBean.associado.localDeTrabalho}"/>
 
                                 <h:outputText value="Observações: "/>
                                 <p:inputTextarea maxlength="255" style="width: 450" 
-                                                 value="#{socioBean.socio.observacoes}"
+                                                 value="#{associadoBean.associado.observacoes}"
                                                  rows="5" autoResize="false"/>
 
 
@@ -145,51 +146,51 @@
 
                                 <p:column>
                                     <h:outputText value="CPF: "/>
-                                    <p:inputMask value="#{socioBean.socio.cpf}" 
+                                    <p:inputMask value="#{associadoBean.associado.cpf}" 
                                                  mask="999.999.999-99"/>
                                 </p:column>
 
                                 <h:panelGroup >
                                     <h:outputText value="RG: "/>
-                                    <p:inputText value="#{socioBean.socio.rg}" 
+                                    <p:inputText value="#{associadoBean.associado.rg}" 
                                                  style="margin-right: 40px; margin-left: 5px"/>
                                     <h:outputText value="Orgão Emissor: "/>
-                                    <p:inputText value="#{socioBean.socio.rgOrgaoEmissor}" style="margin-right: 40px"/>
-                                  
+                                    <p:inputText value="#{associadoBean.associado.rgOrgaoEmissor}" style="margin-right: 40px"/>
+
                                     <h:outputText value="UF: " style="margin-left: 36px; margin-right: 2px"/>
-                                    <p:selectOneMenu id="ufRG" value="#{socioBean.socio.rgUF}">
-                                    <f:selectItem itemLabel="Selecione"/>
-                                    <f:selectItems var="uf" value="#{socioBean.estados}" 
-                                                   itemLabel="#{uf}" itemValue="#{uf}"
-                                                   />
-                                </p:selectOneMenu>
+                                    <p:selectOneMenu id="ufRG" value="#{associadoBean.associado.rgUF}">
+                                        <f:selectItem itemLabel="Selecione"/>
+                                        <f:selectItems var="uf" value="#{associadoBean.estados}" 
+                                                       itemLabel="#{uf}" itemValue="#{uf}"
+                                                       />
+                                    </p:selectOneMenu>
                                 </h:panelGroup>
 
                                 <h:panelGroup >
                                     <h:outputText value="Titulo: " style="margin-left: -20px"/>
-                                    <p:inputText value="#{socioBean.socio.tituloEleitoral}" 
+                                    <p:inputText value="#{associadoBean.associado.tituloEleitoral}" 
                                                  style="margin-right: 40px; margin-left: 5px"/>
                                     <h:outputText value="Zona: " style="margin-left: 77px"/>
-                                    <p:inputText value="#{socioBean.socio.tituloEleitoralZona}" 
+                                    <p:inputText value="#{associadoBean.associado.tituloEleitoralZona}" 
                                                  style="margin-right: 40px"/>
                                     <h:outputText value="Sessão: "/>
-                                    <p:inputText value="#{socioBean.socio.tituloEleitoralSessao}" style="margin-right: 40px"/>
+                                    <p:inputText value="#{associadoBean.associado.tituloEleitoralSessao}" style="margin-right: 40px"/>
                                 </h:panelGroup>
 
                                 <h:panelGroup >
                                     <h:outputText value="Profissional: " 
                                                   style="margin-left: -58px"/>
-                                    <p:inputText value="#{socioBean.socio.carteiraProfissional}" 
+                                    <p:inputText value="#{associadoBean.associado.carteiraProfissional}" 
                                                  style="margin-right: 116px; margin-left: 5px"/>
                                     <h:outputText value="Série: "/>
-                                    <p:inputText value="#{socioBean.socio.carteiraProfissionalSerie}" style="margin-right: 40px"/>
+                                    <p:inputText value="#{associadoBean.associado.carteiraProfissionalSerie}" style="margin-right: 40px"/>
                                     <h:outputText value="UF: " style="margin-left: 36px; margin-right: 2px"/>
-                                    <p:selectOneMenu id="ufProfissional" value="#{socioBean.socio.carteiraProficionalUF}">
-                                    <f:selectItem itemLabel="Selecione"/>
-                                    <f:selectItems var="uf" value="#{socioBean.estados}" 
-                                                   itemLabel="#{uf}" itemValue="#{uf}"
-                                                   />
-                                </p:selectOneMenu>
+                                    <p:selectOneMenu id="ufProfissional" value="#{associadoBean.associado.carteiraProficionalUF}">
+                                        <f:selectItem itemLabel="Selecione"/>
+                                        <f:selectItems var="uf" value="#{associadoBean.estados}" 
+                                                       itemLabel="#{uf}" itemValue="#{uf}"
+                                                       />
+                                    </p:selectOneMenu>
                                 </h:panelGroup>
 
 
@@ -197,47 +198,25 @@
                         </p:panel>
                     </p:tab>
 
-                    <p:tab id="dadosDoImovel" title="Dados do Imóvel" >
-                        <p:panel header="Cadastro do Imóvel Rural">
-                            <h:panelGrid styleClass="formulario_cadastro" cellpadding="5" columns="2">
+                    <p:tab id="dadosDoImovel" title="Finalizar Cadastro" >
+                        <p:panel header="Finalizar Cadastro">
+                            <p:button value="Imprimir Ficha de Associado"
+                                      outcome="/adm/ficha/ficha_associado.jsf">
 
-                                <h:outputText value="Nome: "/>
-                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.nome}"/>
-                                <h:outputText value="Nº de Registro: "/>
-                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.numeroDeRegistro}"/>
-                                <h:outputText value="Tamanho do Imóvel: "/>
-                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.tamanhoDoImovel}"/>
-                                <h:outputText value="Tamanho trabalhado: "/>
-                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.tamanhoDaAreaTrabalhada}"/>
-                                <h:outputText value="Município: "/>
-                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.cidade}"/>
-                                <h:outputText value="UF: "/>
-                                <p:selectOneMenu id="ufLocalTrabalho" value="#{localDeTrabalhoBean.localDeTrabalho.cidadeUF}">
-                                    <f:selectItem itemLabel="Selecione"/>
-                                    <f:selectItems var="uf" value="#{socioBean.estados}" 
-                                                   itemLabel="#{uf}" itemValue="#{uf}"
-                                                   />
-                                </p:selectOneMenu>
-                                <h:outputText value="Nome do proprietário: "/>
-                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.nomeProprietario}"/>
-                                <h:outputText value="CPF do proprietário: "/>
-                                <p:inputText value="#{localDeTrabalhoBean.localDeTrabalho.cpfProprietario}"/>
-                                 <p:column colspan="2">
-                                    <h:outputText value="Data do início: "/>
-                                    <p:calendar locale="pt_BR" navigator="true" 
-                                                pattern="dd/mm/yyyy" mask="true" 
-                                                value="#{localDeTrabalhoBean.localDeTrabalho.dataInicio}"
-                                                maxdate="#{localDeTrabalhoBean.diaData}"/>
-                                </p:column>
-                                 <p:column colspan="2">
-                                    <h:outputText value="Data do termino: "/>
-                                    <p:calendar locale="pt_BR" navigator="true" 
-                                                pattern="dd/mm/yyyy" mask="true" 
-                                                value="#{localDeTrabalhoBean.localDeTrabalho.dataFim}"
-                                                mindate="#{localDeTrabalhoBean.diaData}"/>
-                                </p:column>
-                            </h:panelGrid>
+                                <f:param name="associado" value="5"/>
 
+                            </p:button>
+
+                            
+                            <p:commandLink value="Teste" actionListener="#{associadoBean.salvar}"/>
+                            
+                            <p:spacer width="40"/>
+
+                            <p:button value="Cadastrar Imóvel Rural" outcome="/adm/local_trabalho/local_trabalho.jsf">
+
+                                <f:param name="associado" value="5"/>
+
+                            </p:button>
                         </p:panel>
                     </p:tab>
                 </p:wizard>

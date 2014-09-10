@@ -7,7 +7,7 @@
 package br.com.jjv.sintraf.services;
 
 import br.com.jjv.sintraf.dao.SocioDAO;
-import br.com.jjv.sintraf.entidades.Socio;
+import br.com.jjv.sintraf.entidades.Associado;
 import br.com.jjv.sintraf.entidades.Usuario;
 import br.com.jjv.sintraf.services.interfaces.ServiceIF;
 import java.io.Serializable;
@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author jefferson
  */
-public class SocioService implements Serializable, ServiceIF<Socio> {
+public class SocioService implements Serializable, ServiceIF<Associado> {
     
     private SocioDAO socioDAO;
     
@@ -26,23 +26,23 @@ public class SocioService implements Serializable, ServiceIF<Socio> {
     }
     
     @Override
-     public void create(Socio socio) {
+     public void create(Associado socio) {
         socioDAO.create(socio);
     }
 
     @Override
-    public void update(Socio socio) {
+    public void update(Associado socio) {
         socioDAO.update(socio);
     }
 
     @Override
-    public void delete(Socio socio) {
+    public void delete(Associado socio) {
         socioDAO.delete(socio);
 
     }
 
     @Override
-    public List<Socio> findAll() {
+    public List<Associado> findAll() {
         return socioDAO.findAll();
     }
 

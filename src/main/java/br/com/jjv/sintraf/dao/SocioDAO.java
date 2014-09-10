@@ -5,7 +5,7 @@
  */
 package br.com.jjv.sintraf.dao;
 
-import br.com.jjv.sintraf.entidades.Socio;
+import br.com.jjv.sintraf.entidades.Associado;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -13,10 +13,10 @@ import javax.persistence.PersistenceContext;
  *
  * @author jefferson
  */
-public class SocioDAO extends AbstractDAO<Socio> {
+public class SocioDAO extends AbstractDAO<Associado> {
 
     public SocioDAO() {
-        super(Socio.class);
+        super(Associado.class);
     }
 
 }

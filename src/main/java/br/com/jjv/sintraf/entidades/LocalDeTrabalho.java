@@ -38,7 +38,7 @@ public class LocalDeTrabalho implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "sc_id")
-    private Socio socioID;
+    private Associado socioID;
 
     @Size(max = 45)
     @Column(name = "lt_nome", length = 45, nullable = true)
@@ -93,11 +93,11 @@ public class LocalDeTrabalho implements Serializable {
         this.ID = ID;
     }
 
-    public Socio getSocioID() {
+    public Associado getSocioID() {
         return socioID;
     }
 
-    public void setSocioID(Socio socioID) {
+    public void setSocioID(Associado socioID) {
         this.socioID = socioID;
     }
 

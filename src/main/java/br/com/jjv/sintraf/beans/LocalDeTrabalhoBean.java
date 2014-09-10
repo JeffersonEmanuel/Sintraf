@@ -29,7 +29,7 @@ public class LocalDeTrabalhoBean implements Serializable {
     private List<Estados> estados;
     private LocalDeTrabalho localDeTrabalho;
 
-    public LocalDeTrabalho getLocalDeTrabalho() {
+    public LocalDeTrabalho getsLocalDeTrabalho() {
         return localDeTrabalho;
     }
 

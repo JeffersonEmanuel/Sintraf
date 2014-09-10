@@ -28,7 +28,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "socio")
-public class Socio implements Serializable {
+public class Associado implements Serializable {
 
     @Id
     @Column(name = "id_sc_matricula", nullable = false)
@@ -181,7 +181,7 @@ public class Socio implements Serializable {
         this.localDeTrabalho = localDeTrabalho;
     }
 
-    public Socio() {
+    public Associado() {
     }
 
     public Long getMatricula() {
