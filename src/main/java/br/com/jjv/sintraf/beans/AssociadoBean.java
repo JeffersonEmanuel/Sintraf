@@ -4,33 +4,36 @@ import br.com.jjv.sintraf.entidades.Associado;
 import br.com.jjv.sintraf.entidades.LocalDeTrabalho;
 import br.com.jjv.sintraf.enumerats.Estados;
 import br.com.jjv.sintraf.services.SocioService;
-import com.google.common.collect.Lists;
-import java.awt.event.ActionEvent;
 import java.io.Serializable;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 /**
  *
  * @author jefferson
  */
 @ManagedBean(name = "associadoBean")
-@RequestScoped
-public class AssociadoBean implements Serializable{
+@ViewScoped
+public class AssociadoBean implements Serializable {
 
     private Associado associado;
     private List<Estados> estados;
     private List<LocalDeTrabalho> locaisDeTrabalho;
     private SocioService service;
-    
+
     public AssociadoBean() {
+    }
+
+    @PostConstruct
+    public void init() {
         service = new SocioService();
         associado = new Associado();
         this.estados = Arrays.asList(Estados.values());
-        associado.setDataDeFiliacao(new Date());
     }
 
     public List<Estados> getEstados() {
@@ -40,7 +43,7 @@ public class AssociadoBean implements Serializable{
     public void setEstados(List<Estados> estados) {
         this.estados = estados;
     }
-    
+
     public Associado getAssociado() {
         return associado;
     }
@@ -48,9 +51,10 @@ public class AssociadoBean implements Serializable{
     public void setAssociado(Associado associado) {
         this.associado = associado;
     }
-    
-    public void salvar () {
+
+    public void salvar() {
         service.create(this.associado);
+        associado = new Associado();
     }
 
     public List<LocalDeTrabalho> getLocaisDeTrabalho() {
@@ -68,6 +72,7 @@ public class AssociadoBean implements Serializable{
     public void setService(SocioService service) {
         this.service = service;
     }
-    
 
+    
+    
 }
