@@ -6,7 +6,7 @@
 
 package br.com.jjv.sintraf.services;
 
-import br.com.jjv.sintraf.dao.SocioDAO;
+import br.com.jjv.sintraf.dao.AssociadoDAO;
 import br.com.jjv.sintraf.entidades.Associado;
 import br.com.jjv.sintraf.entidades.Usuario;
 import br.com.jjv.sintraf.services.interfaces.ServiceIF;
@@ -17,27 +17,27 @@ import java.util.List;
  *
  * @author jefferson
  */
-public class SocioService implements Serializable, ServiceIF<Associado> {
+public class AssociadoService implements Serializable, ServiceIF<Associado> {
     
-    private SocioDAO socioDAO;
+    private AssociadoDAO socioDAO;
     
-    public SocioService (){
-        socioDAO = new SocioDAO();
+    public AssociadoService (){
+        socioDAO = new AssociadoDAO();
     }
     
     @Override
-     public void create(Associado socio) {
-        socioDAO.create(socio);
-    }
-
-    @Override
-    public void update(Associado socio) {
-        socioDAO.update(socio);
+     public void create(Associado associado) {
+        socioDAO.create(associado);
     }
 
     @Override
-    public void delete(Associado socio) {
-        socioDAO.delete(socio);
+    public void update(Associado associado) {
+        socioDAO.update(associado);
+    }
+
+    @Override
+    public void delete(Associado associado) {
+        socioDAO.delete(associado);
 
     }
 

@@ -8,30 +8,23 @@
     <ui:decorate template="../template/template.xhtml">
         <ui:define name="centro">         
 
-            <h:form id="form">
-                <p:growl id="msgs" showDetail="true" />
+            <h:form id="associado">
 
-                <p:dataTable id="basicDT" var="car" value="#{dtSelectionView.associado}">
+                <p:dataTable id="basicDT" var="associado" value="#{associadoBean.associados}">
                     <f:facet name="header">
                         Lista de Associados 
                     </f:facet>
-                    <p:column headerText="Sócio">
-                        <h:outputText value="#{associadoBean.associado.nome}" />
+                    <p:column headerText="Número da Matrícula">
+                        <h:outputText value="#{associado.matricula}" />
+                    </p:column>
+                    <p:column headerText="Associado">
+                        <h:outputText value="#{associado.nome}" />
                     </p:column>
                     <p:column headerText="Endereço">
-                        <h:outputText value="#{associadoBean.associado.endereco}" />
-                    </p:column>
-                    <p:column headerText="Número da Matrícula">
-                        <h:outputText value="#{associadoBean.associado.matricula}" />
+                        <h:outputText value="#{associado.endereco}" />
                     </p:column>
                     
-                    <p:column style="width:32px;text-align: center">
-                        <p:commandButton update=":form:carDetail" oncomplete="PF('carDialog').show()" icon="ui-icon-search" title="View">
-                            <f:setPropertyActionListener value="#{car}" target="#{dtSelectionView.selectedCar}" />
-                        </p:commandButton>
-                    </p:column>
                 </p:dataTable>
-                
             </h:form>
 
         </ui:define>

@@ -3,7 +3,7 @@ package br.com.jjv.sintraf.beans;
 import br.com.jjv.sintraf.entidades.Associado;
 import br.com.jjv.sintraf.entidades.LocalDeTrabalho;
 import br.com.jjv.sintraf.enumerats.Estados;
-import br.com.jjv.sintraf.services.SocioService;
+import br.com.jjv.sintraf.services.AssociadoService;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
@@ -23,16 +23,17 @@ public class AssociadoBean implements Serializable {
     private Associado associado;
     private List<Estados> estados;
     private List<LocalDeTrabalho> locaisDeTrabalho;
-    private SocioService service;
-
+    private AssociadoService service;
+    private List<Associado> associados;
     public AssociadoBean() {
     }
 
     @PostConstruct
     public void init() {
-        service = new SocioService();
+        service = new AssociadoService();
         associado = new Associado();
         this.estados = Arrays.asList(Estados.values());
+        associados = service.findAll();
     }
 
     public List<Estados> getEstados() {
@@ -60,16 +61,20 @@ public class AssociadoBean implements Serializable {
         this.locaisDeTrabalho = locaisDeTrabalho;
     }
 
-    public SocioService getService() {
+    public AssociadoService getService() {
         return service;
     }
 
-    public void setService(SocioService service) {
+    public void setService(AssociadoService service) {
         this.service = service;
     }
 
     public Date getData() {
         return  new Date();
+    }
+
+    public List<Associado> getAssociados() {
+        return associados;
     }
     
     

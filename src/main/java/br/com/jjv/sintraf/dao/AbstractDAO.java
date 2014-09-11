@@ -1,6 +1,7 @@
 package br.com.jjv.sintraf.dao;
 
 import br.com.jjv.sintraf.persistencia.EntityManagerProducer;
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -13,7 +14,7 @@ import javax.persistence.criteria.Root;
  * @author Vanderlan Gomes
  * @param <T>
  */
-public abstract class AbstractDAO<T> {
+public abstract class AbstractDAO<T> implements Serializable{
 
     private EntityManager entityManager;
     private Class<T> entity;

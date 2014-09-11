@@ -13,9 +13,9 @@ import javax.persistence.PersistenceContext;
  *
  * @author jefferson
  */
-public class SocioDAO extends AbstractDAO<Associado> {
+public class AssociadoDAO extends AbstractDAO<Associado> {
 
-    public SocioDAO() {
+    public AssociadoDAO() {
         super(Associado.class);
     }
 
