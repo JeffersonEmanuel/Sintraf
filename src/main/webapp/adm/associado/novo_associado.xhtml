@@ -25,7 +25,9 @@
                                     <p:calendar locale="pt_BR" navigator="true" 
                                                 pattern="dd/mm/yyyy" mask="true" 
                                                 value="#{associadoBean.associado.dataDeFiliacao}" 
-                                                required="true" requiredMessage="Necessário inserir a data de Filiação"/>
+                                                required="true"
+
+                                                maxdate="#{associadoBean.data}"/>
                                 </p:column>
 
 
@@ -40,6 +42,13 @@
                                 <h:outputText value="Nome do pai: "/>
                                 <p:inputText value="#{associadoBean.associado.nomeDoPai}"
                                              size="60" />
+
+                                <h:outputText value="Estado Cívil: "/>
+                                <p:selectOneMenu editable="true" value="#{associadoBean.associado.estadoCivil}">
+                                    <f:selectItem itemLabel="Casado(a)"/>
+                                    <f:selectItem itemLabel="União Estável(a)"/>
+                                    <f:selectItem itemLabel="Solteiro(a)"/>
+                                </p:selectOneMenu>
 
                                 <h:outputText value="Nome do cônjugue: "/>
                                 <p:inputText value="#{associadoBean.associado.nomeConjugue}"
@@ -78,6 +87,22 @@
                                                    />
                                 </p:selectOneMenu>
 
+                                <h:outputText value="Data de nascimento: "/>
+                                <p:calendar locale="pt_BR" navigator="true" 
+                                            pattern="dd/mm/yyyy" mask="true"
+                                            value="#{associadoBean.associado.dataDeNascimento}"/>
+
+                                <h:outputText value="Apelido: "/>
+                                <p:inputText value="#{associadoBean.associado.apelido}"
+                                             size="60" />
+
+
+                                <h:outputText value="Alfabetizado: "/>
+                                <p:selectBooleanButton onLabel="Sim" 
+                                                       onIcon="ui-icon-check" offLabel="Não" 
+                                                       offIcon="ui-icon-close"
+                                                       value="#{associadoBean.associado.alfabetizado}"/>
+
                                 <h:outputText value="Profissão: "/>
                                 <p:inputText value="#{associadoBean.associado.profissao}"
                                              size="30" />
@@ -95,29 +120,6 @@
                                 <h:outputText value="Quantidades de dependentes: "/>
                                 <p:spinner value="#{associadoBean.associado.dependentes}" 
                                            min="0"/>
-
-                                <h:outputText value="Data de nascimento: "/>
-                                <p:calendar locale="pt_BR" navigator="true" 
-                                            pattern="dd/mm/yyyy" mask="true"
-                                            value="#{associadoBean.associado.dataDeNascimento}"/>
-
-                                <h:outputText value="Apelido: "/>
-                                <p:inputText value="#{associadoBean.associado.apelido}"
-                                             size="60" />
-
-                                <h:outputText value="Estado Cívil: "/>
-                                <p:selectOneMenu editable="true">
-                                    <f:selectItem itemLabel="Casado(a)"/>
-                                    <f:selectItem itemLabel="União Estável(a)"/>
-                                    <f:selectItem itemLabel="Solteiro(a)"
-                                                  value="#{associadoBean.associado.estadoCivil}"/>
-                                </p:selectOneMenu>
-
-                                <h:outputText value="Alfabetizado: "/>
-                                <p:selectBooleanButton onLabel="Sim" 
-                                                       onIcon="ui-icon-check" offLabel="Não" 
-                                                       offIcon="ui-icon-close"
-                                                       value="#{associadoBean.associado.alfabetizado}"/>
 
                                 <h:outputText value="Quantidades de filhos estudando: "/>
                                 <p:spinner value="#{associadoBean.associado.quantidadeDeFilhosEstudando}"
@@ -207,9 +209,8 @@
 
                             </p:button>
 
-                            
                             <p:commandLink value="Teste" actionListener="#{associadoBean.salvar}"/>
-                            
+
                             <p:spacer width="40"/>
 
                             <p:button value="Cadastrar Imóvel Rural" outcome="/adm/local_trabalho/local_trabalho.jsf">

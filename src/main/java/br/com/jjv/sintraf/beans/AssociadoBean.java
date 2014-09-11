@@ -6,11 +6,10 @@ import br.com.jjv.sintraf.enumerats.Estados;
 import br.com.jjv.sintraf.services.SocioService;
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 /**
@@ -38,10 +37,6 @@ public class AssociadoBean implements Serializable {
 
     public List<Estados> getEstados() {
         return estados;
-    }
-
-    public void setEstados(List<Estados> estados) {
-        this.estados = estados;
     }
 
     public Associado getAssociado() {
@@ -73,6 +68,9 @@ public class AssociadoBean implements Serializable {
         this.service = service;
     }
 
+    public Date getData() {
+        return  new Date();
+    }
     
     
 }
