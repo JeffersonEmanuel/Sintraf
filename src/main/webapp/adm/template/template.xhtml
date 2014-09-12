@@ -5,6 +5,7 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:f="http://java.sun.com/jsf/core">
 
+    
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputScript name="calendario_pt_BR.js" library="js" />
@@ -46,6 +47,11 @@
                             <p:menuitem value="Emitir declaração" icon="ui-icon-note"/>
                             <p:menuitem value="Ver declarações" icon="ui-icon-search"/>
                             <p:menuitem value="Imprimir Ficha" outcome="/adm/ficha/ficha_associado.jsf" icon="ui-icon-contact"/>
+                        </p:submenu>
+                        
+                          <p:submenu label="Imóvel Rural" icon="ui-icon-image">
+                              <p:menuitem value="Cadastrar imóvel" icon="ui-icon-document" outcome="/adm/local_trabalho/local_trabalho.jsf"/>
+                            <p:menuitem value="Ver imóveis" icon="ui-icon-search"/>
                         </p:submenu>
 
                         <p:submenu label="Usuários" icon="ui-icon-person">
