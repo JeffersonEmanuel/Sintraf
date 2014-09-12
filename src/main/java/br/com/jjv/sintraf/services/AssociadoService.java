@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.jjv.sintraf.services;
 
 import br.com.jjv.sintraf.dao.AssociadoDAO;
@@ -18,33 +17,40 @@ import java.util.List;
  * @author jefferson
  */
 public class AssociadoService implements Serializable, ServiceIF<Associado> {
-    
-    private AssociadoDAO socioDAO;
-    
-    public AssociadoService (){
-        socioDAO = new AssociadoDAO();
+
+    private AssociadoDAO associadoDAO;
+
+    public AssociadoService() {
+        associadoDAO = new AssociadoDAO();
     }
-    
+
     @Override
-     public void create(Associado associado) {
-        socioDAO.create(associado);
+    public void create(Associado associado) {
+        associadoDAO.create(associado);
     }
 
     @Override
     public void update(Associado associado) {
-        socioDAO.update(associado);
+        associadoDAO.update(associado);
     }
 
     @Override
     public void delete(Associado associado) {
-        socioDAO.delete(associado);
+        associadoDAO.delete(associado);
 
     }
 
     @Override
     public List<Associado> findAll() {
-        return socioDAO.findAll();
+        return associadoDAO.findAll();
     }
 
-    
+    public Long getNumMatricula() {
+
+        if (associadoDAO.getNumMatricula() == null) {
+            return 0L;
+        } else {
+            return associadoDAO.getNumMatricula();
+        }
+    }
 }

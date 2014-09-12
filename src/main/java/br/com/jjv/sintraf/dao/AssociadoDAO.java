@@ -1,22 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.jjv.sintraf.dao;
 
 import br.com.jjv.sintraf.entidades.Associado;
+import java.io.Serializable;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
  * @author jefferson
  */
-public class AssociadoDAO extends AbstractDAO<Associado> {
+public class AssociadoDAO extends AbstractDAO<Associado> implements Serializable  {
 
     public AssociadoDAO() {
         super(Associado.class);
     }
 
+    public Long getNumMatricula () {
+        Query q = getEntityManager().createNativeQuery("select max(id_sc_matricula) from associado");
+        System.out.println((Long) q.getSingleResult());
+        return (Long) q.getSingleResult();
+    }
+    
 }

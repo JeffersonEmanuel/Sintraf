@@ -7,10 +7,10 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" /> 
     <ui:decorate template="../template/template.xhtml">
         <ui:define name="centro">        
-            <h:form id="cadastroSocio">
+            <h:form id="cadastroAssociado">
 
                 <p:wizard  backLabel="Anterior" nextLabel="Próximo" style="width: 70%" >
-                    <p:tab id="pessoa" title="Sócio" >
+                    <p:tab id="pessoa" title="Associado" >
                         <p:panel header="Dados Pessoais" >
                             <h:panelGrid columns="2" styleClass="formulario_cadastro" cellpadding="5">
 
@@ -200,6 +200,19 @@
                         </p:panel>
                     </p:tab>
 
+                    <p:tab id="adicionarFotografia" title="Fotografia do Associado" >
+
+                        <p:panel header="Fotografia do Associado">
+
+                            <h:panelGrid columns="3" cellpadding="5">
+                                <p:photoCam widgetVar="fotoAssociado" listener="#{associadoBean.onCaptureFotoCamera}" update="foto"/>
+                                <p:commandButton type="button" value="Capiturar" onclick="PF('fotoAssociado').capture()"/>
+                                <p:graphicImage id="foto" name="#{associadoBean.associado.nome}" />
+                            </h:panelGrid>
+
+                        </p:panel>
+                    </p:tab>
+
                     <p:tab id="dadosDoImovel" title="Finalizar Cadastro" >
                         <p:panel header="Finalizar Cadastro">
                             <p:button value="Imprimir Ficha de Associado"
@@ -221,7 +234,6 @@
                         </p:panel>
                     </p:tab>
                 </p:wizard>
-
 
 
             </h:form>

@@ -14,7 +14,7 @@ import javax.persistence.criteria.Root;
  * @author Vanderlan Gomes
  * @param <T>
  */
-public abstract class AbstractDAO<T> implements Serializable{
+public abstract class AbstractDAO<T> implements Serializable {
 
     private EntityManager entityManager;
     private Class<T> entity;

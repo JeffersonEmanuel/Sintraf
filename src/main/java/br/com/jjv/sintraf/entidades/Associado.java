@@ -27,7 +27,7 @@ import javax.validation.constraints.Size;
  * @author jefferson
  */
 @Entity
-@Table(name = "socio")
+@Table(name = "associado")
 public class Associado implements Serializable {
 
     @Id

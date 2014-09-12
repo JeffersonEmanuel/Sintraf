@@ -4,13 +4,20 @@ import br.com.jjv.sintraf.entidades.Associado;
 import br.com.jjv.sintraf.entidades.LocalDeTrabalho;
 import br.com.jjv.sintraf.enumerats.Estados;
 import br.com.jjv.sintraf.services.AssociadoService;
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.FacesException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import javax.imageio.stream.FileImageOutputStream;
+import javax.servlet.ServletContext;
+import org.primefaces.event.CaptureEvent;
 
 /**
  *
@@ -34,6 +41,7 @@ public class AssociadoBean implements Serializable {
         associado = new Associado();
         this.estados = Arrays.asList(Estados.values());
         associados = service.findAll();
+        pegarMatricula();
     }
 
     public List<Estados> getEstados() {
@@ -53,6 +61,27 @@ public class AssociadoBean implements Serializable {
         associado = new Associado();
     }
 
+    public void onCaptureFotoCamera(CaptureEvent captureEvent){
+        byte[] foto = captureEvent.getData();
+        String newFileName = "/home/jefferson/Área de Trabalho/Imagens/"+ associado.getNome()+ ".png";
+         
+        FileImageOutputStream imageOutput;
+        try {
+            imageOutput = new FileImageOutputStream(new File(newFileName));
+            imageOutput.write(foto, 0, foto.length);
+            imageOutput.close();
+        }
+        catch(IOException e) {
+            throw new FacesException("Error in writing captured image.", e);
+        }
+    }
+
+    
+    public void pegarMatricula () {
+        associado.setMatricula(service.getNumMatricula());
+    }
+    
+    
     public List<LocalDeTrabalho> getLocaisDeTrabalho() {
         return locaisDeTrabalho;
     }
@@ -76,6 +105,9 @@ public class AssociadoBean implements Serializable {
     public List<Associado> getAssociados() {
         return associados;
     }
+    
+    
+    
     
     
 }
