@@ -4,7 +4,10 @@
         xmlns:f="http://java.sun.com/jsf/core"
         xmlns:p="http://primefaces.org/ui">
     <ui:decorate template="template/template.xhtml">
-        <ui:define name="centro">         
+        <ui:define name="centro">
+            <p:autoComplete id="auto_complete" value="#{fichaBean.busca}" size="60"   
+                            completeMethod="#{fichaBean.complete}" forceSelection="true"
+                            maxResults="10" effect="fade"/>
             <p:commandButton value="Imprimir" type="button" icon="ui-icon-print" style="display:block;margin-bottom: 20px">
                 <p:printer target="carteirinha" />
             </p:commandButton>
