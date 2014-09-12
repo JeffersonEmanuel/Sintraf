@@ -48,9 +48,9 @@ public class AssociadoService implements Serializable, ServiceIF<Associado> {
     public Long getNumMatricula() {
 
         if (associadoDAO.getNumMatricula() == null) {
-            return 0L;
+            return 1L;
         } else {
-            return associadoDAO.getNumMatricula();
+            return associadoDAO.getNumMatricula() + 1;
         }
     }
 }
