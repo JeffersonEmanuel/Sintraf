@@ -149,7 +149,7 @@
                                 <p:column>
                                     <h:outputText value="CPF: "/>
                                     <p:inputMask value="#{associadoBean.associado.cpf}" 
-                                                 mask="999.999.999-99"/>
+                                                 mask="999.999.999-99" required="true"/>
                                 </p:column>
 
                                 <h:panelGroup >
@@ -197,19 +197,6 @@
 
 
                             </h:panelGrid>
-                        </p:panel>
-                    </p:tab>
-
-                    <p:tab id="adicionarFotografia" title="Fotografia do Associado" >
-
-                        <p:panel header="Fotografia do Associado">
-
-                            <h:panelGrid columns="3" cellpadding="5">
-                                <p:photoCam widgetVar="fotoAssociado" listener="#{associadoBean.onCaptureFotoCamera}" update="foto"/>
-                                <p:commandButton type="button" value="Capiturar" onclick="PF('fotoAssociado').capture()"/>
-                                <p:graphicImage id="foto" name="#{associadoBean.associado.nome}" />
-                            </h:panelGrid>
-
                         </p:panel>
                     </p:tab>
 
