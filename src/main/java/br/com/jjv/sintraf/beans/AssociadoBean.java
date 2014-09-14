@@ -106,8 +106,9 @@ public class AssociadoBean implements Serializable {
         return associados;
     }
     
-    
-    
-    
-    
+    public void buscarAssociado(){
+        
+        associado = service.findById(associado.getMatricula());
+
+    }
 }

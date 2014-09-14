@@ -53,4 +53,10 @@ public class AssociadoService implements Serializable, ServiceIF<Associado> {
             return associadoDAO.getNumMatricula() + 1;
         }
     }
+
+    public Associado findById(long id) {
+        
+        return  associadoDAO.findById(id);
+    
+    }
 }

@@ -13,6 +13,14 @@
     </h:head>
     <h:body >
 
+        <f:metadata>
+            <f:viewParam name="associado" value="#{associadoBean.associado.matricula}"
+                         required="true" requiredMessage="Matricula de associado inválida"/>
+            <f:viewAction action="#{associadoBean.buscarAssociado}"  />
+
+        </f:metadata>
+
+
         <p:fieldset id="ficha" legend="Ficha do Associado">
 
             <h:form id="form"> 
@@ -22,254 +30,141 @@
                 </p:commandButton>
 
                 <p:panel id="ficha_socio"   visible="true"  style="border: 0px;">
-                    <table width="900" border="1" align="center">
-
+                    <table width="900" border="1" align="center" style="border-collapse: collapse;">
                         <tr>
-
-                            <td height="131" colspan="9"></td>
-
+                            <td height="191" colspan="9" style="text-align: center;font-family: sans-serif;font-weight: bold;">
+                                <img src="../imagens/sintraf_icon.png" width="140" style="float: left; margin-left: 40px;"/>
+                                SINDICATO DOS TRABALHADORES NA AGRICULTURA FAMILIAR DE MONTEIRO - PB
+                                <br></br>
+                                FUNDADO DESDE 28 / 05 / 2009
+                                <br></br>
+                                CNPJ N.º 10.861.844/0001-80
+                                Praça Odilon Rodrigues Neves, s/n.º, 1.º Andar, Centro, 
+                                <br></br><br></br><br></br>
+                                Zabelê/PB, CEP: 58.515-000                                                                            sintrafzmssupb@hotmail.com
+                            </td>
                         </tr>
-
                         <tr>
-
                             <td colspan="9" align="center"><span style="font-size:32px;">Ficha de Associado</span></td>
-
                         </tr>
-
                         <tr>
-
                             <td width="60">Nome:</td>
-
-                            <td colspan="8"></td>
-
+                            <td colspan="8">#{associadoBean.associado.nome}</td>
                         </tr>
-
                         <tr>
-
-                            <td colspan="4">Matrícula Sindical Nº:</td>
-
-                            <td width="105">Data de Filiação:</td>
-
+                            <td colspan="4">Matrícula Sindical Nº: #{associadoBean.associado.matricula}</td>
+                            <td width="105">Data de Filiação:#{associadoBean.associado.dataDeFiliacao}</td>
                             <td width="67"></td>
-
                             <td width="81">Profissão:</td>
-
-                            <td colspan="2"></td>
-
+                            <td colspan="2">#{associadoBean.associado.profissao}</td>
                         </tr>
-
                         <tr>
-
                             <td colspan="2">Filiação Pai:</td>
-
-                            <td colspan="7"></td>
-
+                            <td colspan="7">#{associadoBean.associado.nomeDoPai}</td>
                         </tr>
-
                         <tr>
-
                             <td colspan="2">Filiação Mãe:</td>
-
-                            <td colspan="7"></td>
-
+                            <td colspan="7">#{associadoBean.associado.nomeDaMae}</td>
                         </tr>
-
                         <tr>
-
                             <td colspan="2">Estado Civil:</td>
-
-                            <td colspan="4"></td>
-
+                            <td colspan="4">#{associadoBean.associado.estadoCivil}</td>
                             <td>Naturalidade:</td>
-
-                            <td colspan="2"></td>
-
+                            <td colspan="2">#{associadoBean.associado.naturalidade} - #{associadoBean.associado.naturalidadeUF}</td>
                         </tr>
 
                         <tr>
-
                             <td colspan="2">Endereço:</td>
-
-                            <td colspan="7"></td>
-
+                            <td colspan="7">#{associadoBean.associado.endereco}</td>
                         </tr>
-
                         <tr>
-
                             <td colspan="2">Bairro:</td>
-
-                            <td colspan="4"></td>
-
+                            <td colspan="4">#{associadoBean.associado.bairro}</td>
                             <td>Cidade:</td>
-
-                            <td colspan="2"></td>
-
+                            <td colspan="2">#{associadoBean.associado.cidade} - #{associadoBean.associado.cidadeUF}</td>
                         </tr>
-
                         <tr>
-
                             <td>RG:</td>
-
-                            <td colspan="2"></td>
-
+                            <td colspan="2">#{associadoBean.associado.rg}</td>
                             <td width="98">Órgão Emissor:</td>
-
-                            <td colspan="2"></td>
-
+                            <td colspan="2">#{associadoBean.associado.rgOrgaoEmissor} - #{associadoBean.associado.rgUF}</td>
                             <td>CPF:</td>
-
-                            <td colspan="2"></td>
-
+                            <td colspan="2">#{associadoBean.associado.cpf}</td>
                         </tr>
-
                         <tr>
-
                             <td colspan="3">Cartira Profissional Nº: </td>
-
-                            <td colspan="3"></td>
-
+                            <td colspan="3">#{associadoBean.associado.carteiraProfissional}</td>
                             <td>Série:</td>
-
-                            <td colspan="2"></td>
-
+                            <td colspan="2">#{associadoBean.associado.carteiraProfissionalSerie}</td>
                         </tr>
-
                         <tr>
-
                             <td colspan="3">Título Eleitoral Nº:</td>
-
-                            <td colspan="2"></td>
-
+                            <td colspan="2">#{associadoBean.associado.tituloEleitoral}</td>
                             <td>Zona:</td>
-
-                            <td></td>
-
+                            <td>#{associadoBean.associado.tituloEleitoralZona}</td>
                             <td width="63">Sessão:</td>
-
-                            <td width="61"></td>
-
+                            <td width="61">#{associadoBean.associado.tituloEleitoralSessao}</td>
                         </tr>
-
                         <tr>
-
                             <td colspan="3">Data de Nascimento:</td>
-
-                            <td colspan="6"></td>
-
+                            <td colspan="6">#{associadoBean.associado.dataDeNascimento}</td>
                         </tr>
-
                         <tr>
-
                             <td colspan="3">Trabalha para si mesmo?</td>
-
-                            <td colspan="2"></td>
-
+                            <td colspan="2">#{associadoBean.associado.trabalhoProprio}</td>
                             <td colspan="2">Para os outros:</td>
-
+                            <td>#{associadoBean.associado.trabalhoProprio}</td>
                             <td></td>
-
-                            <td></td>
-
                         </tr>
-
                         <tr>
-
                             <td colspan="3">Alfabetizado(a):</td>
-
-                            <td colspan="6"></td>
-
+                            <td colspan="6">#{associadoBean.associado.alfabetizado} </td>
+                            <tr>
+                                <td colspan="3">Nome da esposa(o):</td>
+                                <td colspan="6">#{associadoBean.associado.nomeConjugue}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Meieiro?</td>
+                                <td width="92">????</td>
+                                <td align="center">Arredatário:? </td>
+                                <td>???</td>
+                                <td>Foreiro?</td>
+                                <td colspan="3">?????</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Parceiro?</td>
+                                <td></td>
+                                <td colspan="2" align="center">Pequeno proprietário?</td>
+                                <td>???</td>
+                                <td colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Quantos filhos tem?</td>
+                                <td>#{associadoBean.associado.quantidadeDeFilhos}</td>
+                                <td>Estudam?</td>
+                                <td>#{associadoBean.associado.quantidadeDeFilhosEstudando}</td>
+                                <td>Que série?</td>
+                                <td>?????</td>
+                                <td>?????</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Dependentes: </td>
+                                <td colspan="6">#{associadoBean.associado.dependentes}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Regime de Trabalho:</td>
+                                <td>#{associadoBean.associado.regimeDeTrabalho}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td height="85" colspan="3" valign="top">Observação:</td>
+                                <td colspan="6" valign="top">#{associadoBean.associado.observacoes}</td>
+                            </tr>
                         </tr>
-
-                        <tr>
-
-                            <td colspan="3">Nome da esposa(o):</td>
-
-                            <td colspan="6"></td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td colspan="2">Meieiro?</td>
-
-                            <td width="92"></td>
-
-                            <td align="center">Arredatário:? </td>
-
-                            <td></td>
-
-                            <td>Foreiro?</td>
-
-                            <td colspan="3"></td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td colspan="2">Parceiro?</td>
-
-                            <td></td>
-
-                            <td colspan="2" align="center">Pequeno proprietário?</td>
-
-                            <td></td>
-
-                            <td colspan="3"></td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td colspan="3">Quantos filhos tem?</td>
-
-                            <td></td>
-
-                            <td>Estudam?</td>
-
-                            <td></td>
-
-                            <td>Que série?</td>
-
-                            <td></td>
-
-                            <td></td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td colspan="3">Dependentes: </td>
-
-                            <td colspan="6"></td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td colspan="3">Regime de Trabalho:</td>
-
-                            <td></td>
-
-                            <td></td>
-
-                            <td></td>
-
-                            <td></td>
-
-                            <td></td>
-
-                            <td></td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td height="85" colspan="3" valign="top">Observação:</td>
-
-                            <td colspan="6" valign="top"></td>
-
-                        </tr>
-
                     </table>
                 </p:panel>
 
