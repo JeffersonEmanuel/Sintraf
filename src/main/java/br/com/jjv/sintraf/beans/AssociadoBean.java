@@ -3,6 +3,7 @@ package br.com.jjv.sintraf.beans;
 import br.com.jjv.sintraf.entidades.Associado;
 import br.com.jjv.sintraf.entidades.LocalDeTrabalho;
 import br.com.jjv.sintraf.enumerats.Estados;
+import br.com.jjv.sintraf.imagemUtil.ExibirImagem;
 import br.com.jjv.sintraf.services.AssociadoService;
 import java.io.Serializable;
 import java.util.Arrays;
@@ -10,14 +11,18 @@ import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
 /**
  *
  * @author jefferson
  */
 @ManagedBean(name = "associadoBean")
-@ViewScoped
+@RequestScoped
 public class AssociadoBean implements Serializable {
 
     private Associado associado;
@@ -25,7 +30,8 @@ public class AssociadoBean implements Serializable {
     private List<LocalDeTrabalho> locaisDeTrabalho;
     private AssociadoService service;
     private List<Associado> associados;
-
+    private ExibirImagem exibirImagem;
+    private StreamedContent imagem;
     public AssociadoBean() {
     }
 
@@ -36,8 +42,19 @@ public class AssociadoBean implements Serializable {
         this.estados = Arrays.asList(Estados.values());
         associados = service.findAll();
         pegarMatricula();
+        exibirImagem = new ExibirImagem();
+        setImagem(exibirImagem.carregaImagem("/home/jefferson/Área de Trabalho/"
+                + "Imagens/Sintraf/"+associado.getMatricula()+".png"));
     }
 
+    public StreamedContent getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(StreamedContent imagem) {
+        this.imagem = imagem;
+    }
+    
     public List<Estados> getEstados() {
         return estados;
     }
