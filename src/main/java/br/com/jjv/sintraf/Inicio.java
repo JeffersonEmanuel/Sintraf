@@ -1,8 +1,9 @@
 
 package br.com.jjv.sintraf;
 
-import br.com.jjv.sintraf.entidades.Usuario;
+import br.com.jjv.sintraf.entidades.Associado;
 import br.com.jjv.sintraf.persistencia.EntityManagerProducer;
+import java.util.Date;
 import javax.persistence.EntityManager;
 
 /**
@@ -16,11 +17,10 @@ public class Inicio {
         
         EntityManager en = EntityManagerProducer.getEntityManager();
         
-        Usuario user = new Usuario();
-        user.setLogin("Vanderlan");
-        user.setSenha("123");
+        Associado user = new Associado();
         user.setNome("Vanderlan Gomes");
-        
+        user.setMatricula(2L);
+        user.setDataDeFiliacao(new Date());
         
         en.getTransaction().begin();
         en.persist(user);
