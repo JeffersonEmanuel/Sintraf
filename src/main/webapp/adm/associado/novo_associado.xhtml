@@ -202,19 +202,6 @@
 
 
 
-                    <p:tab id="fotoAssociado" title="Fotografia" >
-                        <p:panel header="Fotografia do Associado">
-                            <h:panelGrid columns="3" cellpadding="5">
-                                <p:photoCam widgetVar="foto" update="amostra"/>
-                                <p:commandLink value="foto" onclick="PF('foto').capture()"/>
-                                <p:graphicImage id="amostra" value="#{associadoBean.imagem}"/>
-                            </h:panelGrid>
-                        </p:panel>
-                    </p:tab>
-
-
-
-
                     <p:tab id="dadosDoImovel" title="Finalizar Cadastro" >
                         <p:panel header="Finalizar Cadastro">
                             <p:button value="Imprimir Ficha de Associado"
