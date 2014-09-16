@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.jjv.sintraf.entidades;
 
 import java.io.Serializable;
@@ -14,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -163,7 +157,10 @@ public class Associado implements Serializable {
     @Size(max = 255)
     @Column(name = "sc_observacoes", length = 255, nullable = true)
     private String observacoes;
-
+    
+    @OneToMany(mappedBy = "associado", cascade = CascadeType.ALL)
+    private List<Mensalidade> mensalidades;
+    
     
     public String getRgUF() {
         return rgUF;
@@ -447,6 +444,14 @@ public class Associado implements Serializable {
 
     public void setNaturalidadeUF(String naturalidadeUF) {
         this.naturalidadeUF = naturalidadeUF;
+    }
+
+    public List<Mensalidade> getMensalidades() {
+        return mensalidades;
+    }
+
+    public void setMensalidades(List<Mensalidade> mensalidades) {
+        this.mensalidades = mensalidades;
     }
 
 }
