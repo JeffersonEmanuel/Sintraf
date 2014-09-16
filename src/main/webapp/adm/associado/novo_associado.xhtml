@@ -11,10 +11,17 @@
 
                 <p:wizard  backLabel="Anterior" nextLabel="Próximo" style="width: 70%" >
                     <p:tab id="pessoa" title="Associado" >
+                        
                         <p:panel header="Dados Pessoais" >
+                            <p:commandLink>
+                                <p:graphicImage value="/adm/imagens/enviar_foto.png" width="120" 
+                                                style="float: right"/>
+                                    </p:commandLink>
+                            
                             <h:panelGrid columns="2" styleClass="formulario_cadastro" cellpadding="5">
+                                
 
-
+                                
                                 <p:column colspan="2" >
                                     <h:outputText value="Matrícula: "/>
                                     <h:outputText value="#{associadoBean.associado.matricula}" style="color: red"/>
@@ -28,8 +35,10 @@
                                                 required="true"
 
                                                 maxdate="#{associadoBean.data}"/>
+
                                 </p:column>
 
+                                         
 
                                 <h:outputText value="Nome: "/>
                                 <p:inputText value="#{associadoBean.associado.nome}"
