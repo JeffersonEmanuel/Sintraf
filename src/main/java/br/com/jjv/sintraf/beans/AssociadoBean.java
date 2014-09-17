@@ -96,7 +96,6 @@ public class AssociadoBean implements Serializable {
     }
 
     private String endereco;
-
     public void capturarFotoCam(CaptureEvent captureEvent) {
         byte[] fotoEvento = captureEvent.getData();
         endereco = File.separator + "home"
@@ -119,6 +118,11 @@ public class AssociadoBean implements Serializable {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+    
+    
+    public String teste () {
+        return "/novo_associado.jsf";
     }
 
 }

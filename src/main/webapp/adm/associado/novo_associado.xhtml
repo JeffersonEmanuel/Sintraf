@@ -8,37 +8,43 @@
     <ui:decorate template="../template/template.xhtml">
         <ui:define name="centro">        
             <p:tooltip/>
-            
+
             <h:form id="cadastroAssociado">
 
-                
+
                 <p:dialog id="imagem" header="Inserir Fotografia do Associado" 
                           widgetVar="cadastrarImagem" width="900" height="500"
                           modal="false">
-                    
+
                     <p:photoCam widgetVar="fotoCam" update="fotoImagem" 
                                 listener="#{associadoBean.capturarFotoCam}"
                                 style="float: left"/>
                     <p:commandButton type="button" value="Capture" onclick="PF('fotoCam').capture()" 
-                                     style="float: left"/>
+                                     style="float: left" update="fotoImagem" 
+                                      />
                     <p:graphicImage id="fotoImagem" value="#{fotoBean.foto}"> 
                         <f:param name="fotoNome" value="#{associadoBean.service.numMatricula}"/>
                     </p:graphicImage>
                 </p:dialog>
-                
+
                 <p:wizard  backLabel="Anterior" nextLabel="Próximo" style="width: 70%" >
                     <p:tab id="pessoa" title="Associado" >
-                        
+
                         <p:panel header="Dados Pessoais" >
                             <p:commandLink onclick="PF('cadastrarImagem').show();">
-                                <p:graphicImage value="/adm/imagens/enviar_foto.png" width="120" 
-                                                style="float: right"/>
-                                    </p:commandLink>
-                            
-                            <h:panelGrid columns="2" styleClass="formulario_cadastro" cellpadding="5">
-                                
 
-                                
+                                <p:graphicImage value="#{fotoBean.foto}"
+                                                width="200" style="float: right"> 
+                                    <f:param name="fotoNome" value="#{associadoBean.service.numMatricula}"/>
+                                </p:graphicImage>
+
+
+                            </p:commandLink>
+
+                            <h:panelGrid columns="2" styleClass="formulario_cadastro" cellpadding="5">
+
+
+
                                 <p:column colspan="2" >
                                     <h:outputText value="Matrícula: "/>
                                     <h:outputText value="#{associadoBean.associado.matricula}" style="color: red"/>
@@ -55,7 +61,7 @@
 
                                 </p:column>
 
-                                         
+
 
                                 <h:outputText value="Nome: "/>
                                 <p:inputText value="#{associadoBean.associado.nome}"
