@@ -21,7 +21,9 @@
                                 style="float: left"/>
                     <p:commandButton type="button" value="Capture" onclick="PF('fotoCam').capture()" 
                                      style="float: left"/>
-                    <p:graphicImage id="fotoImagem" value="/home/jefferson/Área de Trabalho/Imagens/Sintraf/8.png"/>
+                    <p:graphicImage id="fotoImagem" value="#{fotoBean.foto}"> 
+                        <f:param name="fotoNome" value="#{associadoBean.service.numMatricula}"/>
+                    </p:graphicImage>
                 </p:dialog>
                 
                 <p:wizard  backLabel="Anterior" nextLabel="Próximo" style="width: 70%" >

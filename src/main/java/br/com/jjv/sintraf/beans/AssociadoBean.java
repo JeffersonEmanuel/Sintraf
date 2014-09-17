@@ -5,7 +5,6 @@ import br.com.jjv.sintraf.entidades.LocalDeTrabalho;
 import br.com.jjv.sintraf.enumerats.Estados;
 import br.com.jjv.sintraf.services.AssociadoService;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Arrays;
@@ -14,10 +13,8 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
 import javax.faces.view.facelets.FaceletException;
 import javax.imageio.stream.FileImageOutputStream;
-import javax.servlet.ServletContext;
 import org.primefaces.event.CaptureEvent;
 
 /**
@@ -33,7 +30,9 @@ public class AssociadoBean implements Serializable {
     private List<LocalDeTrabalho> locaisDeTrabalho;
     private AssociadoService service;
     private List<Associado> associados;
+
     public AssociadoBean() {
+
     }
 
     @PostConstruct
@@ -91,30 +90,28 @@ public class AssociadoBean implements Serializable {
     public List<Associado> getAssociados() {
         return associados;
     }
-    
-    public void buscarAssociado(){
+
+    public void buscarAssociado() {
         associado = service.findById(associado.getMatricula());
     }
-    
-    
+
     private String endereco;
-    
+
     public void capturarFotoCam(CaptureEvent captureEvent) {
         byte[] fotoEvento = captureEvent.getData();
-          endereco = File.separator + "home" + 
-                  File.separator + "jefferson" + File.separator + "Área de Trabalho" +
-                  File.separator + "Imagens" + File.separator + "Sintraf" + File.separator 
-                  + associado.getMatricula() + 
-                  ".png";
-          FileImageOutputStream fileImageOutputStream;
-          try {
-              fileImageOutputStream = new FileImageOutputStream(new File(endereco));
-              fileImageOutputStream.write(fotoEvento, 0, fotoEvento.length);
-              fileImageOutputStream.close();
-          } catch (IOException exception) {
-              throw new FaceletException("erro na foco Cam tirada", exception);
-          }
-    }   
+        endereco = File.separator + "home"
+                + File.separator + "jefferson" + File.separator + "Área de Trabalho"
+                + File.separator + "Imagens" + File.separator + "Sintraf" + File.separator
+                + service.getNumMatricula() + ".png";
+        FileImageOutputStream fileImageOutputStream;
+        try {
+            fileImageOutputStream = new FileImageOutputStream(new File(endereco));
+            fileImageOutputStream.write(fotoEvento, 0, fotoEvento.length);
+            fileImageOutputStream.close();
+        } catch (IOException exception) {
+            throw new FaceletException("erro na foco Cam tirada", exception);
+        }
+    }
 
     public String getEndereco() {
         return endereco;
@@ -123,8 +120,5 @@ public class AssociadoBean implements Serializable {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    
-    
-    
-    
+
 }
