@@ -11,20 +11,23 @@
 
             <h:form id="cadastroAssociado">
 
-
+                <script>
+                    function recarregar () {
+                        Location.reload()
+                    }
+                </script>
+                
                 <p:dialog id="imagem" header="Inserir Fotografia do Associado" 
                           widgetVar="cadastrarImagem" width="900" height="500"
                           modal="false">
 
-                    <p:photoCam widgetVar="fotoCam" update="fotoImagem" 
+                    <p:photoCam widgetVar="fotoCam"  
                                 listener="#{associadoBean.capturarFotoCam}"
-                                style="float: left"/>
+                                />
                     <p:commandButton type="button" value="Capture" onclick="PF('fotoCam').capture()" 
-                                     style="float: left" update="fotoImagem" 
-                                      />
-                    <p:graphicImage id="fotoImagem" value="#{fotoBean.foto}"> 
-                        <f:param name="fotoNome" value="#{associadoBean.service.numMatricula}"/>
-                    </p:graphicImage>
+                                     style="float: start"
+                                     ajax="false"
+                                     />
                 </p:dialog>
 
                 <p:wizard  backLabel="Anterior" nextLabel="Próximo" style="width: 70%" >
