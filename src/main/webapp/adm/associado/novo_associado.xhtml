@@ -11,23 +11,21 @@
 
             <h:form id="cadastroAssociado">
 
-                <script>
-                    function recarregar () {
-                        Location.reload()
-                    }
-                </script>
-                
+
                 <p:dialog id="imagem" header="Inserir Fotografia do Associado" 
                           widgetVar="cadastrarImagem" width="900" height="500"
                           modal="false">
+                    
 
-                    <p:photoCam widgetVar="fotoCam"  
+                    <p:photoCam widgetVar="fotoCam"  immediate="true"
                                 listener="#{associadoBean.capturarFotoCam}"
                                 />
-                    <p:commandButton type="button" value="Capture" onclick="PF('fotoCam').capture()" 
-                                     style="float: start"
-                                     ajax="false"
-                                     />
+                    <p:commandButton type="button" id="Bnt_foto" value="Capture" onclick="PF('fotoCam').capture()" 
+                                     style="float: start" update="cadatroAssociado" process="@bnt_foto"
+                                     >
+                        
+                    </p:commandButton>
+                    
                 </p:dialog>
 
                 <p:wizard  backLabel="Anterior" nextLabel="Próximo" style="width: 70%" >
@@ -37,7 +35,7 @@
                             <p:commandLink onclick="PF('cadastrarImagem').show();">
 
                                 <p:graphicImage value="#{fotoBean.foto}"
-                                                width="200" style="float: right"> 
+                                                width="150" style="float: right"> 
                                     <f:param name="fotoNome" value="#{associadoBean.service.numMatricula}"/>
                                 </p:graphicImage>
 
@@ -45,8 +43,6 @@
                             </p:commandLink>
 
                             <h:panelGrid columns="2" styleClass="formulario_cadastro" cellpadding="5">
-
-
 
                                 <p:column colspan="2" >
                                     <h:outputText value="Matrícula: "/>
@@ -261,6 +257,12 @@
 
 
             </h:form>
+
+            <script>
+                function recarregar() {
+                    window.Location.reload();
+                }
+            </script>
         </ui:define>
     </ui:decorate>
 </html>

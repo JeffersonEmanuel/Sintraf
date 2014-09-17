@@ -3,7 +3,9 @@ package br.com.jjv.sintraf.beans;
 import br.com.jjv.sintraf.entidades.Associado;
 import br.com.jjv.sintraf.entidades.LocalDeTrabalho;
 import br.com.jjv.sintraf.enumerats.Estados;
+import br.com.jjv.sintraf.jsf.JsfUtil;
 import br.com.jjv.sintraf.services.AssociadoService;
+import br.com.jjv.sintraf.sistema.ConstantesSistema;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
@@ -98,9 +100,7 @@ public class AssociadoBean implements Serializable {
     private String endereco;
     public void capturarFotoCam(CaptureEvent captureEvent) {
         byte[] fotoEvento = captureEvent.getData();
-        endereco = File.separator + "home"
-                + File.separator + "jefferson" + File.separator + "Área de Trabalho"
-                + File.separator + "Imagens" + File.separator + "Sintraf" + File.separator
+        endereco = ConstantesSistema.CAMINHO_IMAGEM
                 + service.getNumMatricula() + ".png";
         FileImageOutputStream fileImageOutputStream;
         try {
@@ -121,8 +121,9 @@ public class AssociadoBean implements Serializable {
     }
     
     
-    public String teste () {
-        return "/novo_associado.jsf";
+    public void teste () {
+        System.err.println("AHHHHHHHHHHHHHHAAAAAAAAAAAAAA");
+        JsfUtil.redirect("novo_associado.jsf");
     }
 
 }

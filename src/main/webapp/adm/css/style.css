@@ -29,6 +29,15 @@
     text-shadow: #000 2px 3px 2px;
     
 }
+#persistence_team{
+    font-size: 20px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 29%;
+    color: #98a3aa;
+    text-shadow: #000 1px 1px 1px;
+    
+}
 #login{
     font-size: 60px;
     margin-top: 1%;
