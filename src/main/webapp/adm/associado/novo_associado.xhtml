@@ -16,6 +16,12 @@
                           widgetVar="cadastrarImagem" width="900" height="500"
                           modal="false">
                     
+                    <p:photoCam widgetVar="fotoCam" update="fotoImagem" 
+                                listener="#{associadoBean.capturarFotoCam}"
+                                style="float: left"/>
+                    <p:commandButton type="button" value="Capture" onclick="PF('fotoCam').capture()" 
+                                     style="float: left"/>
+                    <p:graphicImage id="fotoImagem" value="/home/jefferson/Área de Trabalho/Imagens/Sintraf/8.png"/>
                 </p:dialog>
                 
                 <p:wizard  backLabel="Anterior" nextLabel="Próximo" style="width: 70%" >
