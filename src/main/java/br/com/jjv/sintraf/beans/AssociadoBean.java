@@ -17,6 +17,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.view.facelets.FaceletException;
 import javax.imageio.stream.FileImageOutputStream;
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.CaptureEvent;
 
 /**
@@ -122,8 +123,8 @@ public class AssociadoBean implements Serializable {
     
     
     public void teste () {
-        System.err.println("AHHHHHHHHHHHHHHAAAAAAAAAAAAAA");
-        JsfUtil.redirect("novo_associado.jsf");
+        RequestContext.getCurrentInstance().reset("form:cadastroAssociado");
+        
     }
 
 }
