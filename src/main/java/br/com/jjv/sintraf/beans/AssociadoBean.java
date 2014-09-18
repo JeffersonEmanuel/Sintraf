@@ -3,11 +3,13 @@ package br.com.jjv.sintraf.beans;
 import br.com.jjv.sintraf.entidades.Associado;
 import br.com.jjv.sintraf.entidades.LocalDeTrabalho;
 import br.com.jjv.sintraf.enumerats.Estados;
-import br.com.jjv.sintraf.jsf.JsfUtil;
 import br.com.jjv.sintraf.services.AssociadoService;
 import br.com.jjv.sintraf.sistema.ConstantesSistema;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
@@ -19,6 +21,8 @@ import javax.faces.view.facelets.FaceletException;
 import javax.imageio.stream.FileImageOutputStream;
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.CaptureEvent;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.UploadedFile;
 
 /**
  *
@@ -99,6 +103,7 @@ public class AssociadoBean implements Serializable {
     }
 
     private String endereco;
+
     public void capturarFotoCam(CaptureEvent captureEvent) {
         byte[] fotoEvento = captureEvent.getData();
         endereco = ConstantesSistema.CAMINHO_IMAGEM
@@ -113,6 +118,25 @@ public class AssociadoBean implements Serializable {
         }
     }
 
+    
+    
+    public void selecionarImagem(FileUploadEvent upF) {
+         try {
+            UploadedFile arq = upF.getFile();
+            InputStream is = new BufferedInputStream(arq.getInputstream());
+
+            File file = new File(ConstantesSistema.CAMINHO_IMAGEM
+                    + service.getNumMatricula() + ".png");
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            while (is.available() != 0) {
+                fileOutputStream.write(is.read());
+            }
+
+            fileOutputStream.close();
+        } catch (Exception e) {
+        }
+    }
+
     public String getEndereco() {
         return endereco;
     }
@@ -120,11 +144,10 @@ public class AssociadoBean implements Serializable {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    
-    
-    public void teste () {
+
+    public void teste() {
         RequestContext.getCurrentInstance().reset("form:cadastroAssociado");
-        
+
     }
 
 }

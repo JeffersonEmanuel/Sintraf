@@ -8,26 +8,32 @@
     <ui:decorate template="../template/template.xhtml">
         <ui:define name="centro">        
             <p:tooltip/>
-            
-            
+
+
             <h:form>
                 <p:dialog id="imagem" header="Inserir Fotografia do Associado" 
                           widgetVar="cadastrarImagem" width="900" height="500"
                           modal="false">
                     <p:photoCam widgetVar="fotoCam"  immediate="true"
                                 listener="#{associadoBean.capturarFotoCam}"
-                                 />
+                                />
                     <p:commandButton type="button" id="Bnt_foto" value="Capture" onclick="PF('fotoCam').capture()" 
                                      style="float: start" 
-                                      update="cadastroAssociado" process="cadastroAssociado"
+                                     update="cadastroAssociado" process="cadastroAssociado"
                                      >
                         <p:resetInput target="cadastroAssociado"/>
                     </p:commandButton>
-                    
+
+                    <br></br>
+                    <p:spacer width="30px"/>
+                    <p:fileUpload fileUploadListener="#{associadoBean.selecionarImagem}" 
+                                  mode="advanced" auto="true" label="Selecionar Imagem de Arquivo"/>
+                    <p:spacer width="10px"/>
                 </p:dialog>
+
             </h:form>
-            
-            
+
+
 
             <h:form id="cadastroAssociado">
 
