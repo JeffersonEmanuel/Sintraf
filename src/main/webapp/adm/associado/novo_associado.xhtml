@@ -19,9 +19,8 @@
                                 />
                     <p:commandButton type="button" id="Bnt_foto" value="Capture" onclick="PF('fotoCam').capture()" 
                                      style="float: start" 
-                                     update="cadastroAssociado" process="cadastroAssociado"
-                                     >
-                        <p:resetInput target="cadastroAssociado"/>
+                                     oncomplete="PF('imagem').hide()" >
+                        <p:ajaxStatus onstart="PF('fichaCadastro').show()"/>
                     </p:commandButton>
 
                     <br></br>

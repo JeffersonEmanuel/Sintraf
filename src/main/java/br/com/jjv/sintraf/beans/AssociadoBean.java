@@ -7,6 +7,7 @@ import br.com.jjv.sintraf.services.AssociadoService;
 import br.com.jjv.sintraf.sistema.ConstantesSistema;
 import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -116,10 +117,9 @@ public class AssociadoBean implements Serializable {
         } catch (IOException exception) {
             throw new FaceletException("erro na foco Cam tirada", exception);
         }
+        
     }
 
-    
-    
     public void selecionarImagem(FileUploadEvent upF) {
          try {
             UploadedFile arq = upF.getFile();
@@ -137,6 +137,7 @@ public class AssociadoBean implements Serializable {
         }
     }
 
+    
     public String getEndereco() {
         return endereco;
     }
