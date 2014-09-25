@@ -7,7 +7,6 @@ import br.com.jjv.sintraf.services.AssociadoService;
 import br.com.jjv.sintraf.sistema.ConstantesSistema;
 import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,9 +17,9 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.view.facelets.FaceletException;
 import javax.imageio.stream.FileImageOutputStream;
-import org.primefaces.context.RequestContext;
 import org.primefaces.event.CaptureEvent;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
@@ -146,8 +145,8 @@ public class AssociadoBean implements Serializable {
         this.endereco = endereco;
     }
 
-    public void teste() {
-        RequestContext.getCurrentInstance().reset("form:cadastroAssociado");
+    public void teste() throws IOException {
+        FacesContext.getCurrentInstance().getExternalContext().redirect("novo_associado.jsf"); 
 
     }
 
