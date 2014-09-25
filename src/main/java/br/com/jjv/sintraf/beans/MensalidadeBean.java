@@ -36,7 +36,7 @@ public class MensalidadeBean {
         try {
 
             XStream xstream = new XStream();
-
+             xstream.alias("sistema", Sistema.class);
             xml = xstream.toXML(sistema);
 
             File arquivo = new File(ConstantesSistema.CAMINHO_ARQUIVO_CONFIGURACOES);
@@ -70,7 +70,7 @@ public class MensalidadeBean {
         } catch (IOException ex) {
         }
     }
-
+    
     public Sistema getSistema() {
         return sistema;
     }

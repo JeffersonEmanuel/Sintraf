@@ -8,20 +8,23 @@
     <ui:decorate template="../template/template.xhtml">
         <ui:define name="centro">         
 
-            <h:form id="Mensalidades">
-                <p:growl id="messages" life="5000" showDetail="false"/>
-                <h:outputText value="Valor Mensalidade: " />
-                <p:inputText id="valor" size="40" required="true" styleClass="money" maxlength="6"
-                             requiredMessage="O valor da mensalidade é obrigatório" 
-                             value="#{mensalidadeBean.sistema.valorMensalidade}"
-                             />
+            <p:fieldset legend="Ajustar valor da mensalidade" style="width: 50%;">
+                <h:form id="Mensalidades">
+                    <p:growl id="messages" life="5000" showDetail="false"/>
 
-                <p:spacer width="30"/>
-                <p:commandButton value="OK" update="messages" 
-                                  action="#{mensalidadeBean.salvarConfiguracoes()}"/>
+                    <p:spacer width="30"/>
+                    <h:outputText value="Valor Mensalidade: " />
+                    <p:inputText id="valor" size="20" required="true" styleClass="money" maxlength="6"
+                                 requiredMessage="O valor da mensalidade é obrigatório" 
+                                 value="#{mensalidadeBean.sistema.valorMensalidade}"
+                                 />
 
-            </h:form>
+                    <p:spacer width="30"/>
+                    <p:commandButton value="OK" update="messages" 
+                                     action="#{mensalidadeBean.salvarConfiguracoes()}"/>
 
+                </h:form>
+            </p:fieldset>
         </ui:define>
     </ui:decorate>
 </html>
