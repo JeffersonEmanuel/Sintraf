@@ -1,0 +1,27 @@
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <ui:decorate template="../template/template.xhtml">
+        <ui:define name="centro">         
+
+            <h:form id="Mensalidades">
+                <p:growl id="messages" life="5000" showDetail="false"/>
+                <h:outputText value="Valor Mensalidade: " />
+                <p:inputText id="valor" size="40" required="true" styleClass="money" maxlength="6"
+                             requiredMessage="O valor da mensalidade é obrigatório" 
+                             value="#{mensalidadeBean.sistema.valorMensalidade}"
+                             />
+
+                <p:spacer width="30"/>
+                <p:commandButton value="OK" update="messages" 
+                                  action="#{mensalidadeBean.salvarConfiguracoes()}"/>
+
+            </h:form>
+
+        </ui:define>
+    </ui:decorate>
+</html>
