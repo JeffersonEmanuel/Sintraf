@@ -16,12 +16,12 @@
                     <h:outputText value="Valor Mensalidade: " />
                     <p:inputText id="valor" size="20" required="true" styleClass="money" maxlength="6"
                                  requiredMessage="O valor da mensalidade é obrigatório" 
-                                 value="#{mensalidadeBean.sistema.valorMensalidade}"
+                                 value="#{configuracoesBean.sistema.valorMensalidade}"
                                  />
 
                     <p:spacer width="30"/>
                     <p:commandButton value="OK" update="messages" 
-                                     action="#{mensalidadeBean.salvarConfiguracoes()}"/>
+                                     action="#{configuracoesBean.salvarConfiguracoes()}"/>
 
                 </h:form>
             </p:fieldset>

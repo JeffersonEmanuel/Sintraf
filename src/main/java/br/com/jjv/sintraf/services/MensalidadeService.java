@@ -3,9 +3,11 @@ package br.com.jjv.sintraf.services;
 import br.com.jjv.sintraf.dao.MensalidadeDAO;
 import br.com.jjv.sintraf.entidades.Associado;
 import br.com.jjv.sintraf.entidades.Mensalidade;
+import br.com.jjv.sintraf.sistema.ConstantesSistema;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -14,45 +16,73 @@ import java.util.List;
  */
 public class MensalidadeService implements Serializable {
 
-    private MensalidadeDAO usuarioDAO;
+    private MensalidadeDAO mensalidadeDAO;
 
     public MensalidadeService() {
-        usuarioDAO = new MensalidadeDAO();
+        mensalidadeDAO = new MensalidadeDAO();
     }
 
     public void create(Mensalidade administrator) {
-        usuarioDAO.create(administrator);
+        mensalidadeDAO.create(administrator);
     }
 
     public void update(Mensalidade user) {
 
-        usuarioDAO.update(user);
+        mensalidadeDAO.update(user);
     }
 
     public void delete(Mensalidade user) {
 
-        usuarioDAO.delete(user);
+        mensalidadeDAO.delete(user);
 
     }
 
     public List<Mensalidade> findAll() {
 
-        return usuarioDAO.findAll();
+        return mensalidadeDAO.findAll();
     }
-    public void gerarMensalidades(Associado associado){
-        
-        Date dataAtual = new Date();
-        System.err.println(Calendar.YEAR);
-        System.err.println(Calendar.MONTH);
-        System.err.println(Calendar.DAY_OF_MONTH);
-//        while(dataAtual.get){
-//            
-//        }
-//        Date dataVencimento = new Date(year, month, date);
-        
-    }
-    public Mensalidade findById(long id) {  
 
-        return usuarioDAO.findById(id);
+    public void gerarMensalidades(Associado associado) {
+
+        Date data = new Date();
+        GregorianCalendar dataCal = new GregorianCalendar();
+        dataCal.setTime(data);
+        
+        int mes = dataCal.get(Calendar.MONTH);
+        int ano = dataCal.get(Calendar.YEAR);
+        int dia = dataCal.get(Calendar.DAY_OF_MONTH);
+
+        while (mes < 11) {
+            
+            mes++;
+
+            Mensalidade men = new Mensalidade();
+            men.setMenValor(ConstantesSistema.VALOR_MENSALIDADE);
+            men.setAssociado(associado);
+            men.setMenSituacao("abt");
+            
+            if(dia >= 29 && mes == 2){
+                
+                dia = 28;
+                
+            }
+            if(dia == 31){
+                
+                dia = 30;
+            }
+            
+            dataCal.set(ano, mes, dia);
+
+            men.setMenVencimento(dataCal.getTime());
+
+            mensalidadeDAO.create(men);
+
+        }
     }
+
+    public Mensalidade findById(long id) {
+
+        return mensalidadeDAO.findById(id);
+    }
+
 }
