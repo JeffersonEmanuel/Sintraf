@@ -2,6 +2,7 @@ package br.com.jjv.sintraf.entidades;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  *
@@ -10,13 +11,13 @@ import java.io.Serializable;
 @XStreamAlias("sistema")
 public class Sistema implements Serializable{
 
-    private float valorMensalidade;
+    private BigDecimal valorMensalidade;
 
-    public float getValorMensalidade() {
+    public BigDecimal getValorMensalidade() {
         return valorMensalidade;
     }
 
-    public void setValorMensalidade(float valorMensalidade) {
+    public void setValorMensalidade(BigDecimal valorMensalidade) {
         this.valorMensalidade = valorMensalidade;
     }
     

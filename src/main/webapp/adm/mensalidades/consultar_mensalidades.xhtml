@@ -1,0 +1,53 @@
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <ui:decorate template="../template/template.xhtml">
+        <ui:define name="centro">         
+
+            <p:fieldset legend="Consultar Mensalidades" style="width: 70%;">
+                <h:form id="frm_mensalidade">
+                    
+                    <p:outputLabel value="Nome do Associado: "/>
+                    <p:inputText id="associado" maxlength="40" /> 
+                    <p:commandButton icon="ui-icon-search" value="Pesquisar"/>
+                                 
+                                 
+                    <p:dataTable id="tabela_mensalidades" value="#{mensalidadeBean.mensalidades}"
+                                 var="mensalidade" emptyMessage="Não há resultados">
+
+                        <p:column headerText="ID">
+                            <h:outputText value="#{mensalidade.idMensaldade}" />
+                        </p:column>
+
+                        <p:column headerText="Associado">
+                            <h:outputText value="#{mensalidade.associado.nome}" />
+                        </p:column>
+
+
+                        <p:column headerText="Vencimento">
+                            <h:outputText value="#{mensalidade.menVencimento}" >
+
+                                <f:convertDateTime type="date" pattern="dd/M/yyyy"/>
+
+                            </h:outputText>
+                        </p:column>
+
+                        <p:column headerText="Situação">
+                            <h:outputText value="#{mensalidade.menSituacao}" />
+                        </p:column>
+
+                        <p:column headerText="Valor">
+                            <h:outputText value="#{mensalidade.menValor}" />
+                        </p:column>
+
+                    </p:dataTable>
+
+                </h:form>
+            </p:fieldset>
+        </ui:define>
+    </ui:decorate>
+</html>

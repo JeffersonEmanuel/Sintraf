@@ -1,7 +1,9 @@
 
 package br.com.jjv.sintraf;
 
-import java.util.Calendar;
+import br.com.jjv.sintraf.entidades.Associado;
+import br.com.jjv.sintraf.services.AssociadoService;
+import br.com.jjv.sintraf.services.MensalidadeService;
 
 /**
  *
@@ -10,10 +12,14 @@ import java.util.Calendar;
 public class Inicio {
     
     public static void main(String[] args) {
-      
-        System.err.println(Calendar.MONDAY);
-        System.err.println(Calendar.MONTH);
-        System.err.println(Calendar.DAY_OF_MONTH);
+
+        MensalidadeService service = new MensalidadeService();
+        AssociadoService s = new AssociadoService();
+        
+        Associado ac = s.findById(1L);
+        
+        service.gerarMensalidades(ac);
+        
         
     }
 
