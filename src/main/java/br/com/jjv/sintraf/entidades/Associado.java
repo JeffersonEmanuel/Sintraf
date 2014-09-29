@@ -14,7 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.servlet.http.Part;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -40,9 +39,6 @@ public class Associado implements Serializable {
     @Column(name = "sc_nome", length = 60, nullable = true)
     private String nome;
 
-//    @Size(max = 60)
-//    @Column(name = "sc_foto", length = 60, nullable = true)
-//    private String foto;
     @Size(max = 80)
     @Column(name = "sc_endereco", length = 80, nullable = true)
     private String endereco;
@@ -163,7 +159,7 @@ public class Associado implements Serializable {
     private List<Mensalidade> mensalidades;
 
     @Lob
-    @Column(name = "sc_foto", length = 60, nullable = true)
+    @Column(name = "sc_foto",  nullable = true)
     private byte[] foto;
 
     public String getRgUF() {
