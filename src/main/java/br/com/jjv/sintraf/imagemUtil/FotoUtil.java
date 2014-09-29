@@ -21,9 +21,9 @@ public class FotoUtil implements Serializable {
 
     public static StreamedContent recuperarFotoDisco(String id) throws FileNotFoundException {
         try {
-            return new DefaultStreamedContent(new FileInputStream(new File(ConstantesSistema.CAMINHO_IMAGEM+  id + ".png")), "image/png");
+            return new DefaultStreamedContent(new FileInputStream(new File(
+                    ConstantesSistema.CAMINHO_IMAGEM+  id + ".png")), "image/png");
         } catch (IOException e) {
-            e.printStackTrace();
 
             return new DefaultStreamedContent(new FileInputStream(new File(ConstantesSistema.CAMINHO_IMAGEM + "base.png")), "image/png");
         }

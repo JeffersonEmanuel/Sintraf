@@ -6,7 +6,9 @@ import br.com.jjv.sintraf.enumerats.Estados;
 import br.com.jjv.sintraf.services.AssociadoService;
 import br.com.jjv.sintraf.sistema.ConstantesSistema;
 import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,8 +22,12 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.view.facelets.FaceletException;
 import javax.imageio.stream.FileImageOutputStream;
+import javax.servlet.http.Part;
+import org.apache.commons.io.IOUtils;
 import org.primefaces.event.CaptureEvent;
 import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
 
 /**
@@ -119,23 +125,36 @@ public class AssociadoBean implements Serializable {
         
     }
 
-    public void selecionarImagem(FileUploadEvent upF) {
-         try {
+    public void selecionarImagem(FileUploadEvent upF) throws IOException {
+//         try {
             UploadedFile arq = upF.getFile();
             InputStream is = new BufferedInputStream(arq.getInputstream());
-
-            File file = new File(ConstantesSistema.CAMINHO_IMAGEM
-                    + service.getNumMatricula() + ".png");
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
-            while (is.available() != 0) {
-                fileOutputStream.write(is.read());
-            }
-
-            fileOutputStream.close();
-        } catch (Exception e) {
-        }
+            this.associado.setFoto(IOUtils.toByteArray(is));
+//            File file = new File(ConstantesSistema.CAMINHO_IMAGEM
+//                    + service.getNumMatricula() + ".png");
+//            FileOutputStream fileOutputStream = new FileOutputStream(file);
+//            while (is.available() != 0) {
+//                fileOutputStream.write(is.read());
+//            }
+//
+//            fileOutputStream.close();
+//        } catch (Exception e) {
+//        }
     }
 
+    
+    public StreamedContent  getFoto() {
+        try{
+        InputStream is = new ByteArrayInputStream(this.associado.getFoto());
+        StreamedContent sc = new DefaultStreamedContent(is, "image/png");
+        return sc;
+        } catch (Exception e){
+            return new DefaultStreamedContent();
+        }
+    }
+    
+    
+    
     
     public String getEndereco() {
         return endereco;
@@ -149,5 +168,5 @@ public class AssociadoBean implements Serializable {
         FacesContext.getCurrentInstance().getExternalContext().redirect("novo_associado.jsf"); 
 
     }
-
+    
 }

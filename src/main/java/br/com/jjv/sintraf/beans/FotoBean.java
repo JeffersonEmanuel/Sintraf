@@ -25,7 +25,8 @@ public class FotoBean implements Serializable{
     private static final long serialVersionUID = -2512806101450140965L;
 
 	public StreamedContent getFoto() throws FileNotFoundException {
-		String fotoNome = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("fotoNome");
+		String fotoNome = FacesContext.getCurrentInstance().getExternalContext().
+                        getRequestParameterMap().get("fotoNome");
 
 		if(FacesContext.getCurrentInstance().getRenderResponse() || fotoNome == null)			
 			return new DefaultStreamedContent();

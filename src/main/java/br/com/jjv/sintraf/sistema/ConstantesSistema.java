@@ -15,8 +15,8 @@ public class ConstantesSistema {
     public static final float VALOR_MENSALIDADE = 5;
     public static final String JANEIRO_2014 = "";
     public static final String CAMINHO_IMAGEM = File.separator + "home"
-                + File.separator + "vanderlan" + File.separator + "Área de Trabalho"
-                + File.separator + "imagens" + File.separator + "Sintraf" + File.separator;
-    public static final String CAMINHO_ARQUIVO_CONFIGURACOES = "/home/vanderlan/definicoes.xml";
+                + File.separator + "jefferson" + File.separator + "Área de Trabalho"
+                + File.separator + "Imagens" + File.separator + "Sintraf" + File.separator;
+    public static final String CAMINHO_ARQUIVO_CONFIGURACOES = "/home/jefferson/definicoes.xml";
     
 }
