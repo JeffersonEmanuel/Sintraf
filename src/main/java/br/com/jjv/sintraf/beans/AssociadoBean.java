@@ -109,52 +109,13 @@ public class AssociadoBean implements Serializable {
     }
 
     private String endereco;
-
-    public void capturarFotoCam(CaptureEvent captureEvent) {
-        byte[] fotoEvento = captureEvent.getData();
-        endereco = ConstantesSistema.CAMINHO_IMAGEM
-                + service.getNumMatricula() + ".png";
-        FileImageOutputStream fileImageOutputStream;
-        try {
-            fileImageOutputStream = new FileImageOutputStream(new File(endereco));
-            fileImageOutputStream.write(fotoEvento, 0, fotoEvento.length);
-            fileImageOutputStream.close();
-        } catch (IOException exception) {
-            throw new FaceletException("erro na foco Cam tirada", exception);
-        }
-        
-    }
-
-    public void selecionarImagem(FileUploadEvent upF) throws IOException {
-//         try {
+    
+       public void selecionarImagem(FileUploadEvent upF) throws IOException {
             UploadedFile arq = upF.getFile();
             InputStream is = new BufferedInputStream(arq.getInputstream());
             this.associado.setFoto(IOUtils.toByteArray(is));
-//            File file = new File(ConstantesSistema.CAMINHO_IMAGEM
-//                    + service.getNumMatricula() + ".png");
-//            FileOutputStream fileOutputStream = new FileOutputStream(file);
-//            while (is.available() != 0) {
-//                fileOutputStream.write(is.read());
-//            }
-//
-//            fileOutputStream.close();
-//        } catch (Exception e) {
-//        }
     }
 
-    
-    public StreamedContent  getFoto() {
-        try{
-        InputStream is = new ByteArrayInputStream(this.associado.getFoto());
-        StreamedContent sc = new DefaultStreamedContent(is, "image/png");
-        return sc;
-        } catch (Exception e){
-            return new DefaultStreamedContent();
-        }
-    }
-    
-    
-    
     
     public String getEndereco() {
         return endereco;
@@ -168,5 +129,17 @@ public class AssociadoBean implements Serializable {
         FacesContext.getCurrentInstance().getExternalContext().redirect("novo_associado.jsf"); 
 
     }
+    
+    
+    private Part foto;
+
+    public Part getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Part foto) {
+        this.foto = foto;
+    }
+    
     
 }

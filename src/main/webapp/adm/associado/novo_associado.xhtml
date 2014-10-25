@@ -11,46 +11,12 @@
             <p:tooltip/>
 
 
-            <h:form id="dialogForm" enctype="multipart/form-data">
-                <p:dialog id="imagem" header="Inserir Fotografia do Associado" 
-                          widgetVar="cadastrarImagem" width="900" height="500"
-                          modal="false">
-                    <p:photoCam widgetVar="fotoCam"  immediate="true"
-                                listener="#{associadoBean.capturarFotoCam}"
-                                />
-                    <p:commandButton type="button" id="Bnt_foto" value="Capture" onclick="PF('fotoCam').capture()" 
-                                     style="float: start" 
-                                     update="cadastroAssociado" process="cadastroAssociado"
-                                     >
-                        <p:resetInput target="cadastroAssociado"/>
-                    </p:commandButton>
-
-                    <br></br>
-                    <p:spacer width="30px"/>
-                    <p:fileUpload fileUploadListener="#{associadoBean.selecionarImagem}" 
-                                  mode="advanced" auto="true" label="Selecionar Imagem de Arquivo"/>
-                    <p:spacer width="10px"/>
-                      <p:commandButton action="#{associadoBean.foto}"/>
-                </p:dialog>
-
-            </h:form>
-
-
-
             <h:form id="cadastroAssociado" enctype="multipart/form-data">
 
                 <p:wizard id="fichaCadastro" backLabel="Anterior" nextLabel="Próximo" style="width: 70%" >
                     <p:tab id="pessoa" title="Associado" >
 
                         <p:panel header="Dados Pessoais" >
-                            <p:commandLink onclick="PF('cadastrarImagem').show();">
-
-                                <p:graphicImage id="ft" value="#{fotoBean.foto}"
-                                                width="150" style="float: right"> 
-                                </p:graphicImage>
-                              
-
-                            </p:commandLink>
 
                             <h:panelGrid columns="2" styleClass="formulario_cadastro" cellpadding="5">
 
@@ -242,6 +208,16 @@
                     </p:tab>
 
 
+                    <p:tab id="cadastrarFoto" title="Foto" >
+                        <p:panel header="Cadastrar Foto" >
+
+                            <h:panelGrid styleClass="formulario_cadastro" cellpadding="5" >
+
+                                <p:fileUpload fileUploadListener="#{associadoBean.selecionarImagem}" 
+                                              mode="advanced" auto="true" label="Selecionar Imagem de Arquivo"/>
+                            </h:panelGrid>
+                        </p:panel>
+                    </p:tab>
 
                     <p:tab id="dadosDoImovel" title="Finalizar Cadastro" >
                         <p:panel header="Finalizar Cadastro">
