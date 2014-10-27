@@ -72,7 +72,7 @@ public class AssociadoBean implements Serializable {
         associado = new Associado();
         System.out.println("OK Salvar");
 //        /adm/ficha/ficha_associado.jsf
-        return "";
+        return "/adm/index.jsf";
     }
 
     public void pegarMatricula() {
