@@ -6,9 +6,7 @@ import br.com.jjv.sintraf.enumerats.Estados;
 import br.com.jjv.sintraf.services.AssociadoService;
 import br.com.jjv.sintraf.sistema.ConstantesSistema;
 import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,17 +15,17 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.Application;
+import javax.faces.application.ViewHandler;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.view.facelets.FaceletException;
 import javax.imageio.stream.FileImageOutputStream;
-import javax.servlet.http.Part;
-import org.apache.commons.io.IOUtils;
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.CaptureEvent;
 import org.primefaces.event.FileUploadEvent;
-import org.primefaces.model.DefaultStreamedContent;
-import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
 
 /**
@@ -73,7 +71,8 @@ public class AssociadoBean implements Serializable {
         service.create(this.associado);
         associado = new Associado();
         System.out.println("OK Salvar");
-        return "lista_associados.jsf";
+//        /adm/ficha/ficha_associado.jsf
+        return "";
     }
 
     public void pegarMatricula() {
@@ -109,14 +108,40 @@ public class AssociadoBean implements Serializable {
     }
 
     private String endereco;
-    
-       public void selecionarImagem(FileUploadEvent upF) throws IOException {
-            UploadedFile arq = upF.getFile();
-            InputStream is = new BufferedInputStream(arq.getInputstream());
-            this.associado.setFoto(IOUtils.toByteArray(is));
+
+    public void capturarFotoCam(CaptureEvent captureEvent) {
+        byte[] fotoEvento = captureEvent.getData();
+        endereco = ConstantesSistema.CAMINHO_IMAGEM
+                + service.getNumMatricula() + ".png";
+        FileImageOutputStream fileImageOutputStream;
+        try {
+            fileImageOutputStream = new FileImageOutputStream(new File(endereco));
+            fileImageOutputStream.write(fotoEvento, 0, fotoEvento.length);
+            fileImageOutputStream.close();
+        } catch (IOException exception) {
+            throw new FaceletException("erro na foco Cam tirada", exception);
+        }
     }
 
     
+    
+    public void selecionarImagem(FileUploadEvent upF) {
+         try {
+            UploadedFile arq = upF.getFile();
+            InputStream is = new BufferedInputStream(arq.getInputstream());
+
+            File file = new File(ConstantesSistema.CAMINHO_IMAGEM
+                    + service.getNumMatricula() + ".png");
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            while (is.available() != 0) {
+                fileOutputStream.write(is.read());
+            }
+
+            fileOutputStream.close();
+        } catch (Exception e) {
+        }
+    }
+
     public String getEndereco() {
         return endereco;
     }
@@ -125,21 +150,11 @@ public class AssociadoBean implements Serializable {
         this.endereco = endereco;
     }
 
-    public void teste() throws IOException {
-        FacesContext.getCurrentInstance().getExternalContext().redirect("novo_associado.jsf"); 
+    public void teste() {
+        RequestContext.getCurrentInstance().reset("form:cadastroAssociado");
 
     }
     
-    
-    private Part foto;
-
-    public Part getFoto() {
-        return foto;
-    }
-
-    public void setFoto(Part foto) {
-        this.foto = foto;
-    }
     
     
 }
