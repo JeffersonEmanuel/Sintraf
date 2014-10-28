@@ -18,8 +18,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.Part;
-import org.apache.commons.io.IOUtils;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
@@ -32,11 +30,13 @@ import org.primefaces.model.UploadedFile;
 public class AssociadoBean implements Serializable {
 
     private Associado associado;
+    private Associado associadoSelecionado;
     private List<Estados> estados;
     private List<LocalDeTrabalho> locaisDeTrabalho;
     private AssociadoService service;
     private List<Associado> associados;
-
+    private FacesContext contexto = FacesContext.getCurrentInstance();
+    private Long numMatriculaAtual;
     public AssociadoBean() {
 
     }
@@ -108,9 +108,10 @@ public class AssociadoBean implements Serializable {
 
     private String endereco;
 
+ 
     
     public void selecionarImagem(FileUploadEvent upF) {
-         try {
+        try {
             UploadedFile arq = upF.getFile();
             InputStream is = new BufferedInputStream(arq.getInputstream());
 
@@ -139,14 +140,22 @@ public class AssociadoBean implements Serializable {
 
     }
 
-    private Part foto;
-
-    public Part getFoto() {
-        return foto;
+    public Associado getAssociadoSelecionado() {
+        return associadoSelecionado;
     }
 
-    public void setFoto(Part foto) {
-        this.foto = foto;
+    public void setAssociadoSelecionado(Associado associadoSelecionado) {
+        this.associadoSelecionado = associadoSelecionado;
     }
 
+    public Long getNumMatriculaAtual() {
+        return numMatriculaAtual;
+    }
+
+    public void setNumMatriculaAtual(Long numMatriculaAtual) {
+        this.numMatriculaAtual = numMatriculaAtual;
+    }
+
+    
+    
 }
