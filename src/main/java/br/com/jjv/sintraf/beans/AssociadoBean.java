@@ -2,7 +2,9 @@ package br.com.jjv.sintraf.beans;
 
 import br.com.jjv.sintraf.entidades.Associado;
 import br.com.jjv.sintraf.entidades.LocalDeTrabalho;
+import br.com.jjv.sintraf.entidades.Mensalidade;
 import br.com.jjv.sintraf.enumerats.Estados;
+import br.com.jjv.sintraf.jsf.JsfUtil;
 import br.com.jjv.sintraf.services.AssociadoService;
 import br.com.jjv.sintraf.sistema.ConstantesSistema;
 import java.io.BufferedInputStream;
@@ -37,6 +39,8 @@ public class AssociadoBean implements Serializable {
     private List<Associado> associados;
     private FacesContext contexto = FacesContext.getCurrentInstance();
     private Long numMatriculaAtual;
+    private String nomeAssociado;
+    
     public AssociadoBean() {
 
     }
@@ -105,7 +109,22 @@ public class AssociadoBean implements Serializable {
     public void buscarAssociado() {
         associado = service.findById(associado.getMatricula());
     }
+    
+    public void carregaAssociado(){
+        
+        JsfUtil.addSuccessMessage("Carregando mensalidades de : "+associado.getNome());
+        associado = service.carregaAssociado(nomeAssociado);
+                
+    }
 
+    public String getNomeAssociado() {
+        return nomeAssociado;
+    }
+
+    public void setNomeAssociado(String nomeAssociado) {
+        this.nomeAssociado = nomeAssociado;
+    }
+    
     private String endereco;
 
  

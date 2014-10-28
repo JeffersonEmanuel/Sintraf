@@ -60,4 +60,10 @@ public class AssociadoService implements Serializable, ServiceIF<Associado> {
     
     }
 
+    public Associado carregaAssociado(String nome) {
+
+        return associadoDAO.carregaAssociado(nome);
+    
+    }
+
 }
