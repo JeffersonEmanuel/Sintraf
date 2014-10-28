@@ -12,7 +12,9 @@
                 <h:form id="frm_mensalidade">
                     
                     <p:outputLabel value="Nome do Associado: "/>
-                    <p:inputText id="associado" maxlength="40" /> 
+                    <p:autoComplete id="acSimple" value="#{associadoBean.associado.nome}"
+                                    completeMethod="#{associadoBean.autocomplete}" />
+                     
                     <p:commandButton icon="ui-icon-search" value="Pesquisar"/>
                                  
                                  

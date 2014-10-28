@@ -62,19 +62,14 @@ public class MensalidadeService implements Serializable {
             men.setMenSituacao("abt");
             
             if(dia >= 29 && mes == 2){
-                
                 dia = 28;
-                
             }
             if(dia == 31){
-                
                 dia = 30;
             }
             
             dataCal.set(ano, mes, dia);
-
             men.setMenVencimento(dataCal.getTime());
-
             mensalidadeDAO.create(men);
 
         }

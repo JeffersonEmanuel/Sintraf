@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -76,6 +77,10 @@ public class AssociadoBean implements Serializable {
         return "/adm/index.jsf";
     }
 
+    public List<String> autocomplete(String query) {
+        return service.autocomplete(query);
+    }
+
     public void pegarMatricula() {
         associado.setMatricula(service.getNumMatricula());
     }
@@ -110,18 +115,10 @@ public class AssociadoBean implements Serializable {
 
     private String endereco;
 
-    public void capturarFotoCam(CaptureEvent captureEvent) {
-        byte[] fotoEvento = captureEvent.getData();
-        endereco = ConstantesSistema.CAMINHO_IMAGEM
-                + service.getNumMatricula() + ".png";
-        FileImageOutputStream fileImageOutputStream;
-        try {
-            fileImageOutputStream = new FileImageOutputStream(new File(endereco));
-            fileImageOutputStream.write(fotoEvento, 0, fotoEvento.length);
-            fileImageOutputStream.close();
-        } catch (IOException exception) {
-            throw new FaceletException("erro na foco Cam tirada", exception);
-        }
+    public void selecionarImagem(FileUploadEvent upF) throws IOException {
+        UploadedFile arq = upF.getFile();
+        InputStream is = new BufferedInputStream(arq.getInputstream());
+        this.associado.setFoto(IOUtils.toByteArray(is));
     }
 
     public void selecionarImagem(FileUploadEvent upF) {
@@ -149,8 +146,8 @@ public class AssociadoBean implements Serializable {
         this.endereco = endereco;
     }
 
-    public void teste() {
-        RequestContext.getCurrentInstance().reset("form:cadastroAssociado");
+    public void teste() throws IOException {
+        FacesContext.getCurrentInstance().getExternalContext().redirect("novo_associado.jsf");
 
     }
 
