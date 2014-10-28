@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -38,6 +37,10 @@ public class Associado implements Serializable {
     @Size(max = 60)
     @Column(name = "sc_nome", length = 60, nullable = true)
     private String nome;
+
+    @Size(max = 60)
+    @Column(name = "sc_foto", length = 60, nullable = true)
+    private String foto;
 
     @Size(max = 80)
     @Column(name = "sc_endereco", length = 80, nullable = true)
@@ -131,37 +134,34 @@ public class Associado implements Serializable {
     @Size(max = 15)
     @Column(name = "sc_regime_trabalho", length = 15, nullable = true)
     private String regimeDeTrabalho;
-
-    @OneToMany(mappedBy = "socioID", cascade = CascadeType.ALL)
+    
+    @OneToMany(mappedBy = "socioID",cascade = CascadeType.ALL)
     private List<LocalDeTrabalho> localDeTrabalho;
-
+    
     @Size(max = 25)
     @Column(name = "sc_apelido", length = 25, nullable = true)
     private String apelido;
-
+    
     @Column(name = "sc_alfabetizado")
     private boolean alfabetizado;
 
     @Column(name = "sc_quantidade_filhos", nullable = true)
     private Integer quantidadeDeFilhos;
-
-    @Column(name = "sc_quantidade_filhos_estudando", nullable = true)
+    
+    @Column(name = "sc_quantidade_filhos_estudando",nullable = true)
     private Integer quantidadeDeFilhosEstudando;
-
+    
     @Column(name = "sc_dependentes", nullable = true)
     private Integer dependentes;
-
+    
     @Size(max = 255)
     @Column(name = "sc_observacoes", length = 255, nullable = true)
     private String observacoes;
-
+    
     @OneToMany(mappedBy = "associado", cascade = CascadeType.ALL)
     private List<Mensalidade> mensalidades;
-
-    @Lob
-    @Column(name = "sc_foto",  nullable = true)
-    private byte[] foto;
-
+    
+    
     public String getRgUF() {
         return rgUF;
     }
@@ -198,18 +198,11 @@ public class Associado implements Serializable {
         this.nome = nome;
     }
 
-//    public String getFoto() {
-//        return foto;
-//    }
-//
-//    public void setFoto(String foto) {
-//        this.foto = foto;
-//    }
-    public byte[] getFoto() {
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(byte[] foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
 
@@ -460,4 +453,5 @@ public class Associado implements Serializable {
     public void setMensalidades(List<Mensalidade> mensalidades) {
         this.mensalidades = mensalidades;
     }
+
 }

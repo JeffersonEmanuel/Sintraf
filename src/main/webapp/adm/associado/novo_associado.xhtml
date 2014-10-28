@@ -3,15 +3,41 @@
         xmlns:ui="http://java.sun.com/jsf/facelets"
         xmlns:h="http://java.sun.com/jsf/html"
         xmlns:f="http://java.sun.com/jsf/core"
-        xmlns:p="http://primefaces.org/ui">
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <link rel="stylesheet" type="text/css" href="css/style.css" /> 
     <ui:decorate template="../template/template.xhtml">
         <ui:define name="centro">        
             <p:tooltip/>
 
+            <h:form>
+                <p:dialog id="imagem" header="Inserir Fotografia do Associado" 
+                          widgetVar="cadastrarImagem" width="900" height="500"
+                          modal="false">
+                    <p:photoCam widgetVar="fotoCam"  immediate="true"
+                                listener="#{associadoBean.capturarFotoCam}"
+                                />
+                    <p:commandButton type="button" id="Bnt_foto" 
+                                     value="Capture" onclick="PF('fotoCam').capture()" 
+                                     style="float: start" 
+                                     update="cadastroAssociado" process="cadastroAssociado"
+                                     >
+                        <p:resetInput target="cadastroAssociado"/>
+                    </p:commandButton>
 
-            <h:form id="cadastroAssociado" enctype="multipart/form-data">
+                    <br></br>
+                    <p:spacer width="30px"/>
+                    <p:fileUpload fileUploadListener="#{associadoBean.selecionarImagem}" 
+                                  mode="advanced" auto="true" label="Selecionar Imagem de Arquivo"/>
+                    <p:spacer width="10px"/>
+
+                </p:dialog>
+
+            </h:form>
+
+
+            <h:form id="cadastroAssociado" >
 
                 <p:wizard id="fichaCadastro" backLabel="Anterior" nextLabel="Próximo" style="width: 70%" >
                     <p:tab id="pessoa" title="Associado" >
@@ -209,34 +235,30 @@
 
 
                     <p:tab id="cadastrarFoto" title="Foto" >
+
                         <p:panel header="Cadastrar Foto" >
+                            <h:panelGrid>
+                                <h:panelGroup>
 
-                            <h:panelGrid styleClass="formulario_cadastro" cellpadding="5" >
+                                    <p:commandLink onclick="PF('cadastrarImagem').show();">
 
-                                <p:fileUpload fileUploadListener="#{associadoBean.selecionarImagem}" 
-                                              mode="advanced" auto="true" label="Selecionar Imagem de Arquivo"/>
+                                        <p:graphicImage id="ft" value="#{fotoBean.foto}"
+                                                        width="150" style="float: right"> 
+                                            <f:param id="ftn" name="fotoNome" value="#{associadoBean.service.numMatricula}"/>
+                                        </p:graphicImage>
+
+
+                                    </p:commandLink>
+                                </h:panelGroup>
                             </h:panelGrid>
                         </p:panel>
                     </p:tab>
 
-                    <p:tab id="dadosDoImovel" title="Finalizar Cadastro" >
+                    <p:tab id="FinalizarCadastro" title="Finalizar Cadastro" >
                         <p:panel header="Finalizar Cadastro">
-                            <p:button value="Imprimir Ficha de Associado"
-                                      outcome="/adm/ficha/ficha_associado.jsf">
 
-                                <f:param name="associado" value="5"/>
-
-                            </p:button>
-
-                            <p:commandLink value="Teste" actionListener="#{associadoBean.salvar}"/>
-
-                            <p:spacer width="40"/>
-
-                            <p:button value="Cadastrar Imóvel Rural" outcome="/adm/local_trabalho/local_trabalho.jsf">
-
-                                <f:param name="associado" value="5"/>
-
-                            </p:button>
+                            <p:commandButton value="Salvar cadastro"
+                                             action="#{associadoBean.salvar}" />
                         </p:panel>
                     </p:tab>
                 </p:wizard>

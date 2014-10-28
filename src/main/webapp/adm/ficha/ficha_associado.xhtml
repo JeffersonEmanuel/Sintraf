@@ -14,7 +14,7 @@
     <h:body >
 
         <p:growl id="messages" sticky="true" showDetail="false" />
-        
+
         <f:metadata>
             <f:viewParam name="associado" value="#{associadoBean.associado.matricula}"
                          required="true" requiredMessage="Matricula do Associado inválida" />
@@ -37,7 +37,7 @@
                             <tr>
                                 <td height="191" colspan="9" style="text-align: center;font-family: sans-serif;font-weight: bold;padding-top: 20px;">
                                     <img src="../imagens/sintraf_icon.png" width="110" style="float: left; margin-left: 20px;"/>
-                                     <br></br>
+                                    <br></br>
                                     SINDICATO DOS TRABALHADORES NA AGRICULTURA FAMILIAR DE MONTEIRO - PB
                                     <br></br>
                                     FUNDADO DESDE 28 / 05 / 2009
@@ -48,9 +48,13 @@
                                     Zabelê/PB, CEP: 58.515-000 sintrafzmssupb@hotmail.com
                                     <div style="width: 75px;height: 100px;float: right;margin-right: 20px;
                                          margin-bottom: 15px;">
-                                        <img src="../imagens/enviar_foto.png" width="75" height="100"/>
+                                        <p:graphicImage id="impft" value="#{fotoBean.foto}"
+                                                        width="150" style="float: right"> 
+                                            <f:param id="imftn" name="fotoNome" value="#{associadoBean.associado.matricula}"/>
+                                        </p:graphicImage>
+                                        <!--<img src="../imagens/enviar_foto.png" width="75" height="100"/>-->
                                     </div>
-                                
+
                                 </td>
                             </tr>
                             <tr>
