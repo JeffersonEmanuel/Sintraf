@@ -18,6 +18,7 @@ public class MensalidadeBean {
     private Mensalidade mensalidade;
     private List<Mensalidade> mensalidades;
     private MensalidadeService service;
+    private String pesquisa;
     
     public MensalidadeBean() {
   
@@ -33,6 +34,26 @@ public class MensalidadeBean {
 
     public List<Mensalidade> getMensalidades() {
         return mensalidades;
+    }
+    
+    public List<Mensalidade> getMensalidadesSelecionadas() {
+        return mensalidades;
+    }
+
+    public MensalidadeService getService() {
+        return service;
+    }
+
+    public void setService(MensalidadeService service) {
+        this.service = service;
+    }
+
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
     }
     
 }

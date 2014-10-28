@@ -2,7 +2,6 @@ package br.com.jjv.sintraf.dao;
 
 import br.com.jjv.sintraf.entidades.Associado;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Query;
 

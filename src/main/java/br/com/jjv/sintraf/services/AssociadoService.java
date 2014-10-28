@@ -2,6 +2,7 @@ package br.com.jjv.sintraf.services;
 
 import br.com.jjv.sintraf.dao.AssociadoDAO;
 import br.com.jjv.sintraf.entidades.Associado;
+import br.com.jjv.sintraf.entidades.Mensalidade;
 import br.com.jjv.sintraf.services.interfaces.ServiceIF;
 import java.io.Serializable;
 import java.util.List;
@@ -58,4 +59,5 @@ public class AssociadoService implements Serializable, ServiceIF<Associado> {
         return  associadoDAO.findById(id);
     
     }
+
 }
