@@ -39,6 +39,11 @@ public class AssociadoService implements Serializable, ServiceIF<Associado> {
         return associadoDAO.findAll();
     }
 
+    public List<String> autocomplete(String nome){
+        
+        return associadoDAO.autocomplete(nome);
+        
+    }
     public Long getNumMatricula() {
 
         if (associadoDAO.getNumMatricula() == null) {

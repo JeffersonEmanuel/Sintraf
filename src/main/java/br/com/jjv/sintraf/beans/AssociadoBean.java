@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -76,6 +77,10 @@ public class AssociadoBean implements Serializable {
         return "lista_associados.jsf";
     }
 
+    public List<String> autocomplete(String query) {
+        return service.autocomplete(query);
+    }
+
     public void pegarMatricula() {
         associado.setMatricula(service.getNumMatricula());
     }
@@ -109,14 +114,13 @@ public class AssociadoBean implements Serializable {
     }
 
     private String endereco;
-    
-       public void selecionarImagem(FileUploadEvent upF) throws IOException {
-            UploadedFile arq = upF.getFile();
-            InputStream is = new BufferedInputStream(arq.getInputstream());
-            this.associado.setFoto(IOUtils.toByteArray(is));
+
+    public void selecionarImagem(FileUploadEvent upF) throws IOException {
+        UploadedFile arq = upF.getFile();
+        InputStream is = new BufferedInputStream(arq.getInputstream());
+        this.associado.setFoto(IOUtils.toByteArray(is));
     }
 
-    
     public String getEndereco() {
         return endereco;
     }
@@ -126,11 +130,10 @@ public class AssociadoBean implements Serializable {
     }
 
     public void teste() throws IOException {
-        FacesContext.getCurrentInstance().getExternalContext().redirect("novo_associado.jsf"); 
+        FacesContext.getCurrentInstance().getExternalContext().redirect("novo_associado.jsf");
 
     }
-    
-    
+
     private Part foto;
 
     public Part getFoto() {
@@ -140,6 +143,5 @@ public class AssociadoBean implements Serializable {
     public void setFoto(Part foto) {
         this.foto = foto;
     }
-    
-    
+
 }
