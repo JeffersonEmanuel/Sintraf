@@ -112,8 +112,8 @@ public class AssociadoBean implements Serializable {
     
     public void carregaAssociado(){
         
-        JsfUtil.addSuccessMessage("Carregando mensalidades de : "+associado.getNome());
         associado = service.carregaAssociado(nomeAssociado);
+        JsfUtil.addSuccessMessage("Carregando mensalidades de  "+associado.getNome());
                 
     }
 
