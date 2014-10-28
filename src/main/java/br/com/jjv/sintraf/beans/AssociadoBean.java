@@ -11,21 +11,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.application.Application;
-import javax.faces.application.ViewHandler;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
-import javax.faces.view.facelets.FaceletException;
-import javax.imageio.stream.FileImageOutputStream;
-import org.primefaces.context.RequestContext;
-import org.primefaces.event.CaptureEvent;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
@@ -43,7 +35,8 @@ public class AssociadoBean implements Serializable {
     private List<LocalDeTrabalho> locaisDeTrabalho;
     private AssociadoService service;
     private List<Associado> associados;
-
+    private FacesContext contexto = FacesContext.getCurrentInstance();
+    private Long numMatriculaAtual;
     public AssociadoBean() {
 
     }
@@ -115,12 +108,7 @@ public class AssociadoBean implements Serializable {
 
     private String endereco;
 
-    public void selecionarImagem(FileUploadEvent upF) throws IOException {
-        UploadedFile arq = upF.getFile();
-        InputStream is = new BufferedInputStream(arq.getInputstream());
-        this.associado.setFoto(IOUtils.toByteArray(is));
-    }
-
+ 
     public void selecionarImagem(FileUploadEvent upF) {
         try {
             UploadedFile arq = upF.getFile();
@@ -159,4 +147,14 @@ public class AssociadoBean implements Serializable {
         this.associadoSelecionado = associadoSelecionado;
     }
 
+    public Long getNumMatriculaAtual() {
+        return numMatriculaAtual;
+    }
+
+    public void setNumMatriculaAtual(Long numMatriculaAtual) {
+        this.numMatriculaAtual = numMatriculaAtual;
+    }
+
+    
+    
 }
