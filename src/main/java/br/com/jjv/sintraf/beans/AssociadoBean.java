@@ -37,6 +37,7 @@ import org.primefaces.model.UploadedFile;
 public class AssociadoBean implements Serializable {
 
     private Associado associado;
+    private Associado associadoSelecionado;
     private List<Estados> estados;
     private List<LocalDeTrabalho> locaisDeTrabalho;
     private AssociadoService service;
@@ -123,10 +124,8 @@ public class AssociadoBean implements Serializable {
         }
     }
 
-    
-    
     public void selecionarImagem(FileUploadEvent upF) {
-         try {
+        try {
             UploadedFile arq = upF.getFile();
             InputStream is = new BufferedInputStream(arq.getInputstream());
 
@@ -154,7 +153,13 @@ public class AssociadoBean implements Serializable {
         RequestContext.getCurrentInstance().reset("form:cadastroAssociado");
 
     }
-    
-    
-    
+
+    public Associado getAssociadoSelecionado() {
+        return associadoSelecionado;
+    }
+
+    public void setAssociadoSelecionado(Associado associadoSelecionado) {
+        this.associadoSelecionado = associadoSelecionado;
+    }
+
 }

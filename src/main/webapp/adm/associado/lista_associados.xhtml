@@ -10,20 +10,29 @@
 
             <h:form id="associado">
 
-                <p:dataTable id="basicDT" var="associado" value="#{associadoBean.associados}">
+                <p:dataTable id="tableAssociado" var="associado" value="#{associadoBean.associados}" selectionMode="single"
+                             selection="#{associadoBean.associadoSelecionado}" rowKey="#{associado.matricula}"
+                             rows="10" paginator="true">
                     <f:facet name="header">
                         Lista de Associados 
                     </f:facet>
-                    <p:column headerText="Número da Matrícula">
-                        <h:outputText value="#{associado.matricula}" />
+                   
+                    <p:column headerText="Matrícula" width="80">
+                        <h:outputText value="#{associado.matricula}"/>
                     </p:column>
                     <p:column headerText="Associado">
                         <h:outputText value="#{associado.nome}" />
                     </p:column>
                     <p:column headerText="Endereço">
-                        <h:outputText value="#{associado.endereco}" />
+                        <h:outputText value="#{associado.cpf}" />
                     </p:column>
-                    
+                    <f:facet name="footer">
+                        <p:button value="Imprimir Ficha de Associado"
+                                  outcome="/adm/ficha/ficha_associado.jsf">
+                            <f:param name="associado" value="12"/>
+                        </p:button>
+                    </f:facet>
+
                 </p:dataTable>
             </h:form>
 
