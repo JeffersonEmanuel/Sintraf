@@ -16,23 +16,21 @@
                     <f:facet name="header">
                         Lista de Associados 
                     </f:facet>
-                    <p:ajax event="rowSelect" listener="#{associadoBean.selecionar(associado)}"/>
                     <p:column headerText="Matrícula" width="80">
                         <h:outputText value="#{associado.matricula}"/>
                     </p:column>
                     <p:column headerText="Associado">
                         <h:outputText value="#{associado.nome}" />
                     </p:column>
-                    <p:column headerText="Endereço">
+                    <p:column headerText="CPF">
                         <h:outputText value="#{associado.cpf}" />
                     </p:column>
-                    <f:facet name="footer">
-                        <p:button value="Imprimir Ficha de Associado"
-                                  outcome="/adm/ficha/ficha_associado.jsf">
-                            <f:param name="associado" value="#{associadoBean.numMatriculaAtual}"/>
-
+                    <p:column headerText="Opções">
+                        <p:button value="imprimir Ficha" icon="ui-icon-print" outcome="/adm/ficha/ficha_associado" target="_new">
+                            <f:param value="#{associado.matricula}" name="associado"/> 
                         </p:button>
-                    </f:facet>
+
+                    </p:column>
 
                 </p:dataTable>
             </h:form>

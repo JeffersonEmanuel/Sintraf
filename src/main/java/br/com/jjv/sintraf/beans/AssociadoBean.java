@@ -145,11 +145,6 @@ public class AssociadoBean implements Serializable {
         } catch (Exception e) {
         }
     }
-    public void selecionar(Associado ass){
-        System.err.println("kmfoijewoijfoiewjfo");
-        numMatriculaAtual = ass.getMatricula();
-        
-    }
     public String getEndereco() {
         return endereco;
     }
