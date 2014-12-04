@@ -16,7 +16,7 @@
                     <f:facet name="header">
                         Lista de Associados 
                     </f:facet>
-
+                    <p:ajax event="rowSelect" listener="#{associadoBean.selecionar(associado)}"/>
                     <p:column headerText="Matrícula" width="80">
                         <h:outputText value="#{associado.matricula}"/>
                     </p:column>
@@ -29,7 +29,7 @@
                     <f:facet name="footer">
                         <p:button value="Imprimir Ficha de Associado"
                                   outcome="/adm/ficha/ficha_associado.jsf">
-                            <f:param name="associado" value="#{associadoBean.associadoSelecionado.matricula}"/>
+                            <f:param name="associado" value="#{associadoBean.numMatriculaAtual}"/>
 
                         </p:button>
                     </f:facet>
