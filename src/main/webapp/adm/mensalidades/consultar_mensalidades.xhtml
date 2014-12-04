@@ -10,15 +10,21 @@
 
             <p:fieldset legend="Consultar Mensalidades" style="width: 70%;">
                 <h:form id="frm_mensalidade">
-                    
+                    <p:growl id="men" life="5000" showDetail="false"/>
+
                     <p:outputLabel value="Nome do Associado: "/>
-                    <p:autoComplete id="acSimple" value="#{associadoBean.associado.nome}"
-                                    completeMethod="#{associadoBean.autocomplete}" />
-                     
-                    <p:commandButton icon="ui-icon-search" value="Pesquisar"/>
-                                 
-                                 
-                    <p:dataTable id="tabela_mensalidades" value="#{mensalidadeBean.mensalidades}"
+                    <p:autoComplete id="acSimple" value="#{associadoBean.nomeAssociado}"
+                                    completeMethod="#{associadoBean.autocomplete}" 
+                                    forceSelection="true" size="60"
+                                    emptyMessage="Nenhum associado encontrado"
+                                    effect="fade"
+                         />
+
+                    <p:commandButton icon="ui-icon-search" value="Pesquisar" 
+                                     actionListener="#{associadoBean.carregaAssociado}"
+                                     process="@all" update="frm_mensalidade"/>
+
+                    <p:dataTable id="tabela_mensalidades" value="#{associadoBean.associado.mensalidades}"
                                  var="mensalidade" emptyMessage="Não há resultados">
 
                         <p:column headerText="ID">
