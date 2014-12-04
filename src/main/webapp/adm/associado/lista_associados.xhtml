@@ -12,20 +12,20 @@
 
                 <p:dataTable id="tableAssociado" var="associado" value="#{associadoBean.associados}" selectionMode="single"
                              selection="#{associadoBean.associadoSelecionado}" rowKey="#{associado.matricula}"
-                             rows="10" paginator="true">
+                             rows="10" paginator="true" >
                     <f:facet name="header">
                         Lista de Associados 
                     </f:facet>
-                    <p:column headerText="Matrícula" width="80">
+                    <p:column headerText="Matrícula"  width="100" filterBy="#{associado.matricula}" >
                         <h:outputText value="#{associado.matricula}"/>
                     </p:column>
-                    <p:column headerText="Associado">
-                        <h:outputText value="#{associado.nome}" />
+                    <p:column   headerText="Associado" >
+                        <h:outputText value="#{associado.nome}"/>
                     </p:column>
-                    <p:column headerText="CPF">
+                    <p:column headerText="CPF"  width="200" style="text-align: center">
                         <h:outputText value="#{associado.cpf}" />
                     </p:column>
-                    <p:column headerText="Opções">
+                    <p:column headerText="Opções" width="130">
                         <p:button value="imprimir Ficha" icon="ui-icon-print" outcome="/adm/ficha/ficha_associado" target="_new">
                             <f:param value="#{associado.matricula}" name="associado"/> 
                         </p:button>
