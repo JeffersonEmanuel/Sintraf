@@ -22,6 +22,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.imageio.stream.FileImageOutputStream;
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.CaptureEvent;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
@@ -43,7 +44,7 @@ public class AssociadoBean implements Serializable {
     private FacesContext contexto = FacesContext.getCurrentInstance();
     private Long numMatriculaAtual;
     private String nomeAssociado;
-    
+
     public AssociadoBean() {
 
     }
@@ -112,12 +113,12 @@ public class AssociadoBean implements Serializable {
     public void buscarAssociado() {
         associado = service.findById(associado.getMatricula());
     }
-    
-    public void carregaAssociado(){
-        
+
+    public void carregaAssociado() {
+
         associado = service.carregaAssociado(nomeAssociado);
-        JsfUtil.addSuccessMessage("Carregando mensalidades de  "+associado.getNome());
-                
+        JsfUtil.addSuccessMessage("Carregando mensalidades de  " + associado.getNome());
+
     }
 
     public String getNomeAssociado() {
@@ -127,28 +128,25 @@ public class AssociadoBean implements Serializable {
     public void setNomeAssociado(String nomeAssociado) {
         this.nomeAssociado = nomeAssociado;
     }
-    
+
     private String endereco;
 
- 
     public void capturarFotoCam(CaptureEvent captureEvent) {
-         byte[] data = captureEvent.getData();
-         
-         FileImageOutputStream imageOutputStream;
-         try {
+        byte[] data = captureEvent.getData();
+
+        FileImageOutputStream imageOutputStream;
+        try {
             imageOutputStream = new FileImageOutputStream(new File(
                     ConstantesSistema.CAMINHO_IMAGEM + service.getNumMatricula()
-                        + ".png"));
+                    + ".png"));
             imageOutputStream.write(data, 0, data.length);
             imageOutputStream.close();
         } catch (Exception e) {
             throw new FacesException("Erro ao tirar foto com Web Cam", e);
         }
-    }    
-    
-    
-    
-    
+
+    }
+
     public void selecionarImagem(FileUploadEvent upF) {
         try {
             UploadedFile arq = upF.getFile();
@@ -162,9 +160,11 @@ public class AssociadoBean implements Serializable {
             }
 
             fileOutputStream.close();
+            RequestContext.getCurrentInstance().execute("PF('cadastrarImagem').hide();");
         } catch (Exception e) {
         }
     }
+
     public String getEndereco() {
         return endereco;
     }
@@ -194,6 +194,4 @@ public class AssociadoBean implements Serializable {
         this.numMatriculaAtual = numMatriculaAtual;
     }
 
-    
-    
 }

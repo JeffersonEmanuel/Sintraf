@@ -19,19 +19,19 @@
                                 listener="#{associadoBean.capturarFotoCam}"
                                 />
                     <p:commandButton type="button" id="Bnt_foto" 
-                                     value="Capture" onclick="PF('fotoCam').capture()" 
+                                     value="Capture" onclick="PF('fotoCam').capture(); PF('cadastrarImagem').hide();" 
                                      style="float: start" 
                                      update="cadastroAssociado" process="cadastroAssociado"
-                                     >
+                                     action="#{associadoBean.salvar}">
                         <p:resetInput target="cadastroAssociado"/>
                     </p:commandButton>
 
                     <br></br>
                     <p:spacer width="30px"/>
                     <p:fileUpload fileUploadListener="#{associadoBean.selecionarImagem}" 
-                                  mode="advanced" auto="true" label="Selecionar Imagem de Arquivo"/>
+                                  mode="advanced" auto="true" label="Selecionar Imagem de Arquivo" />
                     <p:spacer width="10px"/>
-
+                    
                 </p:dialog>
 
             </h:form>
