@@ -18,7 +18,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.FacesException;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.imageio.stream.FileImageOutputStream;
 import org.primefaces.context.RequestContext;
@@ -31,7 +31,7 @@ import org.primefaces.model.UploadedFile;
  * @author jefferson
  */
 @ManagedBean(name = "associadoBean")
-@RequestScoped
+@ViewScoped
 public class AssociadoBean implements Serializable {
 
     private Associado associado;
@@ -69,12 +69,12 @@ public class AssociadoBean implements Serializable {
         this.associado = associado;
     }
 
-    public String salvar() {
+    public void salvar() {
         service.create(this.associado);
         associado = new Associado();
         System.out.println("OK Salvar");
 //        /adm/ficha/ficha_associado.jsf
-        return "/adm/index.jsf";
+//        return "/adm/index.jsf";
     }
 
     public List<String> autocomplete(String query) {
