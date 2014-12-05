@@ -11,14 +11,14 @@
 
             <f:metadata>
 
-                <f:viewParam name="mensalidade" value="#{mensalidadeBean.idMensalidade}"
+                <f:viewParam name="mensalidade" value="#{mensalidadeBean.mensalidade.idMensaldade}"
                              required="true" requiredMessage="Mensalidade não encontrada" />
 
                 <f:viewAction action="#{mensalidadeBean.buscaMensalidade}"  />
 
             </f:metadata>
 
-            <p:fieldset legend="Confirmar recebimento ?" style="width: 70%;font-size: 16px !important;" >
+            <p:fieldset legend="Confirmar recebimento ?" style="width: 70%;font-size: 16px !important;" id="painel">
                 Mensalidade referente a 
                 <h:outputText value="#{mensalidadeBean.mensalidade.menVencimento}">
                     <f:convertDateTime dateStyle="default"/>
@@ -27,7 +27,8 @@
                 <h:form id="form_mensalidade">
 
 
-                    <p:commandButton value="Sim" icon="ui-icon-check" ajax="false" action="#{mensalidadeBean.receberMensalidade()}"/>
+                    <p:commandButton value="Sim" icon="ui-icon-check"  ajax="false" action="#{mensalidadeBean.receberMensalidade()}" 
+                                     update="painel"   />
 
                     <p:spacer width="30"/>
 

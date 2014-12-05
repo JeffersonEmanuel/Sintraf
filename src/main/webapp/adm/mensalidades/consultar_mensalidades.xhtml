@@ -24,7 +24,7 @@
                                      actionListener="#{associadoBean.carregaAssociado}"
                                      process="@all" update="frm_mensalidade" ajax="false"/>
 
-                    <p:dataTable id="tabela_mensalidades" value="#{mensalidadeBean.mensalidades}"
+                    <p:dataTable id="tabela_mensalidades" value="#{associadoBean.associado.mensalidades}"
                                  var="mensalidade" emptyMessage="Não há resultados">
 
                         <p:column headerText="Associado">
@@ -49,9 +49,13 @@
                         </p:column>
 
                         <p:column headerText="Opções">
-                            <p:button value="Receber mensalidade" icon="ui-icon-check" outcome="/adm/mensalidades/receber" target="_new">
+                            <p:commandLink value="Receber mensalidade"  
+                                             update=":formReceber:Receber"
+                                             oncomplete="confirmation.show()" immediate="true"
+
+                                             >
                                 <f:param value="#{mensalidade.idMensaldade}" name="mensalidade"/> 
-                            </p:button>
+                            </p:commandLink>
 
                         </p:column>
 
@@ -59,6 +63,23 @@
 
                 </h:form>
             </p:fieldset>
+
+            <h:form id="formReceber">
+                <p:confirmDialog id="Receber"
+                                 message="Confirmar recebimento ?"
+                                 header="Receber" severity="alert" widgetVar="confirmation">
+
+                    <p:commandButton id="confirm" value="Sim"
+                                     actionListener="#{mensalidadeBean.receberMensalidade()}"
+                                     update=":frm_mensalidade:tabela_mensalidades" 
+                                     />
+                    <p:commandButton id="decline" value="Não"
+                                     onclick="confirmation.hide()" type="button"
+                                     />
+
+                </p:confirmDialog>
+            </h:form>
+
         </ui:define>
     </ui:decorate>
 </html>

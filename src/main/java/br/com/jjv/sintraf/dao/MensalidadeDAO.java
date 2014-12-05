@@ -2,6 +2,7 @@ package br.com.jjv.sintraf.dao;
 
 import br.com.jjv.sintraf.entidades.Mensalidade;
 import br.com.jjv.sintraf.jsf.JsfUtil;
+import javax.persistence.Query;
 
 /**
  *
@@ -18,10 +19,11 @@ public class MensalidadeDAO extends AbstractDAO<Mensalidade> {
         try {
 
             getEntityManager().getTransaction().begin();
-            getEntityManager().createNativeQuery("UPDATE mensalidade SET men_situacao = 'pag' WHERE id_mensalidade = " + mensalidade);
+            Query q = getEntityManager().createNativeQuery("UPDATE mensalidade SET men_situacao = 'pag' WHERE id_mensalidade = " + mensalidade);
+            q.executeUpdate();
             getEntityManager().getTransaction().commit();
 
-            JsfUtil.addSuccessMessage("Mensalidade recebida com sucesso!");
+//            JsfUtil.addSuccessMessage("Mensalidade recebida com sucesso!");
             
         }catch(Exception e){
             
