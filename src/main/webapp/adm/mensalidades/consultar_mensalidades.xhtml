@@ -22,9 +22,9 @@
 
                     <p:commandButton icon="ui-icon-search" value="Pesquisar" 
                                      actionListener="#{associadoBean.carregaAssociado}"
-                                     process="@all" update="frm_mensalidade"/>
+                                     process="@all" update="frm_mensalidade" ajax="false"/>
 
-                    <p:dataTable id="tabela_mensalidades" value="#{associadoBean.associado.mensalidades}"
+                    <p:dataTable id="tabela_mensalidades" value="#{mensalidadeBean.mensalidades}"
                                  var="mensalidade" emptyMessage="Não há resultados">
 
                         <p:column headerText="Associado">

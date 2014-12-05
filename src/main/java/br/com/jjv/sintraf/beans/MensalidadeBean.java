@@ -76,10 +76,7 @@ public class MensalidadeBean {
     }
     
     public void receberMensalidade(){
-        
-        mensalidade.setMenSituacao("pag");
-        
-        service.update(mensalidade);
+        service.receber(idMensalidade);
     }
     
 }

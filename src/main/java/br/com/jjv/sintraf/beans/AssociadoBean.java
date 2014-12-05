@@ -2,7 +2,6 @@ package br.com.jjv.sintraf.beans;
 
 import br.com.jjv.sintraf.entidades.Associado;
 import br.com.jjv.sintraf.entidades.LocalDeTrabalho;
-import br.com.jjv.sintraf.entidades.Mensalidade;
 import br.com.jjv.sintraf.enumerats.Estados;
 import br.com.jjv.sintraf.jsf.JsfUtil;
 import br.com.jjv.sintraf.services.AssociadoService;
@@ -19,7 +18,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.FacesException;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.imageio.stream.FileImageOutputStream;
 import org.primefaces.context.RequestContext;
@@ -32,7 +31,7 @@ import org.primefaces.model.UploadedFile;
  * @author jefferson
  */
 @ManagedBean(name = "associadoBean")
-@ViewScoped
+@RequestScoped
 public class AssociadoBean implements Serializable {
 
     private Associado associado;

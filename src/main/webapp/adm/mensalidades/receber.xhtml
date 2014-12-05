@@ -24,14 +24,14 @@
                     <f:convertDateTime dateStyle="default"/>
                 </h:outputText>      
                 
-                <h:form>
+                <h:form id="form_mensalidade">
 
 
-                    <p:commandButton value="SIM" icon="ui-icon-check" actionListener="#{mensalidadeBean.receberMensalidade}"/>
+                    <p:commandButton value="Sim" icon="ui-icon-check" ajax="false" action="#{mensalidadeBean.receberMensalidade()}"/>
 
                     <p:spacer width="30"/>
 
-                    <p:button value="NÃO" icon="ui-icon-close" outcome="/adm/mensalidades/consultar_mensalidades"/>
+                    <p:button value="Não" icon="ui-icon-close" outcome="/adm/mensalidades/consultar_mensalidades"/>
 
 
                 </h:form>

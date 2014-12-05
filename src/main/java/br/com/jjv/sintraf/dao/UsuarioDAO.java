@@ -81,7 +81,7 @@ public class UsuarioDAO extends AbstractDAO<Usuario> implements Serializable {
             getEntityManager().remove(usuario);
             getEntityManager().getTransaction().commit();
 
-           JsfUtil.addSuccessMessage("Usuário removido com sucesso!");;
+           JsfUtil.addSuccessMessage("Usuário removido com sucesso!");
 
         } catch (Exception e) {
 

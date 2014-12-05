@@ -30,6 +30,11 @@ public class MensalidadeService implements Serializable {
 
         mensalidadeDAO.update(mensalidade);
     }
+    
+     public void receber(Long mensalidade) {
+
+        mensalidadeDAO.receber(mensalidade);
+    }
 
     public void delete(Mensalidade mensalidade) {
 
