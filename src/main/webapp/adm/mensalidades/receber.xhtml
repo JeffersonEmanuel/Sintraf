@@ -1,0 +1,41 @@
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <ui:decorate template="../template/template.xhtml">
+        <ui:define name="centro">         
+
+
+            <f:metadata>
+
+                <f:viewParam name="mensalidade" value="#{mensalidadeBean.idMensalidade}"
+                             required="true" requiredMessage="Mensalidade não encontrada" />
+
+                <f:viewAction action="#{mensalidadeBean.buscaMensalidade}"  />
+
+            </f:metadata>
+
+            <p:fieldset legend="Confirmar recebimento ?" style="width: 70%;font-size: 16px !important;" >
+                Mensalidade referente a 
+                <h:outputText value="#{mensalidadeBean.mensalidade.menVencimento}">
+                    <f:convertDateTime dateStyle="default"/>
+                </h:outputText>      
+                
+                <h:form>
+
+
+                    <p:commandButton value="SIM" icon="ui-icon-check" actionListener="#{mensalidadeBean.receberMensalidade}"/>
+
+                    <p:spacer width="30"/>
+
+                    <p:button value="NÃO" icon="ui-icon-close" outcome="/adm/mensalidades/consultar_mensalidades"/>
+
+
+                </h:form>
+            </p:fieldset>
+        </ui:define>
+    </ui:decorate>
+</html>

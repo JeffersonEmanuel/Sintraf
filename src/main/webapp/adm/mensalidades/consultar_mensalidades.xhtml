@@ -18,7 +18,7 @@
                                     forceSelection="true" size="60"
                                     emptyMessage="Nenhum associado encontrado"
                                     effect="fade"
-                         />
+                                    />
 
                     <p:commandButton icon="ui-icon-search" value="Pesquisar" 
                                      actionListener="#{associadoBean.carregaAssociado}"
@@ -27,16 +27,12 @@
                     <p:dataTable id="tabela_mensalidades" value="#{associadoBean.associado.mensalidades}"
                                  var="mensalidade" emptyMessage="Não há resultados">
 
-                        <p:column headerText="ID">
-                            <h:outputText value="#{mensalidade.idMensaldade}" />
-                        </p:column>
-
                         <p:column headerText="Associado">
                             <h:outputText value="#{mensalidade.associado.nome}" />
                         </p:column>
 
 
-                        <p:column headerText="Vencimento">
+                        <p:column headerText="Vencimento" >
                             <h:outputText value="#{mensalidade.menVencimento}" >
 
                                 <f:convertDateTime type="date" pattern="dd/M/yyyy"/>
@@ -50,6 +46,13 @@
 
                         <p:column headerText="Valor">
                             <h:outputText value="#{mensalidade.menValor}" />
+                        </p:column>
+
+                        <p:column headerText="Opções">
+                            <p:button value="Receber mensalidade" icon="ui-icon-check" outcome="/adm/mensalidades/receber" target="_new">
+                                <f:param value="#{mensalidade.idMensaldade}" name="mensalidade"/> 
+                            </p:button>
+
                         </p:column>
 
                     </p:dataTable>

@@ -26,14 +26,14 @@ public class MensalidadeService implements Serializable {
         mensalidadeDAO.create(administrator);
     }
 
-    public void update(Mensalidade user) {
+    public void update(Mensalidade mensalidade) {
 
-        mensalidadeDAO.update(user);
+        mensalidadeDAO.update(mensalidade);
     }
 
-    public void delete(Mensalidade user) {
+    public void delete(Mensalidade mensalidade) {
 
-        mensalidadeDAO.delete(user);
+        mensalidadeDAO.delete(mensalidade);
 
     }
 
@@ -75,7 +75,7 @@ public class MensalidadeService implements Serializable {
         }
     }
 
-    public Mensalidade findById(long id) {
+    public Mensalidade findById(Long id) {
 
         return mensalidadeDAO.findById(id);
     }

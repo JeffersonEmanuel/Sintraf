@@ -74,13 +74,11 @@ public class UsuarioBean implements Serializable {
 
         usuario = usuarioService.findById(usuario.getIdUsuario());
         senhaTemporaria = usuario.getSenha();
-        usuario.setSenha("");
 
     }
 
     public void delete(long id) throws InterruptedException {
 
-        System.err.println("ANTIGA " + senhaTemporaria + " NOVA: " + usuario.getSenha());
         if (senhaCorresponde()) {
 
             usuario = usuarioService.findById(id);

@@ -19,6 +19,7 @@ public class MensalidadeBean {
     private List<Mensalidade> mensalidades;
     private MensalidadeService service;
     private String pesquisa;
+    private Long idMensalidade;
     
     public MensalidadeBean() {
   
@@ -39,6 +40,12 @@ public class MensalidadeBean {
     public List<Mensalidade> getMensalidadesSelecionadas() {
         return mensalidades;
     }
+    
+     public void buscaMensalidade() {
+        
+         mensalidade = service.findById(idMensalidade);
+         
+    }
 
     public MensalidadeService getService() {
         return service;
@@ -54,6 +61,25 @@ public class MensalidadeBean {
 
     public void setPesquisa(String pesquisa) {
         this.pesquisa = pesquisa;
+    }
+
+    public void setMensalidade(Mensalidade mensalidade) {
+        this.mensalidade = mensalidade;
+    }
+
+    public Long getIdMensalidade() {
+        return idMensalidade;
+    }
+
+    public void setIdMensalidade(Long idMensalidade) {
+        this.idMensalidade = idMensalidade;
+    }
+    
+    public void receberMensalidade(){
+        
+        mensalidade.setMenSituacao("pag");
+        
+        service.update(mensalidade);
     }
     
 }

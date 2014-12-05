@@ -28,24 +28,6 @@
                     </h:panelGrid>
                 </h:form>
             </p:fieldset>
-            <p:spacer width="30"/>
-            <p:fieldset legend="Lista de usuários" toggleable="true" id="lista"
-                        style="width: 40%; " collapsed="true">
-                <h:form id="formUsuario">
-                    <p:dataTable var="user" value="#{usuarioBean.usuarios}" rowKey="#{user.nome}"
-                                 emptyMessage="Não existem usuários cadastrados" >
-                        <p:column headerText="Nome">
-                            <h:outputText value="#{user.nome}" />
-                        </p:column>
-
-                        <p:column headerText="Login">
-                            <h:outputText value="#{user.login}" />
-                        </p:column>
-
-                    </p:dataTable>
-                </h:form>
-            </p:fieldset>
-
         </ui:define>
     </ui:decorate>
 </html>

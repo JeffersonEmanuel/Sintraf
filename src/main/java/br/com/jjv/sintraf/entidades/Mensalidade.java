@@ -3,6 +3,7 @@ package br.com.jjv.sintraf.entidades;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ public class Mensalidade implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_mensalidade")
-    private int idMensaldade;
+    private Long idMensaldade;
     
     @Column(name = "men_valor" ,nullable = false, scale = 2, precision = 10)
     private BigDecimal menValor;
@@ -46,11 +47,11 @@ public class Mensalidade implements Serializable {
     
     }
 
-    public int getIdMensaldade() {
+    public Long getIdMensaldade() {
         return idMensaldade;
     }
 
-    public void setIdMensaldade(int idMensaldade) {
+    public void setIdMensaldade(Long idMensaldade) {
         this.idMensaldade = idMensaldade;
     }
 
@@ -88,8 +89,8 @@ public class Mensalidade implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + this.idMensaldade;
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.idMensaldade);
         return hash;
     }
 
@@ -102,11 +103,12 @@ public class Mensalidade implements Serializable {
             return false;
         }
         final Mensalidade other = (Mensalidade) obj;
-        if (this.idMensaldade != other.idMensaldade) {
+        if (!Objects.equals(this.idMensaldade, other.idMensaldade)) {
             return false;
         }
         return true;
     }
+
     
     
 }
