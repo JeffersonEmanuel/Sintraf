@@ -19,7 +19,8 @@
                                 listener="#{associadoBean.capturarFotoCam}"
                                 />
                     <p:commandButton type="button" id="Bnt_foto" 
-                                     value="Capture" onclick="PF('fotoCam').capture(); PF('cadastrarImagem').hide();" 
+                                     value="Capture" onclick="PF('fotoCam').capture(); PF('cadastrarImagem').hide();
+                                      PF('wiz').next();" 
                                      style="float: start" 
                                      update="cadastroAssociado" process="cadastroAssociado"
                                      action="#{associadoBean.salvar}">
@@ -39,7 +40,7 @@
 
             <h:form id="cadastroAssociado" >
 
-                <p:wizard id="fichaCadastro" backLabel="Anterior" nextLabel="Próximo" style="width: 70%" >
+                <p:wizard id="fichaCadastro" backLabel="Anterior" widgetVar="wiz" nextLabel="Próximo" style="width: 70%" >
                     <p:tab id="pessoa" title="Associado" >
 
                         <p:panel header="Dados Pessoais" >

@@ -160,7 +160,9 @@ public class AssociadoBean implements Serializable {
             }
 
             fileOutputStream.close();
-            RequestContext.getCurrentInstance().execute("PF('cadastrarImagem').hide();");
+            RequestContext context = RequestContext.getCurrentInstance();
+            context.execute("PF('cadastrarImagem').hide();");
+            context.execute("PF('wiz').next()");
         } catch (Exception e) {
         }
     }
