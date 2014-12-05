@@ -17,9 +17,12 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.FacesException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.imageio.stream.FileImageOutputStream;
+import org.primefaces.event.CaptureEvent;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
@@ -128,6 +131,23 @@ public class AssociadoBean implements Serializable {
     private String endereco;
 
  
+    public void capturarFotoCam(CaptureEvent captureEvent) {
+         byte[] data = captureEvent.getData();
+         
+         FileImageOutputStream imageOutputStream;
+         try {
+            imageOutputStream = new FileImageOutputStream(new File(
+                    ConstantesSistema.CAMINHO_IMAGEM + service.getNumMatricula()
+                        + ".png"));
+            imageOutputStream.write(data, 0, data.length);
+            imageOutputStream.close();
+        } catch (Exception e) {
+            throw new FacesException("Erro ao tirar foto com Web Cam", e);
+        }
+    }    
+    
+    
+    
     
     public void selecionarImagem(FileUploadEvent upF) {
         try {
