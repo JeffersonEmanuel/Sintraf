@@ -69,12 +69,12 @@ public class AssociadoBean implements Serializable {
         this.associado = associado;
     }
 
-    public void salvar() {
+    public String salvar() {
         service.create(this.associado);
         associado = new Associado();
         System.out.println("OK Salvar");
 //        /adm/ficha/ficha_associado.jsf
-//        return "/adm/index.jsf";
+        return "/adm/index.jsf";
     }
 
     public List<String> autocomplete(String query) {
